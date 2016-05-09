@@ -1,31 +1,38 @@
 # Site settings
 title: Gravity
-SEOTitle: 黄玄的博客 | Hux Blog
+SEOTitle: Mechanician Blog
 header-img: img/home-bg.jpg
 email: wangyilinchn@foxmail.com
-description: "way to explore"
-keyword: "front-end,full-stack,beijing,web,developer"
-url: "mechanicianw.github.io"              # your host, for absolute URL
-baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+description: ""
+keyword: ""
+url: "http://mechanicianw.github.io"              # your host, for absolute URL
+baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
 # SNS settings
 RSS: false
-weibo_username:     王同学各种虎
-zhihu_username:     王小咖
+#weibo_username:     huxpro
+#zhihu_username:     huxpro
 github_username:    mechanicianw
 #twitter_username:  huxpro
-facebook_username:  wangyilinchn
+#facebook_username:  huxpro
 
 
 
 # Build settings
-highlighter: pygments
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+highlighter: rouge
 permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
 
 
 
@@ -43,7 +50,7 @@ kramdown:
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: mechanicianw
+duoshuo_username: huxblog
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
@@ -55,14 +62,14 @@ duoshuo_share: true                     # set to false if you want to use Commen
 ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
 # Google Analytics
 ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+ga_domain: ''
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "code - gym - movie - food - read"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: ""
+sidebar-avatar: /img/avatar-mec.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -73,4 +80,9 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 
 
 # Friends
-friends: []
+friends: [
+    {
+        title: "aomi blog",
+        href: "http://chzoe.github.io/"
+    }
+]
