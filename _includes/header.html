@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="container">
+    <a class="site-logo" href="/"></a>
+    <nav class="site-nav">
+      <div class="trigger">
+        <a href="/" class="page-link {% if page.path contains 'index.html' %}current{% endif %}">首页</a>
+        {% for nav in site.pages %}
+          {% if nav.title %}
+            <a class="page-link {%  if page.path contains nav.tag %}current{% endif %}" href="{{ nav.url | prepend: site.baseurl }}">{{ nav.title }}</a>
+          {% endif %}
+        {% endfor %}
+        <a href="http://zhaopin.pkuschool.edu.cn/" target="_blabk" class="page-link">招聘</a>
+      </div>
+    </nav>
+  </div>
+</header>

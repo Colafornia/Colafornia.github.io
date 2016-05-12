@@ -1,0 +1,24 @@
+---
+layout: default
+title: 课程
+tag: course
+---
+<section class="blogs-box">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+      <ul class="post-list">
+        {% for course in site.courses %}
+          <li>
+            <a href="{{ course.url | prepend: site.baseurl }}">
+              <span class="title">{{ course.title }}</span>
+              <span class="post-meta">{{ course.date | date: "%b %-d, %Y" }}</span>
+              <p class="post-desc">{{course.desc}}</p>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      </div>
+    </div>
+  </div>
+</section>
