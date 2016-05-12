@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-{% include head.html %}
+  {% include head.html %}
 
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
+  {% if page.path != 'index.html' %}
+  <body class="body-white">
+  {% else %}
+  <body onscroll="pageScroll()">
+  {% endif %}
 
-    {% include nav.html %}
+    {% include header.html %}
 
-    {{ content }}
+    <!-- <div class="page-content" style="position: relative;z-index: 1000;"> -->
+      <!-- <div class="wrapper"> -->
+        {{ content }}
+      <!-- </div> -->
+    <!-- </div> -->
 
     {% include footer.html %}
 
-
-<!-- Image to hack wechat -->
-<img src="/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
-
-</body>
+  </body>
 
 </html>

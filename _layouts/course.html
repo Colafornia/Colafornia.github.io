@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="container">
+    <header class="post-header">
+      <a href="/course.html" class="back-a">返回列表</a>
+      <!-- {% for nav in site.pages %}
+        {% if nav.title and nav.url contains 'course.html' %}
+          <a href="{{ nav.url | prepend: site.baseurl }}" class="back-a">返回列表</a>
+        {% endif %}
+      {% endfor %} -->
+      <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+      <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+    </header>
+
+    <div class="post-content" itemprop="articleBody">
+      {{ content }}
+    </div>
+  </div>
+</article>
