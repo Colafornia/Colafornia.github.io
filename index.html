@@ -1,218 +1,63 @@
 ---
 layout: default
+menu: home
+css: ['index.css', 'sidebar-popular-repo.css']
 ---
-  <div id="loading">
-  <img class="loader" src="/assets/images/loading.gif" alt="loading" />
-  </div>
-
-  <section id="slider" style="background: none;">
-    <ul class="bg-control-button" style="margin: 0;">
-      <li><a id="s-next" class="s-next" href="#"></a></li>
-      <li><a id="s-prev" class="s-prev" href="#"></a></li>
-    </ul>
-    <div class="title-box">
-      <div>
-        <h2 style="font-weight:lighter;">中国第一所</h2>
-        <h1>面向未来的学校</h1>
-          <a href="#">
-            <a href="#contact-us" class="learn-more goto">了解更多</a>
-          </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact-us">
+<section class="jumbotron">
     <div class="container">
-      <img class="quota-left" src="/assets/images/quota_left.png" alt="" />
-      <img class="quota-right" src="/assets/images/quota_right.png" alt="" />
-      <div class="row">
-        <div class="email-message col-md-2 col-sm-2 col-xs-2">
-          <p class="msg-large">
-            想要联系我们？<br>
-            给我们发邮件吧！
-          </p>
-          <p class="msg-small">
-            email us!
-          </p>
+        <h1>{{ site.title }}</h1>
+        <div id="jumbotron-meta-info">
+            <span class="meta-info">
+                <span class="octicon octicon-location"></span>
+                {{ site.location }}
+            </span>
+            <span class="meta-info hvr-grow">
+                <span class="octicon octicon-organization"></span>
+                <a href="{{ site.company_url }}" target="_blank">{{ site.company }}</a>
+            </span>
+            <span class="meta-info hvr-grow">
+                <span class="octicon octicon-mark-github"></span>
+                <a href="{{ site.github_url }}" target="_blank">@{{ site.name }}</a>
+            </span>
         </div>
-        <div class="input-box col-md-8 col-sm-8 col-xs-8">
-          <input type="text-area" name="name" value="" placeholder="Your Name">
-          <input type="text-area" name="address" value="" placeholder="Your Mail">
-          <input type="text-area" name="message" value="" placeholder="Your Message">
-        </div>
-        <div class="icon-box col-md-2 col-sm-2 col-xs-2">
-          <a href="#"><img src="/assets/images/plane.png" alt="email" /></a>
-        </div>
-      </div>
-      <div class="message-box">
-        <h2 class="en-title">intention</h2>
-        <h3>初心</h3>
-        <hr class="hr-center">
-        <p class="message">
-          高中是高级中学（high school）的简称，我国中学分为初级中学与高级中学，属于中等教育的范畴。高中是我国九年义务教育结束后更高等的教育机构，上承初中，下启大学，一般为三年制。中国的高中教育指初中以后高中阶段的教育，
-          包括：普通高中、职业高中、中等专业学校、技工学校等，均属于高中教育的范畴。
-        </p>
-        <img class="intention-img" src="/assets/images/intention.png" alt="初心"/>
-      </div>
     </div>
-  </section>
+</section>
+<section class="content container">
 
-  <section id="environment">
-    <h2 class="en-title">environment</h2>
-    <div class="container">
-      <h3>我们的办公环境</h3>
-      <hr class="hr-center">
-      <p style="margin-top: 50px;">
-        高中是高级中学（high school）的简称，我国中学分为初级中学与高级中学，属于中等教育的范畴。高中是我国九年义务教育结束后更高等的教育机构，上承初中，下启大学，一般为三年制。中国的高中教育指初中以后高中阶段的教育，
-      </p>
-      <p>
-        包括：普通高中、职业高中、中等专业学校、技工学校等，均属于高中教育的范畴。
-      </p>
-    </div>
-  </section>
+    <div class="row">
 
-  <section id="activities">
-    <div class="container">
-      <h2 class="en-title">activities</h2>
-      <h3>最近活动</h3>
-      <hr class="hr-center">
-      <div class="row">
-        <div class="col-md-7 col-sm-6 col-xs-12" style="position: relative;" onmouseover="hover($(this))" onmouseout="leave($(this))">
-          <div class="img-mask hide" style="padding: 0;">
-          </div>
-          <div class="mask-words text-hide">
-            <h4>教学活动</h4>
-            <hr>
-            <p style="margin-top: 20px;">
-              10 Apr 15 @ 3：00am
-            </p>
-            <p>
-              教学活动通常指的是以教学班为单位的课堂教学活动。它是学校教学工作的基本形式。教学活动是一个完整的教学系统，它
-            </p>
-          </div>
-          <img src="/assets/images/activities/activity01.png" alt="活动"/>
-        </div>
-        <div class="col-md-5 col-sm-6 col-xs-12 col-xs-12 text-right" onmouseover="hover($(this))" onmouseout="leave($(this))">
-          <div class="img-mask hide" style="padding: 0;">
-          </div>
-          <div class="mask-words text-hide" style="width: 50%;">
-            <h4>教学活动</h4>
-            <hr>
-            <p style="margin-top: 20px;">
-              10 Apr 15 @ 3：00am
-            </p>
-            <p>
-              教学活动通常指的是以教学班为单位的课堂教学活动。它是学校教学工作的基本形式。教学活动是一个完整的教学系统，它
-            </p>
-          </div>
-          <img src="/assets/images/activities/activity02.jpg" alt="活动"/>
-        </div>
-      </div>
-      <div class="row" style="margin-top: 20px;">
-        <div class="col-md-5 col-sm-6 col-xs-12 text-left" onmouseover="hover($(this))" onmouseout="leave($(this))">
-          <div class="img-mask hide" style="padding: 0;">
-          </div>
-          <div class="mask-words text-hide" style="width: 50%;">
-            <h4>教学活动</h4>
-            <hr>
-            <p style="margin-top: 20px;">
-              10 Apr 15 @ 3：00am
-            </p>
-            <p>
-              教学活动通常指的是以教学班为单位的课堂教学活动。它是学校教学工作的基本形式。教学活动是一个完整的教学系统，它
-            </p>
-          </div>
-          <img src="/assets/images/activities/activity03.jpg" alt="活动"/>
-        </div>
-        <div class="col-md-7 col-sm-6 col-xs-12" onmouseover="hover($(this))" onmouseout="leave($(this))">
-          <div class="img-mask hide" style="padding: 0;">
-          </div>
-          <div class="mask-words text-hide" style="width: 50%;">
-            <h4>教学活动</h4>
-            <hr>
-            <p style="margin-top: 20px;">
-              10 Apr 15 @ 3：00am
-            </p>
-            <p>
-              教学活动通常指的是以教学班为单位的课堂教学活动。它是学校教学工作的基本形式。教学活动是一个完整的教学系统，它
-            </p>
-          </div>
-          <img src="/assets/images/activities/activity04.png" alt="活动"/>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Post List -->
+        <div class="col-md-8">
 
-  <section id="courses">
-    <div class="container">
-      <h2 class="en-title">courses</h2>
-      <h3>查找课程</h3>
-      <hr class="hr-center">
-      <div class="row">
+            <ol class="post-list">
+                {% for post in paginator.posts %}
+                <li class="post-list-item">
+                    <h2 class="post-list-title">
+                        <a class="hvr-underline-from-center" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                    </h2>
+                    <p class="post-list-description">
+                        {{ post.excerpt | strip_html | strip }}
+                    </p>
+                    <p class="post-list-meta">
+                        <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
+                    </p>
+                </li>
+                {% endfor %}
+            </ol>
+
+            <!-- Pagination -->
+            {% include pagination.html %}
+
+            <!-- Comments -->
+            {% include disqus-comments.html %}
+
+        </div>
+
         <div class="col-md-4">
-          <div class="vertical-parent">
-            <ul class="vertical-child" id="courses-list"></ul>
-          </div>
+            {% include sidebar-popular-repo.html %}
         </div>
-        <div class="col-md-8" style="position: relative;">
-          <img class="courses-img" id="courses-img" src="" alt="课程" />
-          <div class="course-bg"></div>
-          <div class="mask-words" id="course-info"></div>
-        </div>
-      </div>
+
     </div>
-  </section>
 
-  <section id="opportunity">
-    <div class="container">
-      <h1 class="en-title">opportunity</h1>
-      <h3>机会</h3>
-      <div class="classroom-bg">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2 col-sm-3 col-xs-12">
-              <img src="/assets/images/opportunity/applying.png" alt="如何申请" />
-              <p>如何申请</p>
-            </div>
-            <div class="col-md-offset-3 col-sm-offset-1 col-sm-3 col-md-2 col-xs-12">
-              <img src="/assets/images/opportunity/hire.png" alt="工作机会" />
-              <p>工作机会</p>
-            </div>
-            <div class="col-md-offset-3 col-sm-offset-1 col-sm-3 col-md-2 col-xs-12">
-              <img src="/assets/images/opportunity/co-operation.png" alt="参观浏览" />
-              <p>参观浏览</p>
-            </div>
-          </div>
-        </div>
-        <a href="#">
-          <a href="http://zhaopin.pkuschool.edu.cn/" target="_blank" class="join-us">加入我们</a>
-        </a>
-      </div>
-    </div>
-  </section>
+</section>
 
-  <section id="articles">
-    <div class="container">
-      <h2 class="en-title">articles</h2>
-      <h3>最新文章</h3>
-      <hr class="hr-center">
-      <div class="row">
-        {% for post in site.posts %}
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <a href="{{ post.url | prepend: site.baseurl }}">
-            <img src="{{post.picture}}" alt="文章"/>
-            <p class="date">{{post.date | date: "%b %-d, %Y"}}</p>
-            <div class="article-words">
-              <h5 class="article-title">{{post.title}}</h5>
-              <p class="article-body">{{post.desc}}</p>
-            </div>
-          </a>
-        </div>
-        {% endfor %}
-
-      </div>
-      <a href="/blogs.html" class="button">更多文章</a>
-    </div>
-  </section>
-
-<script type="text/javascript" src="/assets/js/main.js"></script>
