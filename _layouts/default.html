@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html>
 
-  {% include head.html %}
+{% include head.html %}
 
-  {% if page.path != 'index.html' %}
-  <body class="body-white">
-  {% else %}
-  <body onscroll="pageScroll()">
-  {% endif %}
+    <body>
 
     {% include header.html %}
 
-    <!-- <div class="page-content" style="position: relative;z-index: 1000;"> -->
-      <!-- <div class="wrapper"> -->
-        {{ content }}
-      <!-- </div> -->
-    <!-- </div> -->
+        <div class="content">
+            {{ content }}
+        </div>
 
     {% include footer.html %}
 
-  </body>
+    </body>
 
 </html>
