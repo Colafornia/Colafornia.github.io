@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gravity</title>
+    <description>way to explore</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 27 May 2016 16:42:13 +0800</pubDate>
+    <lastBuildDate>Fri, 27 May 2016 16:42:13 +0800</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Viewport-Percentage (or Viewport-Relative) Lengths</title>
+        <description>&lt;h3 id=&quot;viewport-percentage-lengths&quot;&gt;什么是视区百分比长度（viewport-percentage lengths）？&lt;/h3&gt;
+
+&lt;p&gt;先看一下W3C给出的定义：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The viewport-percentage lengths are relative to the size of the initial containing block. When the height or width of the initial containing block is changed, they are scaled accordingly.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;意为视区百分比长度是与其包含块的尺寸有关，并且是随之变化的。&lt;code class=&quot;highlighter-rouge&quot;&gt;initial containing block&lt;/code&gt;意为浏览器内部的可视区域，即&lt;code class=&quot;highlighter-rouge&quot;&gt;window.innerWidth/window.innerHeight&lt;/code&gt;大小，不包含任务栏标题栏以及底部工具栏的浏览器区域大小。&lt;/p&gt;
+
+&lt;p&gt;视区单位有&lt;code class=&quot;highlighter-rouge&quot;&gt;vh&lt;/code&gt; (相对于视区高度), &lt;code class=&quot;highlighter-rouge&quot;&gt;vw&lt;/code&gt;(相对于视区宽度), &lt;code class=&quot;highlighter-rouge&quot;&gt;vmin&lt;/code&gt; (相对于视区高度或宽度，取决于哪个更小) and &lt;code class=&quot;highlighter-rouge&quot;&gt;vmax&lt;/code&gt; (类似于vw但取决于哪个更大)。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;它是如何分配浏览器高度的？&lt;/h3&gt;
+
+&lt;p&gt;我们可以假借&lt;code class=&quot;highlighter-rouge&quot;&gt;vh&lt;/code&gt;: &lt;code class=&quot;highlighter-rouge&quot;&gt;1vh&lt;/code&gt;相当于1%的视区高度，忽略元素在DOM树中的位置，100vh相当于浏览器内部可视区域的高度。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;浏览器兼容性？&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://o7ts2uaks.bkt.clouddn.com/98A8FA40-23DE-4D3B-AE9B-A434F44A5AA0.png&quot; alt=&quot;caniuse&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在css属性可用性查询网站&lt;a href=&quot;http://caniuse.com/#search=viewport%20units&quot;&gt;caniuse&lt;/a&gt;中我们查到了，目前主流浏览器对于视区单位的支持性，从中我们可以看出，&lt;strong&gt;Chrome 20+, IE9+ ,FireFox19+以及Safari6&lt;/strong&gt; 都是支持的。&lt;/p&gt;
+
+&lt;h3 id=&quot;vh100&quot;&gt;100vh与100%的区别？&lt;/h3&gt;
+
+&lt;p&gt;我们知道，vh是相对于视区高度的单位，所以100vh被设置的高度永远是相对于&lt;code class=&quot;highlighter-rouge&quot;&gt;window.innerWidth/window.innerHeight&lt;/code&gt;的。而被设置成百分比高度的标签，它的实际高度要取决于其父标签（块级）&lt;br /&gt;
+就像这个例子：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;body style=&quot;height:100%&quot;&amp;gt;
+    &amp;lt;div style=&quot;height:200px&quot;&amp;gt;
+        &amp;lt;p style=&quot;height:100%; display:block;&quot;&amp;gt;Hello, world!&amp;lt;/p&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;虽然p标签设置了高度为100％，但是其外部div的高度为200px，因此这个p标签的实际高度只是200px&lt;/p&gt;
+
+&lt;h3 id=&quot;vh&quot;&gt;如何用百分比实现同vh一样的效果？&lt;/h3&gt;
+
+&lt;p&gt;某些情况下，&lt;code class=&quot;highlighter-rouge&quot;&gt;vw&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;vh&lt;/code&gt;所产生的效果与百分比&lt;code class=&quot;highlighter-rouge&quot;&gt;%单位&lt;/code&gt;无异，尤其对于&lt;code class=&quot;highlighter-rouge&quot;&gt;absolute/fixed&lt;/code&gt;定位属性的元素。比如：&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;position:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;fixed;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;top:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;100%;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;top:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;100vh;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;left:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;5%;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;left:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;5vw;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;right:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;5%;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;right:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;5vw;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;br /&gt;
+支持vh, vw单位的浏览器就会使用视区单位（因为在后面声明）；不支持的就是要百分比%单位。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;参考内容&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/1575141/make-div-100-height-of-browser-window&quot;&gt;James Donnelly__stackoverflow&lt;/a&gt;:视区单位布道&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.zhangxinxu.com/wordpress/2012/09/new-viewport-relative-units-vw-vh-vm-vmin/&quot;&gt;视区相关单位_张鑫旭博客&lt;/a&gt;:更多相关与视区单位应用场景的尝试&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/xiaopin/archive/2012/03/26/2418152.html&quot;&gt;JS,Jquery获取各种屏幕的宽度和高度&lt;/a&gt;:复习一下有关屏幕高度的知识&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 17 Mar 2016 19:16:00 +0800</pubDate>
+        <link>http://localhost:4000/front-end/css/2016/03/17/vieport-percentage.html</link>
+        <guid isPermaLink="true">http://localhost:4000/front-end/css/2016/03/17/vieport-percentage.html</guid>
+        
+        
+        <category>front-end</category>
+        
+        <category>css</category>
+        
+      </item>
+    
+      <item>
+        <title>Cookie, LocalStorage 与 SessionStorage</title>
+        <description>&lt;p&gt;有关Cookie, LocalStorage 与 SessionStorage的基本概念，区别，共同点，各自的应用场景。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;基本概念&lt;/h2&gt;
+
+&lt;h3 id=&quot;cookie&quot;&gt;Cookie&lt;/h3&gt;
+
+&lt;p&gt;Cookie 是一小段文本信息，伴随着用户请求和页面在 Web 服务器和浏览器之间传递，是随HTTP请求一起被传递的额外数据。主要用途有保存登陆信息，大多数浏览器支持最大为 4096 字节的 Cookie&lt;/p&gt;
+
+&lt;h3 id=&quot;localstorage&quot;&gt;localStorage&lt;/h3&gt;
+
+&lt;p&gt;localStorage 是 HTML5 标准中新加入的技术,大小限制在500万字符左右，各个浏览器不一致。永久有效，即不主动清空的话就不会消失，即使保存的数据超出了浏览器所规定的大小，也不会把旧数据清空而只会报错。&lt;/p&gt;
+
+&lt;h3 id=&quot;sessionstorage&quot;&gt;sessionStorage&lt;/h3&gt;
+
+&lt;p&gt;sessionStorage是在同源的同窗口（或tab）中，始终存在的数据。sessionStorage 与 localStorage 的接口类似，但保存数据的生命周期与 localStorage 不同。当页面关闭后，sessionStorage 中的数据就会被清空。&lt;/p&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;特性&lt;/th&gt;
+        &lt;th&gt;Chorme&lt;/th&gt;
+        &lt;th&gt;Firefox&lt;/th&gt;
+        &lt;th&gt;IE&lt;/th&gt;
+        &lt;td&gt;Opera&lt;/td&gt;
+        &lt;td&gt;Safari&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;localStorage&lt;/td&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;3.5&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;10.5&lt;/td&gt;
+        &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;sessionStorage&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td&gt;10.5&lt;/td&gt;
+        &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;共同点&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;都是保存在浏览器端，而且同源。&lt;/li&gt;
+  &lt;li&gt;三者都是键值对的集合。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;区别&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;cookie由服务端生成，用于标识用户身份；而两个storage用于浏览器端缓存数据&lt;/li&gt;
+  &lt;li&gt;如果保存了cookie的话，http请求中一定会带上；而两个storage可以由脚本选择性的提交&lt;/li&gt;
+  &lt;li&gt;存储大小限制不同，cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。&lt;/li&gt;
+  &lt;li&gt;数据生命期不同。sessionStorage会在会话结束后销毁；而localStorage会永久保存直到覆盖。cookie会在过期时间之后销毁。&lt;/li&gt;
+  &lt;li&gt;安全性方面，cookie中最好不要放置任何明文的东西。两个storage的数据提交后在服务端一定要校验。&lt;/li&gt;
+  &lt;li&gt;作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localStorage 和cookie在所有同源窗口中都是共享的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;应用场景&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;每个HTTP请求都会带着cookie的信息，若cookie中包含大量数据则浪费了过多带宽。大多数情况下，cookie都用来存储身份校验，会话，广告踪迹等token。&lt;/li&gt;
+  &lt;li&gt;由于locakStorage和sessionStorage所存储的数据是容易读取和更改的，所以它们更适合存储那些不明感的，与安全性无关的数据。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 10 Mar 2016 15:02:00 +0800</pubDate>
+        <link>http://localhost:4000/front-end/javascript/2016/03/10/cookie-localstorage-session.html</link>
+        <guid isPermaLink="true">http://localhost:4000/front-end/javascript/2016/03/10/cookie-localstorage-session.html</guid>
+        
+        
+        <category>front-end</category>
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>有关闭包，作用域，this对象</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;首先看一下维基百科中，闭包的概念：&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在计算机科学中，闭包（也称词法闭包或函数闭包）是指一个函数或函数的引用，与一个引用环境绑定在一起。这个引用环境是一个存储该函数每个非局部变量（也叫自由变量）的表。&lt;br /&gt;
+闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;在创建函数和调用函数时，都发生了什么&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;创建函数时
+    &lt;ol&gt;
+      &lt;li&gt;创建了预先包含全局变量对象的作用域链&lt;/li&gt;
+      &lt;li&gt;该作用域链保存在内部[[scope]]属性中&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;调用函数时
+    &lt;ol&gt;
+      &lt;li&gt;创建执行环境&lt;/li&gt;
+      &lt;li&gt;复制函数[[scope]]属性中的对象构建作用域链&lt;/li&gt;
+      &lt;li&gt;用arguments与其它形参初始化函数的活动对象&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;要理解这句话：&lt;strong&gt;JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;再用计数器函数来看一个简单的闭包例子&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function createCounter() {
+  var counter = 0;
+  function increment() {
+    counter = counter + 1;
+    console.log(&quot;Number of events: &quot; + counter);
+  }
+  return increment;
+}
+var counter1 = createCounter();
+var counter2 = createCounter();
+
+counter1(); // Number of events: 1
+counter1(); // Number of events: 2
+counter2(); // Number of events: 1
+counter1(); // Number of events: 3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这个函数实现了分别计数的功能。&lt;br /&gt;
+在createCounter()的最后一句：&lt;code class=&quot;highlighter-rouge&quot;&gt;return increment;&lt;/code&gt;我们返回了该局部函数。在这里并不是返回了increment()函数的调用结果，而是返回了该结果本身。&lt;br /&gt;
+因此，在使用&lt;code class=&quot;highlighter-rouge&quot;&gt;var counter1 = createCounter();&lt;/code&gt;时，实际上，&lt;strong&gt;我们生成了一个新的函数&lt;/strong&gt;。&lt;br /&gt;
+每个生成的函数，都会保持在 createCounter() 所创建的 counter 变量的引用。在某种意义上，被返回的函数记住了它所被创建时的环境。&lt;br /&gt;
+&lt;strong&gt;内部变量 counter 都是独立存在于每个作用域！&lt;/strong&gt;例如，如果我们创建两个计数器，那么它们都会在闭包体内会分配一个新的 counter 变量。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;闭包的内存&lt;/h4&gt;
+
+&lt;p&gt;后台的每个执行环境都有一个表示变量的对象——变量对象。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;全局环境的变量对象始终存在&lt;/li&gt;
+  &lt;li&gt;像 createCounter()函数这样的局部变量，只在函数执行的过程中存在&lt;/li&gt;
+  &lt;li&gt;作用域链本质上是一个指向变量对象的指针列表，只引用但不包含变量对象&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;一般来讲&lt;/em&gt;当函数执行完毕后，局部活动对象就会被销毁，内存中仅保存全局执行环境的变量对象。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;但闭包的情况有所不同：&lt;/em&gt;&lt;br /&gt;
+内部定义的函数会把外部函数的活动对象添加到它的作用域链中。&lt;br /&gt;
+当上述例子中createCounter()执行完毕后，它的活动对象也不会销毁，因为&lt;strong&gt;匿名函数的作用域链仍然在引用这个活动对象&lt;/strong&gt;。也就是说这个函数执行完毕后，虽然其执行环境的作用域链会被销毁，但它的活动对象仍然留在内存中。只有当匿名函数被销毁后，createCounter()的活动对象才会被销毁。&lt;br /&gt;
+一个简单的构造闭包以及释放内存的例子：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function outer () {
+	var name = &#39;foo&#39;;
+	return function () {
+		console.log(name);
+	}
+}
+var inner = outer();
+inner();  // foo
+inner = null;  // 解除对 outer 内部的匿名函数的引用，以便释放内存
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;并且，闭包在IE低版本中会导致特殊的问题。如果闭包作用域链中保存着一个HTML元素，那么该元素将无法销毁。&lt;br /&gt;
+由于闭包会携带包含它的函数的作用域，因此会比其它函数占用更多的内存，过度使用闭包可能会导致内存占用过多，所以要慎重使用闭包。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;闭包的陷阱：循环闭包&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;请牢记一点：闭包只能取得包含函数中任何变量的最后一个值。&lt;/strong&gt;&lt;br /&gt;
+因此，下面这个例子只会返回同一个值。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function foo(){
+    var result = new Array();
+    for(var i=0; i&amp;lt;10; i++){
+    result[i] = function(){
+    return i;
+    }
+    }
+    return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;表面上看，每个函数都会返回自己的索引值，但实际上，每个函数都会返回10.因为事件处理器函数绑定了变量i本身，foo()执行完毕后，每个函数内的i的值都是10.&lt;br /&gt;
+应改为：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function foo(){
+var result = new Array();
+for(var i=0; i&amp;lt;10; i++){
+    result[i] = function(num){
+    return function(){
+    return num
+    }
+    }(i);
+}
+return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在这里，我们定义了一个匿名函数，把匿名函数的结果赋值给数组。&lt;br /&gt;
+匿名函数的参数num就是最终函数要返回的值，在调用每个匿名函数时，我们都把当前i的值赋给了num，匿名函数内部的闭包又可以访问到num，因此result数组里的每个函数都有自己的num变量的副本，就可以返回不同的值了。&lt;/p&gt;
+
+&lt;p&gt;换个应用场景，如果想循环若干个节点，在这个for循环里绑定onclick，使每个节点被点击时都会打印其对应的索引值。&lt;br /&gt;
+代码简化如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var arr = new Array();
+for (var i = 0; i &amp;lt; 50; i++) {
+    (function () {
+        arr[i] = document.createElement(&#39;i&#39;);
+        arr[i].index = i;
+        arr[i].onclick = function () {
+            console.log(this.index);
+        };
+    })(i);
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;arr[i].index = i;&lt;/code&gt;这一句很关键，如果省略的话，onclick函数执行时作用域里没有i这个变量，只能一直向上查找，最后打印出50&lt;/p&gt;
+
+&lt;h4 id=&quot;this&quot;&gt;闭包中的this对象&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;匿名函数的执行环境具有全局性，因此其this对象通常指向window&lt;/strong&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;
+var name = &quot;The Window&quot;;
+　　var object = {
+　　　　name : &quot;My Object&quot;,
+　　　　getNameFunc : function(){
+　　　　　　return function(){
+　　　　　　　　return this.name;
+　　　　　　};
+　　　　}
+　　};
+　　alert(object.getNameFunc()()); // “The Window”
+&lt;/code&gt;&lt;br /&gt;
+内部函数在搜索&lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;arguments&lt;/code&gt;这两个变量时，只会搜索到其活动对象为止，永远不可能直接访问外部函数中的这两个变量。&lt;/p&gt;
+
+&lt;h3 id=&quot;this-1&quot;&gt;关于this关键字&lt;/h3&gt;
+
+&lt;p&gt;在《JavaScripts语言精粹》中，把this的出现场景分为四种：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;有对象就指向调用对象&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;没调用对象就指向全局对象&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;用new构造就指向新对象&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;通过 apply 或 call 或 bind 来改变 this 的所指。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;thiswindow&quot;&gt;1.全局的this===window&lt;/h4&gt;
+
+&lt;h4 id=&quot;this-2&quot;&gt;2.作为对象方法的函数的this指向这个上级对象&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var o ={
+    prop:37;
+    f:function(){return this.prop}
+    }
+console.log(o.f()); //37
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;this-3&quot;&gt;3.构造函数调用，this指向其生成的新对象&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;window. x = 2;
+　　function test(m){
+　　　　this.x = m;
+　　}
+　　var o = new test(5);
+　　alert(x); //5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;apply--call--bind-&quot;&gt;4.apply 和 call 调用以及 bind 绑定&lt;/h4&gt;
+
+&lt;p&gt;全局函数apply和call可以用来改变函数中this的指向，如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 定义一个全局函数
+   function foo() {
+       console.log(this.fruit);
+   }
+ // 定义一个全局变量
+   var fruit = &quot;apple&quot;;
+   // 自定义一个对象
+   var pack = {
+       fruit: &quot;orange&quot;
+   };
+    // 等价于window.foo();
+   foo.apply(window);  // &quot;apple&quot;,此时this等于window
+   // 此时foo中的this === pack
+   foo.apply(pack);    // &quot;orange&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 02 Jan 2016 16:51:00 +0800</pubDate>
+        <link>http://localhost:4000/front-end/javascript/2016/01/02/clouser-scope.html</link>
+        <guid isPermaLink="true">http://localhost:4000/front-end/javascript/2016/01/02/clouser-scope.html</guid>
+        
+        
+        <category>front-end</category>
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>tips:编写邮件中的html文件</title>
+        <description>&lt;p&gt;最近在做的招聘模块里，有个需求是这样的，用户把中意的简历通过邮箱转发。&lt;/p&gt;
+
+&lt;p&gt;如果直接发送现有的简历详情页的话，在邮件里无法正常显示，查阅了一些资料，最后又写了单独一版邮件用的html文件。&lt;br /&gt;
+目前常见的邮箱客户端有Gmail，Outlook等，&lt;a href=&quot;https://www.campaignmonitor.com/css/&quot;&gt;不同邮箱客户端对CSS样式的支持情况&lt;/a&gt;也不同。平时CSS样式一般写在header标签里或者外联一个CSS文件，但是在邮件中这些都会通通失效。&lt;br /&gt;
+1.由于我们想要发送的内容是嵌套在客户端内的，所以它不会是完整的html文件，应该为&amp;lt;div&amp;gt;容器内的代码片段。并且由于邮箱自身设置了CSS样式，它可能会对我们的样式产生影响，所以我们应该尽量都使用行内样式。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div style=&quot;width:600px;text-align:left;color:#000;font:normal 12px/15px arial,simsun;background:#fff;&quot;&amp;gt;
+    内容区域
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;2.网页的布局必须使用表格&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div style=&quot;text-align:center;&quot;&amp;gt;
+    &amp;lt;table width=&quot;600&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; style=&quot;margin:0 auto;&quot;&amp;gt;&amp;lt;tbody&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;
+        &amp;lt;div style=&quot;width:600px;text-align:left;font:12px/15px simsun;color:#000;background:#fff;&quot;&amp;gt;
+
+            &amp;lt;!-- 水平居中的邮件 --&amp;gt;
+
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&amp;lt;/tbody&amp;gt;&amp;lt;/table&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;3.在引入图片时需要注意，有的客户端会默认不显示图片，所以要确保图片不显示的情况下，也不会影响正文的阅读&lt;/p&gt;
+
+&lt;p&gt;4.如果想测试自己写的html在邮件中效果，可以使用这个网站（https://litmus.com/）&lt;br /&gt;
+这是我测试页面时的截图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://o7ts2uaks.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720151202143934.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 03 Dec 2015 17:31:00 +0800</pubDate>
+        <link>http://localhost:4000/front-end/css/2015/12/03/html-in-email.html</link>
+        <guid isPermaLink="true">http://localhost:4000/front-end/css/2015/12/03/html-in-email.html</guid>
+        
+        
+        <category>front-end</category>
+        
+        <category>css</category>
+        
+      </item>
+    
+      <item>
+        <title>Angular  ui-router</title>
+        <description>&lt;p&gt;UI-Router是Angular-UI提供的客户端路由框架，解决了原生ng-route的不足之处，它们的工作原理类似，区别的是ui-router只关注状态。&lt;/p&gt;
+
+&lt;h4 id=&quot;ng-route&quot;&gt;原生ng-route的不足之处：&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;视图不能嵌套。这意味着$scope会发生不必要的重新载入。&lt;/li&gt;
+  &lt;li&gt;路由配置只有一个模板，无法配置多个，同一URL下不支持多个视图。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;ui-router&quot;&gt;显而易见，ui-router的优势为：&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;提出了”$state”的概念，通过改变$state来进行URL的跳转和路由&lt;/li&gt;
+  &lt;li&gt;将web界面的设计分块，在整个用户界面和导航中，一个状态对应于一个页面位置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;关于ui-router最重要的参考资料是 &lt;a href=&quot;http://angular-ui.github.io/ui-router/site/#/api/ui.router&quot;&gt;ui-router的官方文档&lt;/a&gt;（http://angular-ui.github.io/ui-router/site/#/api/ui.router）内容十分详尽。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;代码实现&lt;/h4&gt;
+
+&lt;p&gt;1.引入文件：在index.html中除了angular.js之外，还要引入ui-router的文件ui-router.js&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &amp;lt;script src=&quot;js/angular.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;!-- Include the ui-router script --&amp;gt;
+  &amp;lt;script src=&quot;js/angular-ui-router.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;2.在模块中引入依赖&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  var app = angular.module(&#39;routerApp&#39;, [&#39;ui.router&#39;]);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;3.在html文件中使用ui-view指令，用来告诉$state该在哪插入template&lt;br /&gt;
+4.添加触发器ui-sref（ui-sref=$state），你可以把它放在a标签内，button标签内，触发之后它就会在ui-view的位置更新对应的视图，选择不同的html文件来填充进包含ui-view的标签内。&lt;br /&gt;
+5.最后我们来新建一个js文件用来配置路由。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;配置路由&lt;/h4&gt;
+
+&lt;p&gt;示例：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app.config(function ($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.when(&quot;&quot;, &quot;/page1&quot;);
+	$stateProvider
+    .state(&#39;page1&#39;, {
+      url: &#39;/page1&#39;,
+      templateUrl:&#39;viewpage1.html&#39;,
+    }).state(&#39;page2&#39;, {
+      url: &#39;/page2&#39;,
+      templateUrl:&#39;view/page2.html&#39;,
+      })
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在这个示例路由中，我们先定义了默认页，就是url为空或者是没有在路由配置中查询到相应状态名的情况下，默认展示的页面。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;state的第一个参数（如page1,page2）是状态名，可以将它放在触发器中用来触发视图更新。&lt;/li&gt;
+  &lt;li&gt;第二个参数url就是，当我们在浏览器地址栏中输入xx.com/index.html/url时，页面显示的是我们配置的相应的template。&lt;br /&gt;
+-第三个参数是用来设置模板，有两种方法。第一种使用”template”，指定一段Html字符串。第二种方法是像示例路由中那样，使用”templateUrl”来指定模板文件。在这种方法中，我们也可以由函数来返回。（我们可以用这种方法来传递参数，后文再讲）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$stateProvider.state(&#39;contacts&#39;, {
+  templateUrl: function (stateParams){
+    return &#39;/partials/contacts.&#39; + stateParams + &#39;.html&#39;;
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;触发激活&lt;/h4&gt;
+
+&lt;p&gt;路由配置完了，我们现在回到触发器上。上文讲到我们可以用ui-sref来作触发器。&lt;br /&gt;
+比如，用&amp;lt;a href=”” ui-sref=”page1”&amp;gt;进入page1&amp;lt;/a&amp;gt;表示一个链接。点击它的话，我们的视图就会更新为view/page1.html的内容了。（在工程中最好把用以更新的视图的文件与index.html分开存储便于管理，在我的招聘项目中是把这些页面都存在view文件夹中，像index.html,login.html这些文件存在外面）&lt;br /&gt;
+除了上面这种方法，我们还有两种方法来更新视图。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;调用$state.go()方法：这是ui-router特有的方法，可以用在js文件中手动更新视图。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$state.go(&#39;page1&#39;);  // 指定状态名
+$state.go(&#39;page1l&#39;, {pageId: 15});  //含参， 相当于跳转到 /page1/42
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在浏览器地址栏中直接输入url，这是最直接的方法。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;传递参数&lt;/h4&gt;
+
+&lt;p&gt;先给个应用场景好了，在一个简历列表页中，我想点击不同的简历名，就跳转到相应的简历详情。在这一过程中必然要传递参数，这样才能在简历详情页中看到自己想要浏览的那份简历。&lt;br /&gt;
+从头开始看，我们有一个简历详情页面view/openResume.html，还有以一个简历列表页view/resumeList.html&lt;br /&gt;
+在view/resemeList.html中，我们写入如下一行：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;a href=&quot;&quot; ui-sref=&quot;openResume({resumeId:7})&quot;&amp;gt;王大锤的简历&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后，配置路由是这样的：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;state(&#39;openResume&#39;, {
+        url: &#39;/openResume/{resumeId}&#39;,
+        templateUrl:function($stateParams){
+            console.log($stateParams);
+            return &#39;view/openResume.html&#39;
+        }
+    })
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;我们点击链接“王大锤的简历”，发现视图更新了，浏览器地址栏变成了：&lt;br /&gt;
+&lt;img src=&quot;http://o7ts2uaks.bkt.clouddn.com/001.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在控制台中我们看到了console出的语句&lt;br /&gt;
+&lt;img src=&quot;http://o7ts2uaks.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720151222154531.png&quot; alt=&quot;控制台&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;说明如果想在路由中传递参数，就是加一个括号，里面放一个我们要传递的对象即可。当然了我们可以通过很多方法完成动态传参的需求~&lt;/p&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;嵌套视图&lt;/h4&gt;
+
+&lt;p&gt;接下来我们来了解一下ui-router区别于ng-router最强大的功能，&lt;strong&gt;嵌套视图&lt;/strong&gt;。&lt;br /&gt;
+在示例路由的基础上，我们新建一个文件page1-main.html&lt;br /&gt;
+现在，在index.html中：&amp;lt;a href=”” ui-sref=”page1”&amp;gt;进入page1&amp;lt;/a&amp;gt;&lt;br /&gt;
+在page1.html中，：&amp;lt;a href=”” ui-sref=”page1.main”&amp;gt;进入page1-main&amp;lt;/a&amp;gt;&lt;br /&gt;
+路由变成：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.state(&#39;page1&#39;,{
+  url : &#39;/page1&#39;,
+  templateUrl : &#39;view/page1.html&#39;
+})
+.state(&#39;page1.main&#39;,{
+  url : &#39;/main&#39;,
+  emplateUrl : &#39;view/page1-main.html&#39;
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这样我们就完成了嵌套视图，在ui-router中我们可以进行任意层级的嵌套，在page1-main的同级，子级我们依然可以再嵌套别的视图。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;多个视图&lt;/h4&gt;
+
+&lt;p&gt;ui-router的另一优越性在于，一个$state下可以有多个视图，它们有各自的模板和控制器。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div ui-view&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;div ui-view=&quot;chart&quot;&amp;gt;&amp;lt;/div&amp;gt; 
+&amp;lt;div ui-view=&quot;data&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;路由：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$stateProvider.state(&quot;home&quot;, {
+  views: {
+    &quot;&quot;: {
+      template: &quot;&amp;lt;h1&amp;gt;HELLO!&amp;lt;/h1&amp;gt;&quot;
+    },
+    &quot;chart&quot;: {
+      template: &quot;&amp;lt;chart_thing/&amp;gt;&quot;
+    },
+    &quot;data&quot;: {
+      template: &quot;&amp;lt;data_thing/&amp;gt;&quot;
+    }
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 23 Nov 2015 20:17:00 +0800</pubDate>
+        <link>http://localhost:4000/front-end/javascript/2015/11/23/angular-uirouter.html</link>
+        <guid isPermaLink="true">http://localhost:4000/front-end/javascript/2015/11/23/angular-uirouter.html</guid>
+        
+        
+        <category>front-end</category>
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>150824去哪儿网面试总结</title>
+        <description>&lt;p&gt;1.get()与post()的区别&lt;/p&gt;
+
+&lt;p&gt;Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。&lt;/p&gt;
+
+&lt;p&gt;根据HTTP规范，GET用于信息获取，而且应该是安全的（是非修改信息）和幂等（同一URL的多个请求应该返回同样的结果）的。&lt;/p&gt;
+
+&lt;p&gt;根据HTTP规范，POST表示可能修改变服务器上的资源的请求。&lt;/p&gt;
+
+&lt;p&gt;GET请求的数据会附在URL之后（就是把数据放置在HTTP协议头中），POST把提交的数据则放置在是HTTP包的包体中。&lt;/p&gt;
+
+&lt;p&gt;POST的安全性要比GET的安全性高：&lt;/p&gt;
+
+&lt;p&gt;通过GET提交数据，用户名和密码将明文出现在URL上，因为(1)登录页面有可能被浏览器缓存，(2)其他人查看浏览器的历史纪录，那么别人就可以拿到你的账号和密码了，除此之外，使用GET提交数据还可能会造成Cross-site request forgery攻击。&lt;/p&gt;
+
+&lt;p&gt;2.CSS优先级   &lt;a href=&quot;http://www.cnblogs.com/xugang/archive/2010/09/24/1833760.html&quot;&gt;参考内容&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;（外部样式）External style sheet &amp;lt;（内部样式）Internal style sheet &amp;lt;（内联样式）Inline style&lt;/p&gt;
+
+&lt;p&gt;选择器优先权（权重）：&lt;/p&gt;
+
+&lt;p&gt;1.  内联样式表的权值最高 1000；&lt;/p&gt;
+
+&lt;p&gt;2.  ID 选择器的权值为 100&lt;/p&gt;
+
+&lt;p&gt;3.  Class 类选择器的权值为 10&lt;/p&gt;
+
+&lt;p&gt;4.  HTML 标签选择器的权值为 1&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.nowamagic.net/csszone/images/priority_rules_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CSS **&lt;/strong&gt;优先级法则：**&lt;/p&gt;
+
+&lt;p&gt;A  选择器都有一个权值，权值越大越优先；&lt;/p&gt;
+
+&lt;p&gt;B  当权值相等时，后出现的样式表设置要优于先出现的样式表设置；&lt;/p&gt;
+
+&lt;p&gt;C  创作者的规则高于浏览者：即网页编写者设置的CSS 样式的优先权高于浏览器所设置的样式；&lt;/p&gt;
+
+&lt;p&gt;D  继承的CSS 样式不如后来指定的CSS 样式；&lt;/p&gt;
+
+&lt;p&gt;E  在同一组属性设置中标有“!important”规则的优先级最大&lt;/p&gt;
+
+&lt;p&gt;3.一次请求的完整流程&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;建立TCP连接&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在HTTP工作开始之前，Web浏览器首先要通过网络与Web服务器建立连接，该连接是通过TCP来完成的，该协议与IP协议共同构建Internet，即著名的TCP/IP协议族，因此Internet又被称作是TCP/IP网络。HTTP是比TCP更高层次的应用层协议，根据规则，只有低层协议建立之后才能，才能进行更层协议的连接，因此，首先要建立TCP连接，一般TCP连接的端口号是80。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Web浏览器向Web服务器发送请求命令&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;一旦建立了TCP连接，Web浏览器就会向Web服务器发送请求命令。例如：GET/sample/hello.jsp HTTP/1.1。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Web浏览器发送请求头信息&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;浏览器发送其请求命令之后，还要以头信息的形式向Web服务器发送一些别的信息，之后浏览器发送了一空白行来通知服务器，它已经结束了该头信息的发送。&lt;/p&gt;
+
+&lt;p&gt;4. Web服务器应答&lt;/p&gt;
+
+&lt;p&gt;客户机向服务器发出请求后，服务器会客户机回送应答， HTTP/1.1 200 OK ，应答的第一部分是协议的版本号和应答状态码。&lt;/p&gt;
+
+&lt;p&gt;5. Web服务器发送应答头信息&lt;/p&gt;
+
+&lt;p&gt;正如客户端会随同请求发送关于自身的信息一样，服务器也会随同应答向用户发送关于它自己的数据及被请求的文档。&lt;/p&gt;
+
+&lt;p&gt;6. Web服务器向浏览器发送数据&lt;/p&gt;
+
+&lt;p&gt;Web服务器向浏览器发送头信息后，它会发送一个空白行来表示头信息的发送到此为结束，接着，它就以Content-Type应答头信息所描述的格式发送用户所请求的实际数据。&lt;/p&gt;
+
+&lt;p&gt;7. Web服务器关闭TCP连接&lt;/p&gt;
+
+&lt;p&gt;一般情况下，一旦Web服务器向浏览器发送了请求数据，它就要关闭TCP连接，然后如果浏览器或者服务器在其头信息加入了这行代码：&lt;/p&gt;
+
+&lt;p&gt;Connection:keep-alive&lt;/p&gt;
+
+&lt;p&gt;TCP连接在发送后将仍然保持打开状态，于是，浏览器可以继续通过相同的连接发送请求。保持连接节省了为每个请求建立新连接所需的时间，还节约了网络带宽。&lt;/p&gt;
+
+&lt;p&gt;4.遇算术运算符，进行自动类型转换Number，如果不能转，则输出NaN&lt;/p&gt;
+
+&lt;p&gt;“8”*11=88&lt;/p&gt;
+
+&lt;p&gt;“8a”*11=NaN&lt;/p&gt;
+</description>
+        <pubDate>Tue, 25 Aug 2015 06:20:24 +0800</pubDate>
+        <link>http://localhost:4000/front-end/interview/2015/08/25/qunar-interview.html</link>
+        <guid isPermaLink="true">http://localhost:4000/front-end/interview/2015/08/25/qunar-interview.html</guid>
+        
+        
+        <category>front-end</category>
+        
+        <category>interview</category>
+        
+      </item>
+    
+      <item>
+        <title>BFC学习笔记</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;一.概念&lt;/h3&gt;
+
+&lt;p&gt;在进行盒子元素布局的时候，BFC提供了一个环境，在这个环境中按照一定规则进行布局不会影响到其它环境中的布局。比如浮动元素会形成BFC，浮动元素内部子元素的主要受该浮动元素影响，两个浮动元素之间是互不影响的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;二.产生BFC条件&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;p&gt;当一个HTML元素满足下面条件的任何一点，都可以产生Block Formatting Context：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;float的值不为none。&lt;/li&gt;
+  &lt;li&gt;overflow的值不为visible。&lt;/li&gt;
+  &lt;li&gt;display的值为table-cell, table-caption, inline-block中的任何一个。&lt;/li&gt;
+  &lt;li&gt;position的值不为relative和static。&lt;br /&gt;
+&lt;strong&gt;三.应用&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;1)包含浮动元素BFC会根据子元素的情况自适应高度，这个特性是对父元素使overflow:hidden/auto/scroll、float:left/right样式可以闭合浮动的原理。&lt;/p&gt;
+
+&lt;p&gt;2)不被浮动元素覆盖浮动元素：为元素创建BFC后可避免其被浮动的兄弟元素覆盖&lt;/p&gt;
+
+&lt;p&gt;3）解决上下相邻两个元素重叠&lt;br /&gt;
+&amp;gt; 外边距折叠的规则：仅当两个块级元素毗邻并且在同一个块级格式化上下文时，它们垂直方向之间的外边距才会叠加。也就是说，即便两个块级元素相邻，但当它们不在同一个块级格式化上下文时它们的边距也不会折叠。&lt;br /&gt;
+4）清除元素内部浮动&lt;/p&gt;
+
+&lt;p&gt;只要把父元素设为BFC就可以清理子元素的浮动了，最常见的用法就是在父元素上设置overflow: hidden样式，对于IE6加上zoom:1就可以了(IE Haslayout)。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 20 Aug 2015 18:54:24 +0800</pubDate>
+        <link>http://localhost:4000/front-end/css/2015/08/20/bfc-note.html</link>
+        <guid isPermaLink="true">http://localhost:4000/front-end/css/2015/08/20/bfc-note.html</guid>
+        
+        
+        <category>front-end</category>
+        
+        <category>css</category>
+        
+      </item>
+    
+      <item>
+        <title>javascript面向对象的程序设计</title>
+        <description>&lt;p&gt;参考《JavaScript高级程序设计》第三版&lt;/p&gt;
+
+&lt;p&gt;阮一峰&lt;a href=&quot;http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html&quot;&gt;Javascript 面向对象编程&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;一.创建对象&lt;/h2&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;1.字面量&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var cat1 = {
+
+cat1.name = &quot;kitty&quot;;
+
+cat1.color = &quot;white&quot;;
+
+};
+
+var cat2 = {
+
+cat2.name = &quot;greg&quot;;
+
+cat2.color = &quot;black&quot;;
+
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;有两个缺点，一是如果多生成几个实例，写起来就非常麻烦；二是实例与原型之间，没有任何办法，可以看出有什么联系。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;2.工厂模式&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function creatCat(name,color){
+
+var o = new Object();
+
+0.name = name;
+
+0.color = color;
+
+return 0 ;
+
+}
+
+var cat1 = createCat(&quot;kitty&quot;,white);
+
+var cat2 = createCat(&quot;greg&quot;,black);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;解决了多个相似对象的问题，但没有解决对象类型识别的问题。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;3.构造函数模式&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Cat(name,color){
+
+this.name=name;
+
+this.color=color;
+
+}
+
+var cat1 = new  Cat(&quot;kitty&quot;,&quot;white&quot;);
+
+var cat2 = new  Cat(&quot;greg&quot;,&quot;black&quot;);
+
+alert(cat1.name); // kitty
+
+alert(cat1.color); // white
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;即没有return调用，将属性，方法赋给了_this_对象，函数名始终以大写字母开头&lt;/p&gt;
+
+&lt;p&gt;任何函数只要通过new调用，就可以作为构造函数&lt;/p&gt;
+
+&lt;p&gt;这时cat1和cat2会自动含有一个_constructor_属性，指向它们的构造函数。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alert(cat1.constructor == Cat); //true
+alert(cat2.constructor == Cat); //true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Javascript还提供了一个instanceof运算符，验证原型对象与实例对象之间的关系。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alert(cat1 instanceof Cat); //true
+alert(cat2 instanceof Cat); //true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;构造函数模式的问题：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;构造函数方法很好用，但是存在一个浪费内存的问题。&lt;/p&gt;
+
+&lt;p&gt;请看，我们现在为Cat对象添加一个不变的属性”type”（种类），再添加一个方法eat（吃老鼠）。那么，原型对象Cat就变成了下面这样：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; function Cat(name,color){
+   this.name = name;
+   this.color = color;
+   this.type = &quot;猫科动物&quot;;
+   this.eat = function(){alert(&quot;吃老鼠&quot;);};
+ }
+ ```
+
+还是采用同样的方法，生成实例：
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;var cat1 = new Cat(“kitty”,”white”);&lt;br /&gt;
+ var cat2 = new Cat (“greg”,”black”);&lt;br /&gt;
+ alert(cat1.type); // 猫科动物&lt;br /&gt;
+ cat1.eat(); // 吃老鼠&lt;br /&gt;
+```&lt;/p&gt;
+
+&lt;p&gt;表面上好像没什么问题，但是实际上这样做，有一个很大的弊端。那就是对于每一个实例对象，type属性和eat()方法都是一模一样的内容，每一次生成一个实例，都必须为重复的内容，多占用一些内存。这样既不环保，也缺乏效率。&lt;br /&gt;
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;alert(cat1.eat == cat2.eat); //false&lt;/code&gt;&lt;br /&gt;
+能不能让type属性和eat()方法在内存中只生成一次，然后所有实例都指向那个内存地址呢？回答是可以的。&lt;/p&gt;
+
+&lt;h4 id=&quot;prototype&quot;&gt;3.原型模式（Prototype模式）&lt;/h4&gt;
+
+&lt;p&gt;每个函数都有一个prototype属性，这个属性是一个指针，指向一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承。&lt;/p&gt;
+
+&lt;p&gt;原型对象可以让所有对象实例共享它所包含的属性和方法。&lt;/p&gt;
+
+&lt;p&gt;我们可以把那些不变的属性和方法，直接定义在prototype对象上。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function Cat(name,color){
+
+this.name = name;
+
+this.color = color;
+
+}
+
+Cat.prototype.type = &quot;猫科动物&quot;;
+
+Cat.prototype.eat = function(){alert(&quot;吃老鼠&quot;)};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后，生成实例。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var cat1 = new Cat(&quot;kitty&quot;,&quot;white&quot;);
+var cat2 = new Cat(&quot;greg&quot;,&quot;black&quot;);
+alert(cat1.type); // 猫科动物
+cat1.eat(); // 吃老鼠
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这时所有实例的type属性和eat()方法，其实都是同一个内存地址，指向prototype对象，因此就提高了运行效率。&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;alert(cat1.eat == cat2.eat); //true&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;二、 Prototype模式的验证方法&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;为了配合prototype属性，Javascript定义了一些辅助方法，帮助我们使用它。，&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1 isPrototypeOf()&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这个方法用来判断，某个proptotype对象和某个实例之间的关系。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alert(Cat.prototype.isPrototypeOf(cat1)); //true
+alert(Cat.prototype.isPrototypeOf(cat2)); //true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;2 hasOwnProperty()&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;每个实例对象都有一个hasOwnProperty()方法，用来判断某一个属性到底是本地属性，还是继承自prototype对象的属性。本地属性为true，由prototype对象继承为false&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alert(cat1.hasOwnProperty(&quot;name&quot;)); // true
+alert(cat1.hasOwnProperty(&quot;type&quot;)); // false
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;3 in运算符&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;in运算符可以用来判断，某个实例是否含有某个属性，不管是不是本地属性。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alert(&quot;name&quot; in cat1); // true
+alert(&quot;type&quot; in cat1); // true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;in运算符还可以用来遍历某个对象的所有属性。&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;for(var prop in cat1) { alert(&quot;cat1[&quot;+prop+&quot;]=&quot;+cat1[prop]); }&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 20 Aug 2015 15:43:50 +0800</pubDate>
+        <link>http://localhost:4000/front-end/javascript/2015/08/20/javascript-oop.html</link>
+        <guid isPermaLink="true">http://localhost:4000/front-end/javascript/2015/08/20/javascript-oop.html</guid>
+        
+        
+        <category>front-end</category>
+        
+        <category>javascript</category>
+        
+      </item>
+    
+  </channel>
+</rss>
