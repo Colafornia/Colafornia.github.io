@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+
+    <title>Viewport-Percentage (or Viewport-Relative) Lengths</title>
+    <meta name="description"
+          content="什么是视区百分比长度（viewport-percentage lengths）？">
+
+    <link rel="canonical" href="http://localhost:4000/front-end/css/2016/03/17/vieport-percentage.html">
+    <link rel="alternate" type="application/rss+xml" title="Gravity" href="http://localhost:4000/feed.xml">
+
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
+
+    <!-- CSS set in page -->
+    
+
+    <!-- CSS set in layout -->
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-post-nav.css">
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="Wangyl">
+            <span class="octicon octicon-mark-github"></span> Wangyl
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+            <a href="/bookmark"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Bookmark">
+                Bookmark
+            </a>
+            
+            <a href="/about"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="About">
+                About
+            </a>
+            
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <section class="jumbotron geopattern" data-pattern-id="Viewport-Percentage (or Viewport-Relative) Lengths">
+    <div class="container">
+        <div id="jumbotron-meta-info">
+            <h1>Viewport-Percentage (or Viewport-Relative) Lengths</h1>
+            <span class="meta-info">
+                
+                
+                <span class="octicon octicon-calendar"></span> 2016/03/17
+                
+            </span>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function(){
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="row">
+
+        <div class="col-md-8 markdown-body">
+
+            <h3 id="viewport-percentage-lengths">什么是视区百分比长度（viewport-percentage lengths）？</h3>
+
+<p>先看一下W3C给出的定义：</p>
+
+<blockquote>
+  <p>The viewport-percentage lengths are relative to the size of the initial containing block. When the height or width of the initial containing block is changed, they are scaled accordingly.</p>
+</blockquote>
+
+<p>意为视区百分比长度是与其包含块的尺寸有关，并且是随之变化的。<code class="highlighter-rouge">initial containing block</code>意为浏览器内部的可视区域，即<code class="highlighter-rouge">window.innerWidth/window.innerHeight</code>大小，不包含任务栏标题栏以及底部工具栏的浏览器区域大小。</p>
+
+<p>视区单位有<code class="highlighter-rouge">vh</code> (相对于视区高度), <code class="highlighter-rouge">vw</code>(相对于视区宽度), <code class="highlighter-rouge">vmin</code> (相对于视区高度或宽度，取决于哪个更小) and <code class="highlighter-rouge">vmax</code> (类似于vw但取决于哪个更大)。</p>
+
+<h3 id="section">它是如何分配浏览器高度的？</h3>
+
+<p>我们可以假借<code class="highlighter-rouge">vh</code>: <code class="highlighter-rouge">1vh</code>相当于1%的视区高度，忽略元素在DOM树中的位置，100vh相当于浏览器内部可视区域的高度。</p>
+
+<h3 id="section-1">浏览器兼容性？</h3>
+
+<p><img src="http://o7ts2uaks.bkt.clouddn.com/98A8FA40-23DE-4D3B-AE9B-A434F44A5AA0.png" alt="caniuse" /></p>
+
+<p>在css属性可用性查询网站<a href="http://caniuse.com/#search=viewport%20units">caniuse</a>中我们查到了，目前主流浏览器对于视区单位的支持性，从中我们可以看出，<strong>Chrome 20+, IE9+ ,FireFox19+以及Safari6</strong> 都是支持的。</p>
+
+<h3 id="vh100">100vh与100%的区别？</h3>
+
+<p>我们知道，vh是相对于视区高度的单位，所以100vh被设置的高度永远是相对于<code class="highlighter-rouge">window.innerWidth/window.innerHeight</code>的。而被设置成百分比高度的标签，它的实际高度要取决于其父标签（块级）<br />
+就像这个例子：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;body style="height:100%"&gt;
+    &lt;div style="height:200px"&gt;
+        &lt;p style="height:100%; display:block;"&gt;Hello, world!&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+</div>
+
+<p>虽然p标签设置了高度为100％，但是其外部div的高度为200px，因此这个p标签的实际高度只是200px</p>
+
+<h3 id="vh">如何用百分比实现同vh一样的效果？</h3>
+
+<p>某些情况下，<code class="highlighter-rouge">vw</code>, <code class="highlighter-rouge">vh</code>所产生的效果与百分比<code class="highlighter-rouge">%单位</code>无异，尤其对于<code class="highlighter-rouge">absolute/fixed</code>定位属性的元素。比如：<br />
+<code class="highlighter-rouge"><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="err">position:</span><span class="w"> </span><span class="err">fixed;</span><span class="w">
+    </span><span class="err">top:</span><span class="w"> </span><span class="err">100%;</span><span class="w">
+    </span><span class="err">top:</span><span class="w"> </span><span class="err">100vh;</span><span class="w">
+    </span><span class="err">left:</span><span class="w"> </span><span class="err">5%;</span><span class="w">
+    </span><span class="err">left:</span><span class="w"> </span><span class="err">5vw;</span><span class="w">
+    </span><span class="err">right:</span><span class="w"> </span><span class="err">5%;</span><span class="w">
+    </span><span class="err">right:</span><span class="w"> </span><span class="err">5vw;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code><br />
+支持vh, vw单位的浏览器就会使用视区单位（因为在后面声明）；不支持的就是要百分比%单位。</p>
+
+<h3 id="section-2">参考内容</h3>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/1575141/make-div-100-height-of-browser-window">James Donnelly__stackoverflow</a>:视区单位布道</li>
+  <li><a href="http://www.zhangxinxu.com/wordpress/2012/09/new-viewport-relative-units-vw-vh-vm-vmin/">视区相关单位_张鑫旭博客</a>:更多相关与视区单位应用场景的尝试</li>
+  <li><a href="http://www.cnblogs.com/xiaopin/archive/2012/03/26/2418152.html">JS,Jquery获取各种屏幕的宽度和高度</a>:复习一下有关屏幕高度的知识</li>
+</ul>
+
+
+            <!-- Comments -->
+            <div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '//my_disque_settings/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>Post Directory</h3>
+<div id="post-directory-module">
+<section class="post-directory">
+    <!-- Links that trigger the jumping -->
+    <!-- Added by javascript below -->
+    <dl></dl>
+</section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $( "article h2" ).each(function( index ) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" hre=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3")
+
+            children.each(function( index ) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        var fixmeTop = $('#post-directory-module').offset().top - 100;       // get initial position of the element
+
+        $(window).scroll(function() {                  // assign scroll event listener
+
+            var currentScroll = $(window).scrollTop(); // get current position
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('#post-directory-module').css({      // scroll to that element or below it
+                    top: '100px',
+                    position: 'fixed',
+                    width: 'inherit'
+                });
+            } else {                                   // apply position: static
+                $('#post-directory-module').css({      // if you scroll above it
+                    position: 'inherit',
+                    width: 'inherit'
+                });
+            }
+
+        });
+
+        $("a.jumper").on("click", function( e ) {
+
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: ($( $(this).attr('hre') ).offset().top - 100)
+            }, 600);
+
+        });
+    });
+
+</script>
+        </div>
+
+    </div>
+
+</article>
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-72165600-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+
+</footer>
+
+
+    </body>
+
+</html>
