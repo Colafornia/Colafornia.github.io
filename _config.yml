@@ -7,10 +7,10 @@
 
 # Site settings
 title: Gravity # ex. I m Chuan
-name: Mec # ex. DONGChuan
+name: Wangyl # ex. DONGChuan
 email: wangyilinchn@foxmail.com
 location: Beijing # ex. Nice, France
-company: XCF
+company: SenseTime
 company_url: www.xiachufang.com
 github_url: https://github.com/MechanicianW # ex. https://github.com/DONGChuan
 description: way to explore
@@ -19,7 +19,7 @@ favicon: favicon.png # Image must be in assets/images
 # The base hostname & protocol for your site
 # For local test, please use http://localhost:4000
 # For production, use your github page url. ex. http://dongchuan.github.io
-url: http://MechanicianW.github.io
+url: http://localhost:4000
 
 ## Gem
 gems:
@@ -85,7 +85,5 @@ analytics :
 
 
 # For about.html. Fell free to create your own!
-skill_software_keywords: [Java, C, C++, Qt, Python, MySQL, Oracle, SQLite, PL/SQL, Design Patterns]
-skill_j2ee_keywords: [Spring, Struct, Hibernet, MyBatis, JSP]
-skill_web_keywords: [HTML, CSS, JS, JQuery, Ajax, AngularJS, NodeJS, ExpressJS, MongoDB, Redis, PHP, Symfony, Boostrap]
-skill_mobile_app_keywords: [Android, Sketch UI Desgin]
+skill_software_keywords: [C,Python, MySQL, Design Patterns]
+skill_web_keywords: [HTML, CSS, JS, JQuery, Ajax, Angular, Vue, React, NodeJS, ExpressJS, MongoDB]
