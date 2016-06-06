@@ -3,10 +3,10 @@
   <channel>
     <title>Gravity</title>
     <description>way to explore</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Jun 2016 15:40:35 +0800</pubDate>
-    <lastBuildDate>Mon, 06 Jun 2016 15:40:35 +0800</lastBuildDate>
+    <link>http://MechanicianW.github.io/</link>
+    <atom:link href="http://MechanicianW.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 06 Jun 2016 15:44:50 +0800</pubDate>
+    <lastBuildDate>Mon, 06 Jun 2016 15:44:50 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -247,8 +247,8 @@ var updateScopeValue = function updateScopeValue( ) {
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 06 Jun 2016 15:28:00 +0800</pubDate>
-        <link>http://localhost:4000/front-end/javascript/angular/2016/06/06/angular-data-binding.html</link>
-        <guid isPermaLink="true">http://localhost:4000/front-end/javascript/angular/2016/06/06/angular-data-binding.html</guid>
+        <link>http://MechanicianW.github.io/front-end/javascript/angular/2016/06/06/angular-data-binding.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/javascript/angular/2016/06/06/angular-data-binding.html</guid>
         
         
         <category>front-end</category>
@@ -323,8 +323,8 @@ var updateScopeValue = function updateScopeValue( ) {
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 17 Mar 2016 19:16:00 +0800</pubDate>
-        <link>http://localhost:4000/front-end/css/2016/03/17/vieport-percentage.html</link>
-        <guid isPermaLink="true">http://localhost:4000/front-end/css/2016/03/17/vieport-percentage.html</guid>
+        <link>http://MechanicianW.github.io/front-end/css/2016/03/17/vieport-percentage.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/css/2016/03/17/vieport-percentage.html</guid>
         
         
         <category>front-end</category>
@@ -403,8 +403,8 @@ var updateScopeValue = function updateScopeValue( ) {
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 10 Mar 2016 15:02:00 +0800</pubDate>
-        <link>http://localhost:4000/front-end/javascript/2016/03/10/cookie-localstorage-session.html</link>
-        <guid isPermaLink="true">http://localhost:4000/front-end/javascript/2016/03/10/cookie-localstorage-session.html</guid>
+        <link>http://MechanicianW.github.io/front-end/javascript/2016/03/10/cookie-localstorage-session.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/javascript/2016/03/10/cookie-localstorage-session.html</guid>
         
         
         <category>front-end</category>
@@ -636,8 +636,8 @@ console.log(o.f()); //37
 &lt;/div&gt;
 </description>
         <pubDate>Sat, 02 Jan 2016 16:51:00 +0800</pubDate>
-        <link>http://localhost:4000/front-end/javascript/2016/01/02/clouser-scope.html</link>
-        <guid isPermaLink="true">http://localhost:4000/front-end/javascript/2016/01/02/clouser-scope.html</guid>
+        <link>http://MechanicianW.github.io/front-end/javascript/2016/01/02/clouser-scope.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/javascript/2016/01/02/clouser-scope.html</guid>
         
         
         <category>front-end</category>
@@ -682,8 +682,8 @@ console.log(o.f()); //37
 &lt;p&gt;&lt;img src=&quot;http://o7ts2uaks.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720151202143934.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 03 Dec 2015 17:31:00 +0800</pubDate>
-        <link>http://localhost:4000/front-end/css/2015/12/03/html-in-email.html</link>
-        <guid isPermaLink="true">http://localhost:4000/front-end/css/2015/12/03/html-in-email.html</guid>
+        <link>http://MechanicianW.github.io/front-end/css/2015/12/03/html-in-email.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/css/2015/12/03/html-in-email.html</guid>
         
         
         <category>front-end</category>
@@ -866,8 +866,8 @@ $state.go(&#39;page1l&#39;, {pageId: 15});  //含参， 相当于跳转到 /page
 &lt;/div&gt;
 </description>
         <pubDate>Mon, 23 Nov 2015 20:17:00 +0800</pubDate>
-        <link>http://localhost:4000/front-end/javascript/2015/11/23/angular-uirouter.html</link>
-        <guid isPermaLink="true">http://localhost:4000/front-end/javascript/2015/11/23/angular-uirouter.html</guid>
+        <link>http://MechanicianW.github.io/front-end/javascript/2015/11/23/angular-uirouter.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/javascript/2015/11/23/angular-uirouter.html</guid>
         
         
         <category>front-end</category>
@@ -967,8 +967,8 @@ $state.go(&#39;page1l&#39;, {pageId: 15});  //含参， 相当于跳转到 /page
 &lt;p&gt;“8a”*11=NaN&lt;/p&gt;
 </description>
         <pubDate>Tue, 25 Aug 2015 06:20:24 +0800</pubDate>
-        <link>http://localhost:4000/front-end/interview/2015/08/25/qunar-interview.html</link>
-        <guid isPermaLink="true">http://localhost:4000/front-end/interview/2015/08/25/qunar-interview.html</guid>
+        <link>http://MechanicianW.github.io/front-end/interview/2015/08/25/qunar-interview.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/interview/2015/08/25/qunar-interview.html</guid>
         
         
         <category>front-end</category>
@@ -1006,8 +1006,8 @@ $state.go(&#39;page1l&#39;, {pageId: 15});  //含参， 相当于跳转到 /page
 &lt;p&gt;只要把父元素设为BFC就可以清理子元素的浮动了，最常见的用法就是在父元素上设置overflow: hidden样式，对于IE6加上zoom:1就可以了(IE Haslayout)。&lt;/p&gt;
 </description>
         <pubDate>Thu, 20 Aug 2015 18:54:24 +0800</pubDate>
-        <link>http://localhost:4000/front-end/css/2015/08/20/bfc-note.html</link>
-        <guid isPermaLink="true">http://localhost:4000/front-end/css/2015/08/20/bfc-note.html</guid>
+        <link>http://MechanicianW.github.io/front-end/css/2015/08/20/bfc-note.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/css/2015/08/20/bfc-note.html</guid>
         
         
         <category>front-end</category>
@@ -1203,8 +1203,8 @@ alert(&quot;type&quot; in cat1); // true
 &lt;code class=&quot;highlighter-rouge&quot;&gt;for(var prop in cat1) { alert(&quot;cat1[&quot;+prop+&quot;]=&quot;+cat1[prop]); }&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 20 Aug 2015 15:43:50 +0800</pubDate>
-        <link>http://localhost:4000/front-end/javascript/2015/08/20/javascript-oop.html</link>
-        <guid isPermaLink="true">http://localhost:4000/front-end/javascript/2015/08/20/javascript-oop.html</guid>
+        <link>http://MechanicianW.github.io/front-end/javascript/2015/08/20/javascript-oop.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/javascript/2015/08/20/javascript-oop.html</guid>
         
         
         <category>front-end</category>
