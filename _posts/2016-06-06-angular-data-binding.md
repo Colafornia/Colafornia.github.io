@@ -2,7 +2,7 @@
 layout: post
 title:  "How does data binding work in AngularJS"
 date:   2016-06-06 15:28
-categories: front-end javascript angular
+categories: front-end javascript
 ---
 
 AngularJS可以记住value值并且会把它和之前的value值进行比较。这就是基本的脏检查机制。如果某处的value值发生了变化，那么AngularJS就会触发指定事件。

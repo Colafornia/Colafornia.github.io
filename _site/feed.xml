@@ -5,8 +5,8 @@
     <description>way to explore</description>
     <link>http://MechanicianW.github.io/</link>
     <atom:link href="http://MechanicianW.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Jun 2016 15:44:50 +0800</pubDate>
-    <lastBuildDate>Mon, 06 Jun 2016 15:44:50 +0800</lastBuildDate>
+    <pubDate>Mon, 06 Jun 2016 16:17:05 +0800</pubDate>
+    <lastBuildDate>Mon, 06 Jun 2016 16:17:05 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -247,15 +247,13 @@ var updateScopeValue = function updateScopeValue( ) {
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 06 Jun 2016 15:28:00 +0800</pubDate>
-        <link>http://MechanicianW.github.io/front-end/javascript/angular/2016/06/06/angular-data-binding.html</link>
-        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/javascript/angular/2016/06/06/angular-data-binding.html</guid>
+        <link>http://MechanicianW.github.io/front-end/javascript/2016/06/06/angular-data-binding.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/javascript/2016/06/06/angular-data-binding.html</guid>
         
         
         <category>front-end</category>
         
         <category>javascript</category>
-        
-        <category>angular</category>
         
       </item>
     
