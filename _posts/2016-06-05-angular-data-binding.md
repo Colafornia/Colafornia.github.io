@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How does data binding work in AngularJS"
-date:   2016-06-06 15:28
+date:   2016-06-05 15:28
 categories: front-end javascript
 ---
 
