@@ -5,9 +5,135 @@
     <description>way to explore</description>
     <link>http://MechanicianW.github.io/</link>
     <atom:link href="http://MechanicianW.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Jun 2016 16:17:05 +0800</pubDate>
-    <lastBuildDate>Mon, 06 Jun 2016 16:17:05 +0800</lastBuildDate>
+    <pubDate>Fri, 10 Jun 2016 11:56:35 +0800</pubDate>
+    <lastBuildDate>Fri, 10 Jun 2016 11:56:35 +0800</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>避免脏pr：使用git rebase避免无谓的merge</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;问题复现与解决&lt;/h3&gt;
+
+&lt;p&gt;在团队开发中，由于git使用的不够合理规范，开pr之后就会发现其中掺杂着若干merge的commit:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://o7ts2uaks.bkt.clouddn.com/git-merge.jpg&quot; alt=&quot;commit history&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;事实上我们本地的branch和远端的branch会同步地非常频繁，这两个分支几乎完全同步，所以以上的merge动作是没有必要的。并且如果一个pr中存在merge，那么pr的files changed中就会看到merge目标的代码。这会给代码 Review 的工作代码困扰。因为代码reviewm时通常是看一个pr修改了哪些代码，现在pr中满是merge目标的代码，是没办法review的。&lt;/p&gt;
+
+&lt;p&gt;想要解决这个问题的关键是永远不要merge主分支，而是rebase主分支。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin master
+# git merge origin/master # 不要这么干
+git rebase origin/master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# git pull origin master # 不要这么干
+git pull --rebase
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;主要是因为&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;这一git命令实际执行了&lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;git merge FETCH_HEAD&lt;/code&gt;两条指令。因此不要直接使用&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;来更新代码。&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull --rebase &lt;/code&gt;指令的意思是：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;把本地repo自从上次pull之后的变更暂存起来&lt;/li&gt;
+  &lt;li&gt;回到上次pull时的情况&lt;/li&gt;
+  &lt;li&gt;套用远端的变更&lt;/li&gt;
+  &lt;li&gt;套用第一步中暂存的本地变更&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;git-rebase&quot;&gt;关于git rebase&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;git merge&lt;/code&gt;做的事是一样的，都是把一个分支合并到另一个分支，只是方式不同，我们应该在不同情况下做出更合理的选择。我们做一下对比。&lt;br /&gt;
+假设合并前是这样：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;D—E master&lt;br /&gt;
+     /&lt;br /&gt;
+A—B—C—F origin/master&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;使用merge合并后：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;D——–E  &lt;br /&gt;
+     /          \&lt;br /&gt;
+A—B—C—F—-G   master, origin/master&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;适应rebase合并后：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A—B—C—F—D’—E’   master, origin/master&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;由此可见，使用rebase其实是重写了提交记录，并使我们的项目历史会非常整洁，它不想git merge那样引入不必要的合并提交，rebase使得项目历史呈线性，便于通过git log查看项目历史。&lt;/p&gt;
+
+&lt;h3 id=&quot;a-rebase-based-workflow&quot;&gt;A rebase-based workflow&lt;/h3&gt;
+&lt;p&gt;1.新建分支&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git checkout master&lt;br /&gt;
+  git pull    #更新master&lt;br /&gt;
+  git checkout master -b test   #从master创建feature分支&lt;br /&gt;
+  git push -u origin test:test&lt;br /&gt;
+  #把分支push到远程，本地分支名在前，-u是–set-upstream-to 的简写，设置追踪分支&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;2.更新分支&lt;/p&gt;
+
+&lt;p&gt;从master更新&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git pull –rebase origin master #此方法不会更新本地master分支&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;从test更新&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git pull –rebase #需先设置追踪分支&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;3.完成后回到主分支&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git checkout master&lt;br /&gt;
+  git pull     #这里不会导致出现merge commit&lt;br /&gt;
+  git rebase test     #把commits拉取到主分支&lt;br /&gt;
+  git push&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;pr&quot;&gt;处理脏pr&lt;/h3&gt;
+&lt;p&gt;这里只介绍一个比较好理解的方法，从主分支上新建一个干净的分支，然后把需要搞干净的pr中所有非merge的commit都cherry-pick到新分支。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git fetch origin master:new-feature&lt;br /&gt;
+  git checkout new-feature&lt;br /&gt;
+  git cherry-pick COMMIT_HASH_1&lt;br /&gt;
+  git cherry-pick COMMIT_HASH_2&lt;br /&gt;
+  …&lt;br /&gt;
+  git cherry-pick COMMIT_HASH_N&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;cherry-pick命令”复制”一个提交节点并在当前分支做一次完全一样的新提交。&lt;br /&gt;
+注意cherry-pick的顺序应是commit &lt;strong&gt;从旧到新&lt;/strong&gt; 的顺序，否则会一直出现无数冲突。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;参考内容&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://randyfay.com/node/91&quot;&gt;RandyFay:A Rebase Workflow for Git&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge&quot;&gt;stackoverflow:When do you use git rebase instead of git merge?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/457927/git-workflow-and-rebase-vs-merge-questions&quot;&gt;stackoverflow:git workflow and rebase vs merge questions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/geeeeeeeeek/git-recipes/wiki/5.1-%E4%BB%A3%E7%A0%81%E5%90%88%E5%B9%B6%EF%BC%9AMerge%E3%80%81Rebase%E7%9A%84%E9%80%89%E6%8B%A9&quot;&gt;git-recipes:代码合并:Merge、Rebase的选择&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.web-tinker.com/article/21112.html&quot;&gt;WEB研究所:git 实践之避免 merge&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 09 Jun 2016 11:51:00 +0800</pubDate>
+        <link>http://MechanicianW.github.io/git/2016/06/09/rebase-workflow.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/git/2016/06/09/rebase-workflow.html</guid>
+        
+        
+        <category>git</category>
+        
+      </item>
     
       <item>
         <title>How does data binding work in AngularJS</title>
@@ -246,9 +372,9 @@ var updateScopeValue = function updateScopeValue( ) {
   &lt;li&gt;&lt;a href=&quot;https://www.ibm.com/developerworks/cn/opensource/os-cn-AngularJS/&quot;&gt;IBM developerWorks:AngularJS 作用域与数据绑定机制&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Mon, 06 Jun 2016 15:28:00 +0800</pubDate>
-        <link>http://MechanicianW.github.io/front-end/javascript/2016/06/06/angular-data-binding.html</link>
-        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/javascript/2016/06/06/angular-data-binding.html</guid>
+        <pubDate>Sun, 05 Jun 2016 15:28:00 +0800</pubDate>
+        <link>http://MechanicianW.github.io/front-end/javascript/2016/06/05/angular-data-binding.html</link>
+        <guid isPermaLink="true">http://MechanicianW.github.io/front-end/javascript/2016/06/05/angular-data-binding.html</guid>
         
         
         <category>front-end</category>
