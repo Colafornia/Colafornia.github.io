@@ -1,0 +1,629 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="问题复现与解决在团队开发中，由于git使用的不够合理规范，开pr之后就会发现其中掺杂着若干merge的commit:
+
+事实上我们本地的branch和远端的branch会同步地非常频繁，这两个分支几乎完全同步，所以以上的merge动作是没有必要的。并且如果一个pr中存在merge，那么pr的files changed中就会看到merge目标的代码。这会给代码 Review 的工作代码困扰。因为代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="避免脏pr：使用git rebase避免无谓的merge">
+<meta property="og:url" content="http://mechanicianw.github.io/2016/06/09/2016-06-09-rebase-workflow/index.html">
+<meta property="og:site_name" content="Minibase">
+<meta property="og:description" content="问题复现与解决在团队开发中，由于git使用的不够合理规范，开pr之后就会发现其中掺杂着若干merge的commit:
+
+事实上我们本地的branch和远端的branch会同步地非常频繁，这两个分支几乎完全同步，所以以上的merge动作是没有必要的。并且如果一个pr中存在merge，那么pr的files changed中就会看到merge目标的代码。这会给代码 Review 的工作代码困扰。因为代码">
+<meta property="og:image" content="http://o7ts2uaks.bkt.clouddn.com/git-merge.jpg">
+<meta property="og:updated_time" content="2016-06-16T11:08:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="避免脏pr：使用git rebase避免无谓的merge">
+<meta name="twitter:description" content="问题复现与解决在团队开发中，由于git使用的不够合理规范，开pr之后就会发现其中掺杂着若干merge的commit:
+
+事实上我们本地的branch和远端的branch会同步地非常频繁，这两个分支几乎完全同步，所以以上的merge动作是没有必要的。并且如果一个pr中存在merge，那么pr的files changed中就会看到merge目标的代码。这会给代码 Review 的工作代码困扰。因为代码">
+<meta name="twitter:image" content="http://o7ts2uaks.bkt.clouddn.com/git-merge.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://mechanicianw.github.io/2016/06/09/2016-06-09-rebase-workflow/"/>
+
+  <title> 避免脏pr：使用git rebase避免无谓的merge | Minibase </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Minibase</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                避免脏pr：使用git rebase避免无谓的merge
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-09T11:51:00+08:00" content="2016-06-09">
+              2016-06-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="问题复现与解决"><a href="#问题复现与解决" class="headerlink" title="问题复现与解决"></a>问题复现与解决</h3><p>在团队开发中，由于git使用的不够合理规范，开pr之后就会发现其中掺杂着若干merge的commit:</p>
+<p><img src="http://o7ts2uaks.bkt.clouddn.com/git-merge.jpg" alt="commit history"></p>
+<p>事实上我们本地的branch和远端的branch会同步地非常频繁，这两个分支几乎完全同步，所以以上的merge动作是没有必要的。并且如果一个pr中存在merge，那么pr的files changed中就会看到merge目标的代码。这会给代码 Review 的工作代码困扰。因为代码reviewm时通常是看一个pr修改了哪些代码，现在pr中满是merge目标的代码，是没办法review的。</p>
+<p>想要解决这个问题的关键是永远不要merge主分支，而是rebase主分支。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin master</span><br><span class="line"># git merge origin/master # 不要这么干</span><br><span class="line">git rebase origin/master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># git pull origin master # 不要这么干</span><br><span class="line">git pull --rebase</span><br></pre></td></tr></table></figure>
+<p>主要是因为<code>git pull</code>这一git命令实际执行了<code>git fetch</code>和<code>git merge FETCH_HEAD</code>两条指令。因此不要直接使用<code>git pull</code>来更新代码。<code>git pull --rebase</code>指令的意思是：</p>
+<ol>
+<li>把本地repo自从上次pull之后的变更暂存起来</li>
+<li>回到上次pull时的情况</li>
+<li>套用远端的变更</li>
+<li>套用第一步中暂存的本地变更</li>
+</ol>
+<h3 id="关于git-rebase"><a href="#关于git-rebase" class="headerlink" title="关于git rebase"></a>关于git rebase</h3><p><code>git rebase</code>和<code>git merge</code>做的事是一样的，都是把一个分支合并到另一个分支，只是方式不同，我们应该在不同情况下做出更合理的选择。我们做一下对比。<br>假设合并前是这样：</p>
+<blockquote>
+<p>D—E master<br>     /<br>A—B—C—F origin/master</p>
+</blockquote>
+<p>使用merge合并后：</p>
+<blockquote>
+<p>D——–E<br>     /          \<br>A—B—C—F—-G   master, origin/master</p>
+</blockquote>
+<p>适应rebase合并后：</p>
+<blockquote>
+<p>A—B—C—F—D’—E’   master, origin/master</p>
+</blockquote>
+<p>由此可见，使用rebase其实是重写了提交记录，并使我们的项目历史会非常整洁，它不想git merge那样引入不必要的合并提交，rebase使得项目历史呈线性，便于通过git log查看项目历史。</p>
+<h3 id="A-rebase-based-workflow"><a href="#A-rebase-based-workflow" class="headerlink" title="A rebase-based workflow"></a>A rebase-based workflow</h3><p>1.新建分支</p>
+<blockquote>
+<p>git checkout master<br>  git pull    #更新master<br>  git checkout master -b test   #从master创建feature分支<br>  git push -u origin test:test<br>  #把分支push到远程，本地分支名在前，-u是–set-upstream-to 的简写，设置追踪分支</p>
+</blockquote>
+<p>2.更新分支</p>
+<p>从master更新</p>
+<blockquote>
+<p>git pull –rebase origin master #此方法不会更新本地master分支</p>
+</blockquote>
+<p>从test更新</p>
+<blockquote>
+<p>git pull –rebase #需先设置追踪分支</p>
+</blockquote>
+<p>3.完成后回到主分支</p>
+<blockquote>
+<p>git checkout master<br>  git pull     #这里不会导致出现merge commit<br>  git rebase test     #把commits拉取到主分支<br>  git push</p>
+</blockquote>
+<h3 id="处理脏pr"><a href="#处理脏pr" class="headerlink" title="处理脏pr"></a>处理脏pr</h3><p>这里只介绍一个比较好理解的方法，从主分支上新建一个干净的分支，然后把需要搞干净的pr中所有非merge的commit都cherry-pick到新分支。</p>
+<blockquote>
+<p>git fetch origin master:new-feature<br>  git checkout new-feature<br>  git cherry-pick COMMIT_HASH_1<br>  git cherry-pick COMMIT_HASH_2<br>  …<br>  git cherry-pick COMMIT_HASH_N</p>
+</blockquote>
+<p>cherry-pick命令”复制”一个提交节点并在当前分支做一次完全一样的新提交。<br>注意cherry-pick的顺序应是commit <strong>从旧到新</strong> 的顺序，否则会一直出现无数冲突。</p>
+<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><ul>
+<li><a href="https://randyfay.com/node/91" target="_blank" rel="external">RandyFay:A Rebase Workflow for Git</a></li>
+<li><a href="http://stackoverflow.com/questions/804115/when-do-you-use-git-rebase-instead-of-git-merge" target="_blank" rel="external">stackoverflow:When do you use git rebase instead of git merge?</a></li>
+<li><a href="http://stackoverflow.com/questions/457927/git-workflow-and-rebase-vs-merge-questions" target="_blank" rel="external">stackoverflow:git workflow and rebase vs merge questions</a></li>
+<li><a href="https://github.com/geeeeeeeeek/git-recipes/wiki/5.1-%E4%BB%A3%E7%A0%81%E5%90%88%E5%B9%B6%EF%BC%9AMerge%E3%80%81Rebase%E7%9A%84%E9%80%89%E6%8B%A9" target="_blank" rel="external">git-recipes:代码合并:Merge、Rebase的选择</a></li>
+<li><a href="https://www.web-tinker.com/article/21112.html" target="_blank" rel="external">WEB研究所:git 实践之避免 merge</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/05/2016-06-05-angular-data-binding/" rel="next" title="How does data binding work in AngularJS">
+                <i class="fa fa-chevron-left"></i> How does data binding work in AngularJS
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Mechanician" />
+          <p class="site-author-name" itemprop="name">Mechanician</p>
+          <p class="site-description motion-element" itemprop="description">Write the code,change the world</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题复现与解决"><span class="nav-number">1.</span> <span class="nav-text">问题复现与解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于git-rebase"><span class="nav-number">2.</span> <span class="nav-text">关于git rebase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-rebase-based-workflow"><span class="nav-number">3.</span> <span class="nav-text">A rebase-based workflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理脏pr"><span class="nav-number">4.</span> <span class="nav-text">处理脏pr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考内容"><span class="nav-number">5.</span> <span class="nav-text">参考内容</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mechanician</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
