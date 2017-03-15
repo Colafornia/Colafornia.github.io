@@ -1,0 +1,47 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Minibase</title><meta name="description" content="A Blog Powered By Hexo"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://mechanicianw.github.io/atom.xml" title="Minibase"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link active">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/MechanicianW" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><ul class="home post-list"><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2016/03/10/cookie-localstorage-session/" class="post-title-link">Cookie, LocalStorage 与 SessionStorage</a></h2><div class="post-info">Mar 10, 2016</div><div class="post-content"><p>有关Cookie, LocalStorage 与 SessionStorage的基本概念，区别，共同点，各自的应用场景。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookie 是一小段文本信息，伴随着用户请求和页面在 Web 服务器和浏览器之间传递，是随HTTP请求一起被传递的额外数据。主要用途有保存登陆信息，大多数浏览器支持最大为 4096 字节的 Cookie</p>
+<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><p>localStorage 是 HTML5 标准中新加入的技术,大小限制在500万字符左右，各个浏览器不一致。永久有效，即不主动清空的话就不会消失，即使保存的数据超出了浏览器所规定的大小，也不会把旧数据清空而只会报错。</p></div><a href="/2016/03/10/cookie-localstorage-session/" class="read-more">...阅读全文</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2016/01/02/learning-clouser-scope/" class="post-title-link">有关闭包，作用域，this对象</a></h2><div class="post-info">Jan 2, 2016</div><div class="post-content"><h3 id="首先看一下维基百科中，闭包的概念："><a href="#首先看一下维基百科中，闭包的概念：" class="headerlink" title="首先看一下维基百科中，闭包的概念："></a>首先看一下维基百科中，闭包的概念：</h3><blockquote>
+<p>在计算机科学中，闭包（也称词法闭包或函数闭包）是指一个函数或函数的引用，与一个引用环境绑定在一起。这个引用环境是一个存储该函数每个非局部变量（也叫自由变量）的表。<br>闭包，不同于一般的函数，它允许一个函数在立即词法作用域外调用时，仍可访问非本地变量。</p>
+</blockquote>
+<h4 id="在创建函数和调用函数时，都发生了什么"><a href="#在创建函数和调用函数时，都发生了什么" class="headerlink" title="在创建函数和调用函数时，都发生了什么"></a>在创建函数和调用函数时，都发生了什么</h4><ul>
+<li>创建函数时<ol>
+<li>创建了预先包含全局变量对象的作用域链</li>
+<li>该作用域链保存在内部[[scope]]属性中</li>
+</ol>
+</li>
+<li>调用函数时<ol>
+<li>创建执行环境</li>
+<li>复制函数[[scope]]属性中的对象构建作用域链</li>
+<li>用arguments与其它形参初始化函数的活动对象</li>
+</ol>
+</li>
+</ul></div><a href="/2016/01/02/learning-clouser-scope/" class="read-more">...阅读全文</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2015/12/03/html-in-email/" class="post-title-link">tips:编写邮件中的html文件</a></h2><div class="post-info">Dec 3, 2015</div><div class="post-content"><p>最近在做的招聘模块里，有个需求是这样的，用户把中意的简历通过邮箱转发。</p>
+<p>如果直接发送现有的简历详情页的话，在邮件里无法正常显示，查阅了一些资料，最后又写了单独一版邮件用的html文件。<br>目前常见的邮箱客户端有Gmail，Outlook等，<a href="https://www.campaignmonitor.com/css/">不同邮箱客户端对CSS样式的支持情况</a>也不同。平时CSS样式一般写在header标签里或者外联一个CSS文件，但是在邮件中这些都会通通失效。<br>1.由于我们想要发送的内容是嵌套在客户端内的，所以它不会是完整的html文件，应该为<div>容器内的代码片段。并且由于邮箱自身设置了CSS样式，它可能会对我们的样式产生影响，所以我们应该尽量都使用行内样式。</p></div><a href="/2015/12/03/html-in-email/" class="read-more">...阅读全文</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2015/11/23/angular-ui-router/" class="post-title-link">Angular  ui-router</a></h2><div class="post-info">Nov 23, 2015</div><div class="post-content"><p>UI-Router是Angular-UI提供的客户端路由框架，解决了原生ng-route的不足之处，它们的工作原理类似，区别的是ui-router只关注状态。</p>
+<h4 id="原生ng-route的不足之处："><a href="#原生ng-route的不足之处：" class="headerlink" title="原生ng-route的不足之处："></a>原生ng-route的不足之处：</h4><ul>
+<li>视图不能嵌套。这意味着$scope会发生不必要的重新载入。</li>
+<li>路由配置只有一个模板，无法配置多个，同一URL下不支持多个视图。</li>
+</ul>
+<h4 id="显而易见，ui-router的优势为："><a href="#显而易见，ui-router的优势为：" class="headerlink" title="显而易见，ui-router的优势为："></a>显而易见，ui-router的优势为：</h4><ul>
+<li>提出了”$state”的概念，通过改变\$state来进行URL的跳转和路由</li>
+<li>将web界面的设计分块，在整个用户界面和导航中，一个状态对应于一个页面位置</li>
+</ul>
+<blockquote>
+<p>关于ui-router最重要的参考资料是 <a href="http://angular-ui.github.io/ui-router/site/#/api/ui.router">ui-router的官方文档</a>（<a href="http://angular-ui.github.io/ui-router/site/#/api/ui.router）内容十分详尽。">http://angular-ui.github.io/ui-router/site/#/api/ui.router）内容十分详尽。</a></p>
+</blockquote>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>1.引入文件：在index.html中除了angular.js之外，还要引入ui-router的文件ui-router.js</p></div><a href="/2015/11/23/angular-ui-router/" class="read-more">...阅读全文</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2015/08/24/intern-qunar-interview/" class="post-title-link">150824去哪儿网面试总结</a></h2><div class="post-info">Aug 24, 2015</div><div class="post-content"><p>1.get()与post()的区别</p>
+<p>Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。</p>
+<p>根据HTTP规范，GET用于信息获取，而且应该是安全的（是非修改信息）和幂等（同一URL的多个请求应该返回同样的结果）的。</p>
+<p>根据HTTP规范，POST表示可能修改变服务器上的资源的请求。</p>
+<p>GET请求的数据会附在URL之后（就是把数据放置在HTTP协议头中），POST把提交的数据则放置在是HTTP包的包体中。</p>
+<p>POST的安全性要比GET的安全性高：</p></div><a href="/2015/08/24/intern-qunar-interview/" class="read-more">...阅读全文</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2015/08/20/learning-note-bfc/" class="post-title-link">BFC学习笔记</a></h2><div class="post-info">Aug 20, 2015</div><div class="post-content"><h3 id="一-概念"><a href="#一-概念" class="headerlink" title="一.概念"></a>一.概念</h3><p>在进行盒子元素布局的时候，BFC提供了一个环境，在这个环境中按照一定规则进行布局不会影响到其它环境中的布局。比如浮动元素会形成BFC，浮动元素内部子元素的主要受该浮动元素影响，两个浮动元素之间是互不影响的。</p>
+<h3 id="二-产生BFC条件："><a href="#二-产生BFC条件：" class="headerlink" title="二.产生BFC条件："></a>二.产生BFC条件：</h3><p>当一个HTML元素满足下面条件的任何一点，都可以产生Block Formatting Context：</p>
+<ul>
+<li>float的值不为none。</li>
+<li>overflow的值不为visible。</li>
+<li>display的值为table-cell, table-caption, inline-block中的任何一个。</li>
+<li>position的值不为relative和static。</li>
+</ul></div><a href="/2015/08/20/learning-note-bfc/" class="read-more">...阅读全文</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2015/08/20/note-learning-javascript-oop/" class="post-title-link">javascript面向对象的程序设计</a></h2><div class="post-info">Aug 20, 2015</div><div class="post-content"><p>参考《JavaScript高级程序设计》第三版</p>
+<p>阮一峰<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html">Javascript 面向对象编程</a></p>
+<h2 id="一-创建对象"><a href="#一-创建对象" class="headerlink" title="一.创建对象"></a>一.创建对象</h2><h4 id="1-字面量"><a href="#1-字面量" class="headerlink" title="1.字面量"></a>1.字面量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var cat1 = &#123;</div><div class="line"></div><div class="line">cat1.name = &quot;kitty&quot;;</div><div class="line"></div><div class="line">cat1.color = &quot;white&quot;;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line">var cat2 = &#123;</div><div class="line"></div><div class="line">cat2.name = &quot;greg&quot;;</div><div class="line"></div><div class="line">cat2.color = &quot;black&quot;;</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>有两个缺点，一是如果多生成几个实例，写起来就非常麻烦；二是实例与原型之间，没有任何办法，可以看出有什么联系。</p></div><a href="/2015/08/20/note-learning-javascript-oop/" class="read-more">...阅读全文</a></article></li></ul></section><footer><div class="paginator"><a href="/" class="prev">上一页</a></div><div class="copyright"><p>© 2015 - 2016 <a href="http://mechanicianw.github.io">Mechanician</a>, unless otherwise noted.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create','UA-84469017-1'
+,'auto');ga('send','pageview');</script></body></html>
