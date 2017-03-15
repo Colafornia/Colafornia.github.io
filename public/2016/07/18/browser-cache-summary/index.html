@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 关于浏览器缓存 · Minibase</title><meta name="description" content="关于浏览器缓存 - Mechanician"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://mechanicianw.github.io/atom.xml" title="Minibase"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/MechanicianW" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">关于浏览器缓存</h1><div class="post-info">Jul 18, 2016</div><div class="post-content"><p>浏览器缓存就是将web资源保存在本地，就不用再每次都向服务器请求相同的资源。当下一个请求发起，如果是同样的url，浏览器会根据缓存机制来决定是读取本地的内容还是向服务器发送请求。显而易见，浏览器缓存可以减少带宽消耗，加快用户的访问速度同时减轻服务器压力。</p>
+<p>浏览器的缓存机制主要分为两种，http协议定义的缓存机制和非http协议定义的缓存机制。后者主要通过在html文件中设置<code>meta标签</code>来实现。</p>
+<h2 id="与缓存相关的首部字段"><a href="#与缓存相关的首部字段" class="headerlink" title="与缓存相关的首部字段"></a>与缓存相关的首部字段</h2><p><img src="http://o7ts2uaks.bkt.clouddn.com/CACHE.png" alt="http首部字段"></p>
+<a id="more"></a>
+<p><img src="http://o7ts2uaks.bkt.clouddn.com/w704.jpg" alt="状态图"></p>
+<h3 id="Pragma与Expires"><a href="#Pragma与Expires" class="headerlink" title="Pragma与Expires"></a>Pragma与Expires</h3><p>由上表可以看到，Pragma与Expires是http1.0中的内容，是早期的浏览器缓存策略，现在我们也会经常看到看到这两个字段，为的是http协议向下兼容。<br>Pragma属于通用首部字段，在请求和响应报文章都可以设置，一般要求Pragama指令设定在html文件中的<code>&lt;meta&gt;标签</code></p>
+<p><code>&lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot;&gt;</code><br>不过Pragma一般只有在设置于响应报文中时才会生效。</p>
+<p>Expires是响应头字段，用来启用缓存和规定缓存失效时间。Expires的值对应一个GMT时间，比如“Mon, 22 Jul 2002 11:12:01 GMT”来告诉浏览器资源缓存过期时间，如果还没过该时间点则不发请求。</p>
+<p>如果在meta标签中设置expires只是能设置页面在IE浏览器中是否缓存（对页面资源无效）。如果是在服务端报头返回Expires字段，则在任何浏览器中都能正确设置资源缓存的时间。需要注意的是，expires设置的缓存时间是相对服务器上时间而言的，如果客户端时间与服务器时间不一致，这个缓存也就没意义了。</p>
+<p>另外，同时设置Expires和Pragma的话，Pragma的优先级会更高。</p>
+<h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h3><p>Cache-Control分别能在请求报文和响应报文中使用，来定义缓存有效时间，优先级高于Pragma与Expires。Cache-Control也修正了上述Expires时间差的问题。<br><img src="http://ww3.sinaimg.cn/mw690/6941baebgw1eukzzwcvnij20gi089jvb.jpg" alt="cache-control可设置的值"></p>
+<h3 id="Last-Modified"><a href="#Last-Modified" class="headerlink" title="Last-Modified"></a>Last-Modified</h3><p>浏览器第一次请求某URL时会返回200，内容是所请求的资源。服务器将资源传递给客户端时，会将资源最后更改的时间以“Last-Modified: GMT”的形式加在实体首部上一起返回给客户端。</p>
+<p>客户端会为资源标记上该信息，下次再次请求时，会把该信息附带在请求报文中一并带给服务器去做检查“If-Modified-Since: GMT”，若传递的时间值与服务器上该资源最终修改时间是一致的，则说明该资源没有被修改过，直接返回304状态码即可，内容为空，节省了传输数据量。</p>
+<h3 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h3><p>Http1.1中定义了实体首部字段<code>Etag</code>，即在服务器响应时给请求的URL做标记一个唯一标识符，在响应头中传给客户端。在下一次发请求时，客户端会带上Etag，服务器通过比较服务器上资源的Etag与客户端传过来的Etag来判断资源有没有被修改。若没被修改，则返回304.</p>
+<p>如果Last-Modified和ETag同时被使用，则要求它们的验证都必须通过才会返回304，若其中某个验证没通过，则服务器会按常规返回资源实体及200状态码。</p>
+<h2 id="缓存策略"><a href="#缓存策略" class="headerlink" title="缓存策略"></a>缓存策略</h2><h3 id="Last-Modified和Etag-→-304"><a href="#Last-Modified和Etag-→-304" class="headerlink" title="Last-Modified和Etag → 304"></a>Last-Modified和Etag → 304</h3><p>这两个字段经常在一起配合使用，来判断资源是否已被修改，确定读取本地缓存还是重新请求资源。ETag主要是用来解决Last-Modified无法解决的问题（文件修改频繁，服务器得到的时间不精确等等）。</p>
+<p>这两个字段的特点及应用场景在于，本地已有缓存，但是它们需要向服务器发送请求来确定本地缓存是否是最新的，若服务器认为本地缓存是最新的，可用，则返回304</p>
+<h3 id="Expires-Cache-Control-→-200"><a href="#Expires-Cache-Control-→-200" class="headerlink" title="Expires/Cache-Control → 200"></a>Expires/Cache-Control → 200</h3><p>区别于304状态码，200意味着不向服务器发请求，直接启用本地缓存。即Expires/Cache-Control字段通过绝对时间/相对时间判断出本地缓存是有效的。</p>
+<p>思维导图如下（自己画的感觉很不美观 = =）</p>
+<p><img src="http://o7ts2uaks.bkt.clouddn.com/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%B7%E6%B1%82%20%281%29.png" alt="思维导图"></p>
+<h2 id="用户行为与缓存"><a href="#用户行为与缓存" class="headerlink" title="用户行为与缓存"></a>用户行为与缓存</h2><p>浏览器缓存也与用户行为有关，在地址栏按回车与直接F5是不一样的。</p>
+<p><img src="http://ww4.sinaimg.cn/mw690/6941baebgw1eukzzr7rc2j20hg04kjsd.jpg" alt="用户行为"></p>
+<p>由图可知，当用户按F5进行刷新，Expires/Cache-Control会失效，浏览器将再次发送请求通过Last-Modified/ETag来判断缓存是否有效。当用户通过Ctrl+F5进行强制刷新时，所有字段都会失效，浏览器将重新请求获取资源。</p>
+<h3 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h3><ul>
+<li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" target="_blank" rel="external">w3:HTTP1.1</a></li>
+<li><a href="http://www.cnblogs.com/vajoy/p/5341664.html" target="_blank" rel="external">vajoy:浅谈浏览器http的缓存机制</a></li>
+<li><a href="http://www.laruence.com/2010/03/05/1332.html" target="_blank" rel="external">鸟哥:浏览器缓存机制</a></li>
+<li><a href="http://blog.csdn.net/eroswang/article/details/8302191" target="_blank" rel="external">eroswang:浏览器缓存详解</a></li>
+</ul>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/08/22/basic-fetch-api/" class="prev">上一篇</a><a href="/2016/06/09/git-rebase-workflow/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2016 <a href="http://mechanicianw.github.io">Mechanician</a>, unless otherwise noted.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create','UA-84469017-1'
+,'auto');ga('send','pageview');</script></body></html>
