@@ -7,5 +7,6 @@ test/e2e/reports
 .idea
 test/
 .npmrc
+.deploy_*
 yarn-error.log
 yarn.lock
