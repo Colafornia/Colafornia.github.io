@@ -86,13 +86,13 @@ inner = null;  // 解除对 outer 内部的匿名函数的引用，以便释放�
 
 ```
 function foo(){
-    var result = new Array();
-    for(var i=0; i<10; i++){
+  var result = new Array();
+  for(var i=0; i<10; i++){
     result[i] = function(){
-    return i;
+      return i;
     }
-    }
-    return result;
+  }
+  return result;
 }
 ```
 
@@ -101,15 +101,15 @@ function foo(){
 
 ```
 function foo(){
-var result = new Array();
-for(var i=0; i<10; i++){
+  var result = new Array();
+  for(var i=0; i<10; i++){
     result[i] = function(num){
-    return function(){
-    return num
-    }
+      return function(){
+        return num
+      }
     }(i);
-}
-return result;
+  }
+  return result;
 }
 ```
 
@@ -122,13 +122,13 @@ return result;
 ```
 var arr = new Array();
 for (var i = 0; i < 50; i++) {
-    (function () {
-        arr[i] = document.createElement('i');
-        arr[i].index = i;
-        arr[i].onclick = function () {
-            console.log(this.index);
-        };
-    })(i);
+  (function () {
+    arr[i] = document.createElement('i');
+    arr[i].index = i;
+    arr[i].onclick = function () {
+        console.log(this.index);
+    };
+  })(i);
 };
 ```
 
@@ -139,15 +139,15 @@ for (var i = 0; i < 50; i++) {
 **匿名函数的执行环境具有全局性，因此其this对象通常指向window**
 ```
 var name = "The Window";
-　　var object = {
-　　　　name : "My Object",
-　　　　getNameFunc : function(){
-　　　　　　return function(){
-　　　　　　　　return this.name;
-　　　　　　};
-　　　　}
-　　};
-　　alert(object.getNameFunc()()); // “The Window”
+　var object = {
+　　name : "My Object",
+　　getNameFunc : function(){
+　　  return function(){
+　　　　 return this.name;
+　　　};
+　　}
+　};
+alert(object.getNameFunc()()); // “The Window”
 ```
 内部函数在搜索`this`和`arguments`这两个变量时，只会搜索到其活动对象为止，永远不可能直接访问外部函数中的这两个变量。
 
@@ -169,9 +169,9 @@ var name = "The Window";
 
 ```
 var o ={
-    prop:37;
-    f:function(){return this.prop}
-    }
+  prop:37;
+  f:function(){return this.prop}
+}
 console.log(o.f()); //37
 ```
 
@@ -179,11 +179,11 @@ console.log(o.f()); //37
 
 ```
 window. x = 2;
-　　function test(m){
-　　　　this.x = m;
-　　}
-　　var o = new test(5);
-　　alert(x); //5
+function test(m){
+　this.x = m;
+}
+var o = new test(5);
+alert(x); //5
 ```
 
 #### 4.apply 和 call 调用以及 bind 绑定
