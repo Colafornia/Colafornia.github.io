@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> BFC学习笔记 · Minibase</title><meta name="description" content="BFC学习笔记 - Mechanician"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/images/icons/lego.jpeg"><link rel="stylesheet" href="/css/apollo.css"><link rel="manifest" href="/manifest.json"><link rel="search" type="application/opensearchdescription+xml" href="http://mechanicianw.github.io/atom.xml" title="Minibase"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="https://github.com/MechanicianW" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">BFC学习笔记</h1><div class="post-info">Aug 20, 2015</div><div class="post-content"><h3 id="一-概念"><a href="#一-概念" class="headerlink" title="一.概念"></a>一.概念</h3><p>在进行盒子元素布局的时候，BFC提供了一个环境，在这个环境中按照一定规则进行布局不会影响到其它环境中的布局。比如浮动元素会形成BFC，浮动元素内部子元素的主要受该浮动元素影响，两个浮动元素之间是互不影响的。</p>
+<h3 id="二-产生BFC条件："><a href="#二-产生BFC条件：" class="headerlink" title="二.产生BFC条件："></a>二.产生BFC条件：</h3><p>当一个HTML元素满足下面条件的任何一点，都可以产生Block Formatting Context：</p>
+<ul>
+<li>float的值不为none。</li>
+<li>overflow的值不为visible。</li>
+<li>display的值为table-cell, table-caption, inline-block中的任何一个。</li>
+<li>position的值不为relative和static。</li>
+</ul>
+<a id="more"></a>
+<h3 id="三-应用"><a href="#三-应用" class="headerlink" title="三.应用"></a>三.应用</h3><p>1)包含浮动元素BFC会根据子元素的情况自适应高度，这个特性是对父元素使overflow:hidden/auto/scroll、float:left/right样式可以闭合浮动的原理。</p>
+<p>2)不被浮动元素覆盖浮动元素：为元素创建BFC后可避免其被浮动的兄弟元素覆盖</p>
+<p>3）解决上下相邻两个元素重叠</p>
+<blockquote>
+<p>外边距折叠的规则：仅当两个块级元素毗邻并且在同一个块级格式化上下文时，它们垂直方向之间的外边距才会叠加。也就是说，即便两个块级元素相邻，但当它们不在同一个块级格式化上下文时它们的边距也不会折叠。</p>
+</blockquote>
+<p>4）清除元素内部浮动</p>
+<p>只要把父元素设为BFC就可以清理子元素的浮动了，最常见的用法就是在父元素上设置overflow: hidden样式，对于IE6加上zoom:1就可以了(IE Haslayout)。</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2015/08/24/intern-qunar-interview/" class="prev">PREV</a><a href="/2015/08/20/note-learning-javascript-oop/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018, no silver bullet.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create','UA-84469017-1'
+,'auto');ga('send','pageview');</script></body></html>
