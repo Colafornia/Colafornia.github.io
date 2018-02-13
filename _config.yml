@@ -77,7 +77,7 @@ archive_generator:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:MechanicianW/MechanicianW.github.io.git
+  repository: git@github.com:MechanicianW/MechanicianW.github.io.git
   branch: master
 
 # Offline

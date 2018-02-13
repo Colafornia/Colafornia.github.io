@@ -11,7 +11,7 @@ install:
 
 script:
   - hexo cl  #清除
-  - hexo g -d #生成
+  - hexo g #生成
 
 after_script:
   - cd ./public
