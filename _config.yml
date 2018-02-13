@@ -78,6 +78,7 @@ archive_generator:
 deploy:
   type: git
   repo: github.com/MechanicianW/MechanicianW.github.io
+  branch: master
 
 # Offline
 ## Config passed to sw-precache
