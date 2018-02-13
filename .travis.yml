@@ -2,6 +2,9 @@ anguage: node_js  #设置语言
 
 node_js: stable  #设置相应的版本
 
+before_install:
+  - npm install -g hexo-cli
+
 install:
   - npm install  #安装hexo及插件
 
