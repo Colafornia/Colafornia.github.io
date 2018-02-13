@@ -7,6 +7,7 @@ before_install:
 
 install:
   - npm install  #安装hexo及插件
+  - npm install hexo-deployer-git --save
 
 script:
   - hexo cl  #清除
