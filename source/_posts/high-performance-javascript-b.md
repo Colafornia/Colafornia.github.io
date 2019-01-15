@@ -7,7 +7,7 @@ categories: javascript
 
 ![cover](/images/javascript-is-fast.png)
 
-接[前四节的总结](http://mechanicianw.github.io/2016/09/26/high-performance-javascript-a/)
+接[前四节的总结](https://blog.colafornia.me/2016/09/26/high-performance-javascript-a/)
 
 ## 5.字符串和正则表达式
 

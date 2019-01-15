@@ -2,8 +2,13 @@
 
 <p align="center">技术博客，只写不会的</p>
 
+## 2019
+
+- [2018 年度总结](https://blog.colafornia.me/post/2019/2018-review/)
+
 ## 2018
 
+- [8102年末，前端路由基本思路](https://blog.colafornia.me/post/2018/implement-of-frontend-route/)
 - [Blink 渲染： 重建引擎](https://blog.colafornia.me/post/2018/translation-blink-render/)
 - [生命在于折腾，写一个前端资讯推送服务](https://blog.colafornia.me/post/2018/the-beginning-of-little-robot/)
 - [字符编码](https://blog.colafornia.me/post/2018/character-encoding/)
@@ -14,7 +19,6 @@
 - [Thrift 速记](https://blog.colafornia.me/post/2018/thrift-note/)
 - [解决 git clone 慢的问题](https://blog.colafornia.me/post/2018/slove-git-clone-speed/)
 - [回顾一下 JavaScript 中的深浅拷贝以及内存管理](https://blog.colafornia.me/post/2018/review-copy-in-javascript/)
-- [8012年末，前端路由基本思路](https://blog.colafornia.me/post/2018/implement-of-frontend-route/)
 
 ## 2017
 

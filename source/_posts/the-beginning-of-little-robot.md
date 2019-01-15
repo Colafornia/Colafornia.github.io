@@ -1,16 +1,15 @@
 ---
 layout: post
-title:  "兴趣驱动，写一个前端资讯推送服务"
+title:  "生命在于折腾，写一个前端资讯推送服务"
 date:   2018-9-11 12:39
 categories: open-source
 ---
 
-![cover](https://i.loli.net/2018/09/11/5b97628baa760.png)
+<img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d54108ab97e?w=1390&h=1154&f=jpeg&s=224666" width="600">
 
 去年年底开始写的一个小项目，断断续续做了些优化，在此简单的记录一下。
 
 <!--more-->
-
 ## 源头
 
 起源是之前一直没什么机会接触到 Node 项目，工作中接触到的也仅限于用 Node 写脚本，做一些小工具，与服务器上跑的 Node 服务相差甚远。所以想写一个在服务器上跑的 Node 小项目练手。
@@ -23,11 +22,11 @@ categories: open-source
 
 推送大概长这样：
 
-<img src="https://i.loli.net/2018/09/11/5b9778172df20.jpeg" width="600">
+<img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d54108ab97e?w=1390&h=1154&f=jpeg&s=224666" width="600">
 
 扫码获取推送服务：
 
-<img src="https://camo.githubusercontent.com/1b160b38bf5c5795240a3a661f9f74e6d66f627e/68747470733a2f2f692e6c6f6c692e6e65742f323031382f30392f30352f356238666130383264623037302e706e67" width="280">
+<img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d541080f3a0?w=500&h=500&f=png&s=12430" width="280">
 
 现在推送源主要是各厂的知乎专栏，大佬们的个人博客，掘金前端热门文章，都是我自己的个人口味。
 
@@ -108,7 +107,7 @@ function fetchRSSUpdate() {
 
 为了解决推送服务只能存储三天内的推送，决定新增一个每周五的周抓取任务，抓取一周内的新文章，把内容作为 issue 发到仓库。也还算是一个解决方案。
 
-<img src="https://i.loli.net/2018/09/11/5b972ffa920a5.jpeg" width="480">
+<img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d5410a067c6?w=940&h=952&f=jpeg&s=174243" width="480">
 
 针对掘金的 RSS 源问题，最后决定直接调用掘金的接口来取数据，这就可以随心所欲按自己的需求来了，每天只抓取❤️点赞数在 70 以上的文章。
 
@@ -152,11 +151,11 @@ function filterArticlesByDateAndCollection () {
 
 目录结构如下，添加 `Model` 与 `Controller`。把 RSS 抓取脚本与掘金爬虫放到 task 文件。
 
-<img src="https://i.loli.net/2018/09/11/5b97386469e47.jpeg" width="400">
+<img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d54109e1c80?w=654&h=970&f=jpeg&s=59616" width="400">
 
 没什么难点，就可以调用 api 来获取 RSS 源了：
 
-<img src="https://i.loli.net/2018/09/11/5b9739468cad0.jpeg" width="500">
+<img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d54107ab26b?w=1072&h=996&f=jpeg&s=158223" width="500">
 
 此时想到了一个重要问题，**身份验证**。肯定不能把所有 api 都随意暴露出去，让外界可以任意调用，这也就相当于把数据库都暴露出去了。
 
@@ -227,6 +226,10 @@ CMD [ "npm", "start", "$value1", "$value2", "$value3"]
 
 1. 国内拉去外网的镜像很慢，像 Node 官方的镜像我都拉了好久都没拉下来，这样的话推荐使用国内的镜像，比如我用的 DaoCloud，还有阿里云镜像等等
 2. 由于推送服务是对时间敏感的，基础镜像的时区并不是国内时区，要手动设置一下
+
+然后去 [DaoCloud](https://dashboard.daocloud.io/) 等提供公有云服务的网站授权访问 Github 仓库，连接自己的主机，就可以实现持续集成，自动构建部署我们的镜像了。具体步骤可参考[基于 Docker 打造前端持续集成开发环境](https://zhuanlan.zhihu.com/p/37961402)。
+
+![daocloud](https://user-gold-cdn.xitu.io/2018/9/12/165c96207478caa7?w=2382&h=366&f=jpeg&s=64252)
 
 本次优化大概就到这里了。接下来要做的可能是提供一个推送历史查看页面，优先级不是很高，有时间再做吧（顺便练习一下 Nginx）。
 

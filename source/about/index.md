@@ -1,24 +1,22 @@
 ---
 title: about
-date: 2015-12-29 18:03:57
+date: 2018-3-29 18:00:00
 comments: false
 ---
 
 ## About me
-web developer,junior programmer
+Web developer, junior programmer
 
-Lat/Long 39.9"N,116. 3"E
+Lat/Long 30.67°N, 104.06°E
 
 Graduated from EE/Power in BJTU
 
-Interested in Full-Stack,Meachine Learing
-
-Having a wonderful and firm relationship with closuer
+Interested in Full-Stack, Algorithm
 
 ## Contact
 
-- Email: d2FuZ3lpbGluY2huQGZveG1haWwuY29t
-- Github: [MechanicianW](https://github.com/MechanicianW)
+- Email: bWVAY29sYWZvcm5pYS5tZQ==
+- Github: [Colafornia](https://github.com/Colafornia)
 
 ## Friends
 
