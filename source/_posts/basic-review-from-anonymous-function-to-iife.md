@@ -8,7 +8,7 @@ categories: front-end javascript
 ![cover](/images/iife.png)
 
 ### 起因
-最近在进行 [underscore.js 源码分析](https://github.com/MechanicianW/underscore-analysis)，也顺便看了些别的库的大致封装方式
+最近在进行 [underscore.js 源码分析](https://github.com/Colafornia/underscore-analysis)，也顺便看了些别的库的大致封装方式
 underscore:
 
 ```javascript
@@ -44,7 +44,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
 ### 函数定义方式
 
-1. 函数声明     
+1. 函数声明
   ```
   function foo () {}
   ```

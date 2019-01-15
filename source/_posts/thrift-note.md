@@ -9,7 +9,7 @@ categories: thrift
 
 `Apache Thrift` 是一款 `RPC` (跨语言的服务)框架，传输数据采用二进制格式，相对 XML 和 JSON 体积更小，对于高并发、大数据量和多语言的环境更有优势。
 
-![](https://bulldog2011.github.io/images/luxun/communication_components.png)
+![](/images/thrift.png)
 
 ### RPC 是什么
 

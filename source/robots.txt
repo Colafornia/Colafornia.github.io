@@ -1,0 +1,14 @@
+#hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
+
+Disallow: /about
+Disallow: /scss/
+Disallow: /css/
+Disallow: /font/
+Disallow: /images/
+
+
+Sitemap: http://blog.colafornia.me/sitemap.xml
+Sitemap: http://blog.colafornia.me/baidusitemap.xml
