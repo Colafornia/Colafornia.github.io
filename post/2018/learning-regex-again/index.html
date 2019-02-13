@@ -1,0 +1,130 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 又双叒叕学习了一遍正则表达式 · Minibase</title><meta name="description" content="又双叒叕学习了一遍正则表达式 - Colafornia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.colafornia.me/atom.xml" title="Minibase"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Colafornia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">又双叒叕学习了一遍正则表达式</h1><div class="post-info">Jul 11, 2018</div><div class="post-content"><p><img src="/images/regex.jpg" alt="cover"></p>
+<p>正则表达式基本上每用到一次就得从头自学一次，用完了写出来了也就忘光了。</p>
+<p>前两天在 Twitter 上看到了题图，感觉又是个大坑，趁着手头还有 <a href="https://caraws.github.io/" target="_blank" rel="noopener">Caraws</a> 给的书就又双叒叕学习了一遍正则表达式。</p>
+<p>本文试图先用最易懂的方式理顺正则表达式的知识点（就不贴一摞一摞的文档截图了，至于正则的使用场景和用处也不啰嗦了），主要介绍正则本身和在 JavaScript 中使用正则的坑。</p>
+<a id="more"></a>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>形如题图中的 <code>/abc/</code> 就是一个最简单的正则表达式（regular expression），一般被称之为模式（pattern）。</p>
+<p>更具体一点的定义，正则表达式是用“正则表达式语言”来创建的，用于匹配和处理文本的字符串，它是内置于其它语言中的“迷你语言”。在不同语言中的正则表达式实现中，<strong>语法和功能可能会有一定差异</strong>（后面我们会详细讲一下）。</p>
+<p><a href="https://regex101.com/" target="_blank" rel="noopener">https://regex101.com/</a> 是一个在线练习网站，我们可以在界面上勾选不同的编程语言，也可以看到正则表达式的性能（匹配完成所需时间）以及具体的匹配步骤。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>总结了一下，我觉得把正则中的语法符号分为四类比较容易记忆：</p>
+<ul>
+<li>字符与字符集</li>
+<li>预定义字符类</li>
+<li>重复次数</li>
+<li>功能字符（最后这种是我概括出来的名字）</li>
+</ul>
+<h3 id="字符与字符集"><a href="#字符与字符集" class="headerlink" title="字符与字符集"></a>字符与字符集</h3><p>首先要分清<code>字符</code>与<code>字符集</code>。</p>
+<p><code>/abc/</code> 中的 a 匹配的是单个字符，这个模式就匹配的是三个字符，当文本是 ‘abcd’ 时会<strong>一次性匹配到字符串 ‘abc’</strong>。</p>
+<p>然而用 <code>[]</code> <strong>字符集操作符</strong>包裹起来的 <code>/[abc]/</code> 就是一个字符集，<code>[abc]</code> 匹配的是一个字符，表明匹配为 a 或 b 或 c 的一个字符。因此，当文本是 ‘abcd’ 时执行匹配，<strong>每次只能匹配到单个字符</strong>，第一次匹配到 ‘a’，第二次匹配到’b’……</p>
+<p>区分这两个概念并不难，一般（我自己是）等到了各种表达式嵌套的时候就开始懵逼了。</p>
+<p>只能在字符集中使用的操作符有两个，<code>取非操作符^</code> 与 <code>字符区间-</code>。</p>
+<p>在字符集中我们可以使用<code>取非操作符^</code>，<code>/[^abc]/</code>即为匹配 a，b，c 以外的任意字符。</p>
+<p><code>/[a-c]/</code> 与 <code>/[abc]/</code> 相同，通过字符区间我们可以编写 <code>/[A-Za-z0-9]/</code> 这种简洁易读的正则表达式了。</p>
+<h3 id="预定义字符类"><a href="#预定义字符类" class="headerlink" title="预定义字符类"></a>预定义字符类</h3><p>正则表达式预定义了一些常用的术语来代表一类字符。</p>
+<p>比如 <code>\d</code> 为任意数字，<code>\D</code> 为任意非数字，更多预定义字符可以参看 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="noopener">MDN</a>。</p>
+<h3 id="重复次数"><a href="#重复次数" class="headerlink" title="重复次数"></a>重复次数</h3><p>以下符号跟在字符或者字符集的后面，代表重复次数：</p>
+<ul>
+<li><code>+</code>：重复一次或多次</li>
+<li><code>*</code>：重复零次或多次</li>
+<li><code>?</code>：重复零次或一次</li>
+<li><code>{m, n}</code>：可表示区间，或是至少 m 次</li>
+</ul>
+<p>需要注意的是，除了 <code>?</code> 之外的三种都是贪婪型字符，可能会发生<strong>过度匹配</strong>的情况。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'aacbacbc'</span>;</span><br><span class="line"><span class="keyword">var</span> reg=<span class="regexp">/a.*b/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.match(reg)); <span class="comment">// ["aacbacb", index:0...]</span></span><br></pre></td></tr></table></figure>
+<p>此时执行一次匹配，由于 <code>*</code> 作为贪婪型字符会尽可能匹配更多内容，因此匹配到的是 aacbacb，而不是 aacb。在贪婪型字符后面加上 <code>?</code> 即变为非贪婪字符。</p>
+<h3 id="功能字符"><a href="#功能字符" class="headerlink" title="功能字符"></a>功能字符</h3><p>举几个例子：</p>
+<ul>
+<li><p>正则尾部的  <code>/i</code> 表示忽略大小写，<code>/g</code> 表示匹配所有实例，<code>/m</code> 多行匹配</p>
+</li>
+<li><p>竖线符号 <code>|</code> 表明“或”，<code>a|b</code> 即匹配 a 或 b</p>
+</li>
+<li><p>小括号 <code>()</code> 可以用来分割子表达式</p>
+</li>
+<li><p><code>^字符串$</code> 代表字符串的前后边界</p>
+</li>
+</ul>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>以上介绍的都是基础语法与字符匹配规则，正则还有两种较为高级的使用语法。</p>
+<h3 id="回溯引用-backreference"><a href="#回溯引用-backreference" class="headerlink" title="回溯引用 backreference"></a>回溯引用 backreference</h3><p><code>回溯引用</code>是指模式的后半部分引用在前半部分中定义的子表达式。</p>
+<p>语法：</p>
+<ol>
+<li><code>(x)</code> 子表达式</li>
+<li><code>\</code> 标识回溯引用，<code>\n</code> 即代表第 n 个子表达式所匹配到的内容（在 replace 操作中使用 <code>$</code>）</li>
+</ol>
+<p>举一个典型例子，匹配 HTML 中的标题标签，HTML 可能如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>111<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>lalala<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过 <code>/&lt;[Hh][1-5]&gt;.*?&lt;\/[Hh][1-5]&gt;/</code> 我们会将 <code>&lt;h4&gt;lalala\&lt;/h3&gt;</code> 这种非法标签也匹配到。回溯引用就适用于这种场景，它可以实现<strong>前后一致匹配</strong>。</p>
+<p><code>/&lt;([hH][1-5])&gt;.*?&lt;\/\1&gt;/</code> 中的 <code>\1</code> 只匹配第一个子表达式 <code>([hH][1-5])</code> 所匹配到的内容，从而避免匹配到对应不上的标签组合。</p>
+<h3 id="前后查找-lookaround"><a href="#前后查找-lookaround" class="headerlink" title="前后查找 lookaround"></a>前后查找 lookaround</h3><p>还是引用上面的标题标签匹配例子，如果我们想只匹配到 <code>&lt;h1&gt;111&lt;/h1&gt;</code> 中的标题内容要怎么写正则呢？</p>
+<p>这里涉及到两个新语法：</p>
+<ul>
+<li><code>?=</code>：向前查找</li>
+<li><code>?&lt;=</code>：向后查找</li>
+</ul>
+<p><strong>以向前、向后查找开头的子表达式</strong>就是前后查找。</p>
+<p>因此，正则可以为：<code>/(?&lt;=&lt;[Hh][1-5]&gt;).*(?=&lt;\/[Hh][1-5]&gt;)/</code></p>
+<p>结合回溯引用与前后查找，还可以实现条件式的正则表达式，威力爆炸，只是这种形式的正则太难读了，有兴趣可以 Google 学习一下，这里不讲了。</p>
+<h2 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h2><p>以上是正则表达式的知识点，现在讲讲坑。首先说说 JavaScript 中的正则。</p>
+<h3 id="字面量-VS-RegExp"><a href="#字面量-VS-RegExp" class="headerlink" title="字面量 VS RegExp()"></a>字面量 VS RegExp()</h3><p>在 JavaScript 中创建正则表达式有两种方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正则字面量</span></span><br><span class="line"><span class="keyword">var</span> pattern1 = <span class="regexp">/\d+/</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 构造 RegExp 实例，以字符串形式传入正则</span></span><br><span class="line"><span class="keyword">var</span> pattern2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\d+'</span>);</span><br></pre></td></tr></table></figure>
+<p>两种方式创建出的正则没有任何差别。从创建方式上看，<strong>正则字面量可读性更优</strong>，因为正则中经常使用 <code>\</code> 反斜杠在字符串中是一个转义字符，想以字符串中表示反斜杠的话，需要使用 <code>\\</code> 两个反斜杠。</p>
+<p>但是，需要注意，<strong>每个正则表达式都有一个独立的对象表示，每次创建正则表达式，都会为其创建一个新的正则表达式对象，这和其它类型（字符串、数组）不同</strong>。</p>
+<p>我们可以通过<strong>让正则表达式只编译一次并将其保存在一个变量中以供后续使用</strong>来实现优化。</p>
+<p>因此，第一段代码将创建三个正则表达式对象，并进行了三次编译，虽然表达式是相同的。而第二段代码则性能更高。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/abc/</span>.test(<span class="string">'a'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/abc/</span>.test(<span class="string">'ab'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/abc/</span>.test(<span class="string">'abc'</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/abc/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(pattern.test(<span class="string">'a'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(pattern.test(<span class="string">'ab'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(pattern.test(<span class="string">'abc'</span>));</span><br></pre></td></tr></table></figure>
+<p>这其中有<strong>性能隐患</strong>。先记住这一点，我们继续往下看。</p>
+<h3 id="冷知识-lastIndex"><a href="#冷知识-lastIndex" class="headerlink" title="冷知识 lastIndex"></a>冷知识 lastIndex</h3><p>这里我们来解释下题图中的情况是怎么回事。</p>
+<p><img src="/images/regex.jpg" alt="cover"></p>
+<p>这其实是全局匹配的坑，也就是正则后的 <code>/g</code> 符号。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/abc/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(pattern.global) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>用 <code>/g</code> 标识的正则作为全局匹配，也就拥有了 global 属性并导致了题图中呈现的异常行为。</p>
+<p>全局正则表达式的另一个属性 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastIndex" target="_blank" rel="noopener">lastIndex</a> 用于存放上一次匹配文本之后的第一个字符的位置。</p>
+<p><code>RegExp.prototype.exec()</code> 和 <code>RegExp.prototype.test()</code> 方法都以 <code>lastIndex</code> 属性中所存储的位置作为下次正则匹配检索的起点。连续调用这两个方法就可以遍历字符串中的所有匹配文本。</p>
+<p><code>lastIndex</code> 属性可读写，当 <code>RegExp.prototype.exec()</code> 或 <code>RegExp.prototype.test()</code> 再也找不到可以匹配的文本时，会自动把 lastIndex 属性重置为 0。因此<strong>使用这两个方法来检索文本，是可以无限执行下去的</strong>。我们也就明白了题图中为何每次执行 <code>RegExp.prototype.test()</code> 返回的结果都不一样。</p>
+<p>不仅如此，看看下面这段代码，能看出来有什么问题吗？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="regexp">/a/g</span>.test(<span class="string">'ababc'</span>)) count++;</span><br></pre></td></tr></table></figure>
+<p>不要轻易拷贝到控制台中尝试，会把浏览器卡死的。</p>
+<p>由于每个循环中 <code>/a/g.test(&#39;ababc&#39;)</code> 都创建了新的正则表达式对象，每次匹配都是重新开始，这一操作会无限执行下去，形成死循环。</p>
+<p>正确的写法是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> regex = <span class="regexp">/a/g</span>;</span><br><span class="line"><span class="keyword">while</span> (regex.test(<span class="string">'ababc'</span>)) count++;</span><br></pre></td></tr></table></figure>
+<p>这样，每次循环中操作的都是同一个正则表达式对象，随着每次匹配后 <code>lastIndex</code> 的增加，等到将整个字符串匹配完成后，就跳出循环了。</p>
+<p>给以上知识点画个<strong>重点</strong>：</p>
+<ol>
+<li>将正则表达式保存到变量中，只在逻辑中使用这个变量，不仅性能更高，还安全。</li>
+<li>谨慎使用全局匹配，<code>RegExp.prototype.exec()</code> 或 <code>RegExp.prototype.test()</code>这两个方法的执行结果可能每次都不同。</li>
+<li>做到了以上两点后，还要谨慎在循环中使用正则匹配。</li>
+</ol>
+<h3 id="回溯陷阱-Catastrophic-Backtracking"><a href="#回溯陷阱-Catastrophic-Backtracking" class="headerlink" title="回溯陷阱 Catastrophic Backtracking"></a>回溯陷阱 Catastrophic Backtracking</h3><p>回溯陷阱是正则表达式本身的一个坑了，会导致非常严重的性能问题，事故现场可以参看<a href="https://juejin.im/post/5b287ea6f265da596d04a324" target="_blank" rel="noopener">《一个正则表达式引发的血案，让线上 CPU100% 异常！》</a>。</p>
+<p>简单介绍一下回溯陷阱的问题源头，正则引擎分为 <code>NFA（确定型有穷自动机）</code> 和 <code>DFA（不确定型有穷自动机）</code>，<code>DFA</code> 是从匹配文本入手，同一个字符不会匹配两次（可以理解为手里捏着文本，挨个字符拿去匹配正则），时间复杂度是线性的，它的功能有限，不支持回溯。大多数编程语言选用的都是 <code>NFA</code>，相当于手里拿着正则表达式，去匹配文本。</p>
+<p><code>/(a(bdc|cbd|bcd)/</code> 中已经有三种匹配路径，在 <code>NFA</code> 中，以文本 ‘abcd’ 为例，将花费 7 步才能匹配成功：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/11/1648a0bec1e52c79?w=1332&amp;h=972&amp;f=jpeg&amp;s=46788" alt="regex101"><br>（图中还包括了字符边界的匹配步骤，因此多了三步）</p>
+<ol>
+<li>正则中的第一个字符 a 匹配到 ‘abcd’ 中的第一个字母 ‘a’，匹配成功。</li>
+<li>此时遇到了匹配路径的分叉口，bdc 或 cbd 或 bcd，先使用 bdc 来匹配。</li>
+<li>bdc 中的第一个字符 b 匹配到了 ‘abcd’ 中的第二个字母 ‘b’，匹配成功。</li>
+<li>bdc 中的第二个字符 d 与 ‘abcd’ 中的第三个字母 ‘c’ 不匹配，这条路径匹配失败，此时将发生回溯（backtrack），把 ‘b’ 还回去。选择第二条路径 cbd 进行匹配。</li>
+<li>cbd 的第一个字符 ‘c’ 就与 ‘b’ 匹配失败。开始第三条路径 bcd 的匹配。</li>
+<li>bcd 的第一个字符 ‘b’ 与文本 ‘b’ 匹配成功。</li>
+<li>bcd 的第一个字符 ‘c’ 与文本 ‘c’ 匹配成功。</li>
+<li>bcd 的第一个字符 ‘d’ 与文本 ‘d’ 匹配成功。</li>
+</ol>
+<p>至此匹配完成。</p>
+<p>可想而知，如果正则中再多一些匹配路径或者匹配本文再长一点，匹配步骤将多到难以控制。</p>
+<p>比如用 <code>/(a*)*bc/</code> 来匹配 ‘aaaaaaaaaaaabc’ 都会导致性能问题，匹配文本中每增加一个 ‘a’，都会导致执行时间翻倍。</p>
+<p>禁止这种回溯陷阱的方法有两种：</p>
+<ol>
+<li>占有优先量词（Possessive Quantifiers）</li>
+<li>原子分组（Atomic Grouping）</li>
+</ol>
+<p>可惜 <strong>JavaScript 不支持这两种语法</strong>，有兴趣可以 Google 自行了解下。</p>
+<p>在 JavaScript 中我们没有方法可以直接禁止回溯陷阱，我们只能：</p>
+<ol>
+<li>避免量词嵌套 <code>(a*)* =&gt; a*</code></li>
+<li>减少匹配路径</li>
+</ol>
+<p>除此之外，我们也可以把正则匹配放到 Service Worker 中进行，从而避免影响页面性能。</p>
+<p>查资料的时候发现，回溯陷阱不仅会导致性能问题，也有安全问题，有兴趣可以看看先知白帽大会上的<a href="https://xianzhi.aliyun.com/forum/attachment/big_size/WAF%E6%98%AF%E6%97%B6%E5%80%99%E8%B7%9F%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AF%B4%E5%86%8D%E8%A7%81.pdf" target="_blank" rel="noopener">《WAF是时候跟正则表达式说再见》</a>分享。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://book.douban.com/subject/26285406/" target="_blank" rel="noopener">《正则表达式必知必会》</a></li>
+<li><a href="https://book.douban.com/subject/26638316/" target="_blank" rel="noopener">《JavaScript 忍者秘籍》第七章</a></li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/post/2018/character-encoding/" class="prev">上一篇</a><a href="/post/2018/gpu-animation-render-pipeline/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2019 <a href="https://blog.colafornia.me">Colafornia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-84469017-1",'auto');ga('send','pageview');</script></body></html>
