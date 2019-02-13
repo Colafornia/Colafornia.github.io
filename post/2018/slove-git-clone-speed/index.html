@@ -1,0 +1,35 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 解决 git clone 慢的问题 · Minibase</title><meta name="description" content="解决 git clone 慢的问题 - Colafornia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.colafornia.me/atom.xml" title="Minibase"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Colafornia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">解决 git clone 慢的问题</h1><div class="post-info">Mar 9, 2018</div><div class="post-content"><p><img src="/images/2018-3-git.png" alt="git-cover"></p>
+<p>年后这段时间连续遇到了两次 git clone 龟速缓慢，一天之内都 clone 不下来的问题。这里记录一下解决方法和原理。</p>
+<p>git clone 太慢的常规原因有两种，<strong>第一种是 git 仓库本身导致的，第二种是我们使用者的网络问题</strong>。</p>
+<a id="more"></a>
+<h2 id="一、Git-仓库体积太大"><a href="#一、Git-仓库体积太大" class="headerlink" title="一、Git 仓库体积太大"></a>一、Git 仓库体积太大</h2><p>大体积 Git 仓库一般也有两种，一是 commit 历史长，协作分支多导致的仓库自身体积变大，二是有过多的二进制文件。</p>
+<h4 id="1-commit-历史长，协作分支多导致的仓库自身体积变大"><a href="#1-commit-历史长，协作分支多导致的仓库自身体积变大" class="headerlink" title="1. commit 历史长，协作分支多导致的仓库自身体积变大"></a>1. commit 历史长，协作分支多导致的仓库自身体积变大</h4><p>Git 会把文件的每一个差异化版本都存储起来，随着 commit 越来越多，每一次小的修改 Git 都会存储一个新的快照，自然版本库体积也会越来越大。</p>
+<h5 id="①-浅克隆-shallow-clone"><a href="#①-浅克隆-shallow-clone" class="headerlink" title="① 浅克隆 shallow clone"></a>① 浅克隆 shallow clone</h5><p><code>git clone --depth n git://someserver/somerepo</code></p>
+<p>很多时候我们只对版本库的最近几次提交感兴趣，就可以通过 shallow clone 仅仅克隆最新的 n 条记录到本地，节省了非常多的时间。这种方法适用于当我们想对查看研究某远端库时使用，如果想在浅克隆的库上推送提交，会有一些限制。</p>
+<blockquote>
+<p>通过浅克隆方式克隆出来的版本库，每一个提交的 SHA1 哈希值和源版本库的相同，包括提交的根节点也是如次，但是 git 通过特殊的实现，使得浅克隆的根节点提交看起来没有父提交。正因为浅克隆的提交对象的 SHA1 哈希值和源版本库一致，所以浅克隆版本库可以执行 git fetch 或者 git pull 从源版本库获取新的提交。</p>
+</blockquote>
+<h4 id="②-只-clone-一个分支"><a href="#②-只-clone-一个分支" class="headerlink" title="② 只 clone 一个分支"></a>② 只 clone 一个分支</h4><p><code>git clone URL --branch branch_name --single-branch [folder]</code></p>
+<p>一般可以指定只 clone master 分支到本地，同样了节省了很多时间。</p>
+<h4 id="2-有过多的二进制文件"><a href="#2-有过多的二进制文件" class="headerlink" title="2. 有过多的二进制文件"></a>2. 有过多的二进制文件</h4><p>Git 主要适用于对文本文件进行版本控制，并不能很好地处理二进制文件的增量提交，每次更新一个二进制文件就会把这份文件的完整内容存储一份，随着更新修改越来越多，版本库的体积也会非常大，影响代码的拉取速度（这应该也是游戏团队主要还在使用 SVN 的原因）。</p>
+<p>这种情况较少会发生在前端项目仓库中，针对这种原因造成的 git clone 慢依然可以通过上面两种方法来节省克隆时间，除此之外在此简单介绍一下<strong>如何解决由于二进制文件造成的版本库体积过大问题</strong>。</p>
+<h4 id="①-稀疏检出-sparse-checkout"><a href="#①-稀疏检出-sparse-checkout" class="headerlink" title="① 稀疏检出 sparse checkout"></a>① 稀疏检出 sparse checkout</h4><p>通过 Git 在 1.7.0 版本之后提供的稀疏检出功能，可以设置只 checkout 出自己想要的内容。此时就可以通过它来跳过二进制文件。Worktree 中就只有我们指定检出的文件了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config core.sparseCheckout true // 开启稀疏检出功能</span><br><span class="line">echo &quot;path1/&quot; &gt;&gt; .git/info/sparse-checkout // 指定检出路径</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>原理是 git 在暂存区为每个文件提供一个名为 <code>skip-worktree</code> 标识位，如果标识位开启则无论工作区对应的文件存在与否，是否被修改，git 都认为该文件的版本是最新的，没有变化。</p>
+</blockquote>
+<h4 id="②-大文件储存-Git-LFS"><a href="#②-大文件储存-Git-LFS" class="headerlink" title="② 大文件储存 Git LFS"></a>② 大文件储存 Git LFS</h4><p>Github 和 Gitlab 目前都已经使用 <a href="https://git-lfs.github.com/" target="_blank" rel="noopener">Git LFS</a> 来支持二进制大文件的版本控制，将二进制文件存在版本库之外，在版本库内使用文本指针来代替。</p>
+<p><img src="https://git-lfs.github.com/images/facebook-promo.png" alt="Git LFS"></p>
+<h2 id="二、网络被墙"><a href="#二、网络被墙" class="headerlink" title="二、网络被墙"></a>二、网络被墙</h2><p>我这两次遇到的问题其实都是网络问题。春节前后辽宁那边的网络都是这个状况，年后回来我司的网络也被 github 墙了。这里介绍一下给 Git 设置代理的方法。</p>
+<p>git clone 有两种协议可供选择：</p>
+<p><img src="/images/git-clone-shot.jpeg" alt="git clone"></p>
+<p>这里介绍的是针对 HTTPS 协议的代理。</p>
+<p>首先来看一下自己的 SS 代理设置 socks5 监听端口是多少，比如我的端口就是1086：</p>
+<p><img src="/images/ss.jpeg" alt="ss"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.https://github.com.proxy socks5://127.0.0.1:1086</span><br><span class="line">git config --global https.https://github.com.proxy socks5://127.0.0.1:1086</span><br></pre></td></tr></table></figure>
+<p>这个设置只代理了 github，不会对国内仓库使用代理。</p>
+<h4 id="参考内容"><a href="#参考内容" class="headerlink" title="参考内容"></a>参考内容</h4><ul>
+<li><a href="https://www.worldhello.net/gotgit/08-git-misc/090-sparse-checkout-and-shallow-clone.html" target="_blank" rel="noopener">GotGit： 稀疏检出和浅克隆</a></li>
+<li><a href="https://segmentfault.com/q/1010000000118837" target="_blank" rel="noopener">segmentfault：如何为 Git 设置代理</a></li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/post/2018/thrift-note/" class="prev">上一篇</a><a href="/post/2018/review-copy-in-javascript/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2019 <a href="https://blog.colafornia.me">Colafornia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-84469017-1",'auto');ga('send','pageview');</script></body></html>

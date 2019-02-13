@@ -1,0 +1,93 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 回顾一下 JavaScript 中的深浅拷贝以及内存管理 · Minibase</title><meta name="description" content="回顾一下 JavaScript 中的深浅拷贝以及内存管理 - Colafornia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.colafornia.me/atom.xml" title="Minibase"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Colafornia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">回顾一下 JavaScript 中的深浅拷贝以及内存管理</h1><div class="post-info">Jan 13, 2018</div><div class="post-content"><p><img src="/images/review-copy-in-javascript.png" alt="cover"></p>
+<p>最近在组内 code review 中遇到了一处业务代码中需要深拷贝的地方，同学简单地通过 <code>JSON.parse(JSON.stringify(target))</code> 来进行，在讨论中发现了一些好玩的东西，特此来回顾一下。</p>
+<a id="more"></a>
+<h3 id="基本类型-VS-引用类型，值传递-VS-引用传递"><a href="#基本类型-VS-引用类型，值传递-VS-引用传递" class="headerlink" title="基本类型 VS 引用类型，值传递 VS 引用传递"></a>基本类型 VS 引用类型，值传递 VS 引用传递</h3><p>首先回顾一下高程中的基本概念。</p>
+<p>ECMAScript 变量包含两种数据类型的值：基本类型值与引用类型值。基本类型指的是简单的数据段，如 <code>Undefined</code>、<code>Null</code>、<code>Boolean</code>、<code>Number</code> 和 <code>String</code>（ES6 中出现的 <code>Symbol</code> 也属于基本类型）。引用类型指的是可能由多个值构成的对象。</p>
+<p>基本类型是按值访问的，<strong>可以操作保存在变量中的实际的值</strong>。</p>
+<p>引用类型的值是保存在内存中的对象，<strong>JavaScript 不允许直接访问内存中的位置</strong>，因此我们在操作对象时，是在操作对象的引用而不是实际的对象。</p>
+<p>然而访问变量有按值和按引用两种方式，而 <strong>参数只能按值传递</strong>。在向参数传递引用类型的值时，会把值在内存中的地址复制给另一个局部变量。</p>
+<h3 id="深入内存"><a href="#深入内存" class="headerlink" title="深入内存"></a>深入内存</h3><p>以上虽然不难理解，但是不深层挖掘一下还是很难完全记住。所以来看看内存中到底发生了什么吧。</p>
+<p>先看看内存的生命周期：</p>
+<p><img src="https://raw.githubusercontent.com/dt-fe/weekly/master/assets/29/1.jpg" alt="life"></p>
+<p>即 内存分配 =&gt; 内存读写 =&gt; 内存释放</p>
+<p>JavaScript 在定义变量时即完成了内存分配。<strong>运算符= 就是创建或修改变量在内存中的指向。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123; <span class="attr">b</span>: <span class="number">1</span> &#125;; <span class="comment">// a 为引用类型，给 a 分配内存 &#123; b: 1 &#125;， a 存储的即为 &#123; b: 1 &#125; 的地址</span></span><br><span class="line"><span class="keyword">var</span> c = a; <span class="comment">// 给 c 分配内存 指向 a 存储的地址，即 &#123; b: 1 &#125; 的地址</span></span><br><span class="line">a = <span class="number">2</span>; <span class="comment">// 修改 a 的内存指向到 2</span></span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// c 存储的仍为 &#123; b: 1 &#125; 的地址，因此结果为 &#123; b: 1 &#125;</span></span><br></pre></td></tr></table></figure>
+<p>前两行代码在内存中的分布为：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量</th>
+<th style="text-align:center">内存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a</td>
+<td style="text-align:center">{ b: 1 } 地址</td>
+</tr>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:center">{ b: 1 } 地址</td>
+</tr>
+</tbody>
+</table>
+<p>第三行修改了内存指向：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量</th>
+<th style="text-align:center">内存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<p>变量 c 仍然指向 { b: 1 } 的地址。</p>
+<p>再看一个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span> &#125;</span><br><span class="line"><span class="keyword">var</span> n = m; <span class="comment">// 复制引用类型的值，使 n 和 m 指向同一地址</span></span><br><span class="line">n.a = <span class="number">15</span>;</span><br><span class="line"><span class="built_in">console</span>.log(m.a);</span><br></pre></td></tr></table></figure>
+<p>还是先看前两行：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量</th>
+<th style="text-align:center">内存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">m</td>
+<td style="text-align:center">{ a: 10, b: 20 } 地址</td>
+</tr>
+<tr>
+<td style="text-align:center">n</td>
+<td style="text-align:center">{ a: 10, b: 20 } 地址</td>
+</tr>
+</tbody>
+</table>
+<p>第三行通过 n.a 修改了变量，但 m 和 n 仍然指向同一地址不变，因此 m.a 的值也为 15</p>
+<p>对于参数传递过程中的内存变化不是本文重点，可以观摩 <a href="https://github.com/mqyqingfeng/Blog/issues/10" target="_blank" rel="noopener">JavaScript深入之参数按值传递</a> 下面精彩的评论来学习。</p>
+<p>有很多博文还针对 JavaScript 的内存空间，栈内存与堆内存进行了讲解，但是对于这方面实在没有经验，没什么鉴别能力，暂时先不说了。</p>
+<h3 id="JavaScript-中的深浅拷贝"><a href="#JavaScript-中的深浅拷贝" class="headerlink" title="JavaScript 中的深浅拷贝"></a>JavaScript 中的深浅拷贝</h3><p>回顾完以上知识点后，可以发现对于对象的拷贝，其实分为两种情况（这里，将被拷贝对象称为源对象）：</p>
+<ul>
+<li>shallow clone 浅拷贝：如果对象中某个属性值是对象的话，浅拷贝的只是内存指针，当内存中的值发生变化后，拷贝对象与源对象与都会发生改变。</li>
+<li>deep clone 深拷贝：拷贝对象与源对象是完全单独的对象，没有属性值是指向同一内存指针的，源对象发生任何修改都不会引起拷贝对象发生变化。</li>
+</ul>
+<p>需要注意一点，ES6 中 Object 的新方法 <code>Object.assign</code> 执行的就是浅拷贝，Stack Overflow 上有一个高票回答误将其答为深拷贝，我就踩了坑，避免加深错误印象，这里不放链接了。</p>
+<p>ES6 中的 Object <code>rest/spread destructuring</code> 也是浅拷贝：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> existing = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> &#123; ...clone &#125; = existing;</span><br></pre></td></tr></table></figure>
+<p>对于深拷贝，可想而知，需要对嵌套对象进行递归遍历，但是真正实现 deep clone 没有想象的简单，主要原因在于 deep clone 的定义并不统一，以及 edge case 非常多，包含 DOM/BOM 对象如何处理，函数如何处理，原型链如何处理等问题。但是希望 “做出修改不影响其它引用” 确实是一个常见场景。</p>
+<p>最简单的方法就是开头提到的 <code>JSON.parse(JSON.stringify(target))</code>。缺点在于无法处理 Date、Function 等类型的属性值。</p>
+<p>因此在业务中推荐使用 lodash 的 <a href="https://lodash.com/docs/4.17.4#cloneDeep" target="_blank" rel="noopener">_.cloneDeep</a> 实现深拷贝，简洁可靠。</p>
+<p>实际上，在 <a href="http://facebook.github.io/immutable-js/" target="_blank" rel="noopener">immutable.js</a> 出现后，实现数据结构的持久化有了更优雅的方式。</p>
+<h3 id="希望之光-Immutable"><a href="#希望之光-Immutable" class="headerlink" title="希望之光 Immutable"></a>希望之光 Immutable</h3><p><img src="https://camo.githubusercontent.com/4c698f4cef2ae6b69873aa7de91f6d10f28162e1/687474703a2f2f696d672e616c6963646e2e636f6d2f7470732f69312f544231796b395f4b585858585862565846585845745848387058582d3930302d3334322e706e67" alt="Immutable"></p>
+<p>JavaScript 中的对象一般都是可变的（mutable），虽然节省了内存，却给复杂的大型应用造成很多隐患。Immutable Data 为一旦创建，就不能再被修改的数据。通过 <strong>Persistent Data Structure</strong>（持久化数据结构）使得在使用旧数据创建新数据时，也保证了旧数据同时可用且不变。</p>
+<p>前面所述的 deep clone 方法是把所有节点都复制一遍，性能损耗非常大。Immutable 使用了 <strong>Structural Sharing</strong>（结构共享），性能提升很多。</p>
+<p>通过 immutable.js 实现 deep clone:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> defaultConfig = Immutable.fromJS(&#123;&#125;);</span><br><span class="line"><span class="keyword">var</span> config = defaultConfig.merge(initConfig); <span class="comment">// defaultConfig不会改变，返回新值给 config</span></span><br><span class="line"><span class="keyword">var</span> config = defaultConfig.mergeDeep(initConfig); <span class="comment">// 深层merge</span></span><br></pre></td></tr></table></figure>
+<p>immutable.js 提供了7种不可变的数据结构：List, Stack, Map, OrderedMap, Set, OrderedSet, Record。</p>
+<p>虽然 immutable.js 通常与 facebook 同厂出品的 React 一起使用，但是它其实是一个完全独立的库，无论基于什么框架都可以使用。说它是希望之光并没有言过其实。更多内容可以查看 <a href="https://github.com/camsong/blog/issues/3" target="_blank" rel="noopener">Immutable 详解及 React 中实践</a>。</p>
+</div></article></div></main><footer><div class="paginator"><a href="/post/2018/slove-git-clone-speed/" class="prev">上一篇</a><a href="/post/2017/2017-review/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2019 <a href="https://blog.colafornia.me">Colafornia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-84469017-1",'auto');ga('send','pageview');</script></body></html>

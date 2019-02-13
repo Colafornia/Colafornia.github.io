@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 浏览器 GPU 动画优化与 Render Pipeline · Minibase</title><meta name="description" content="浏览器 GPU 动画优化与 Render Pipeline - Colafornia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.colafornia.me/atom.xml" title="Minibase"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Colafornia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">浏览器 GPU 动画优化与 Render Pipeline</h1><div class="post-info">May 28, 2018</div><div class="post-content"><p><img src="/images/render-pipeline-cover.jpg" alt="cover"></p>
+<p>上周在组里做了一个小的技术分享，本文是对这次分享内容的一个文字化梳理。</p>
+<a id="more"></a>
+<h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p><img src="https://p0.meituan.net/scarlett/e328aa2a7280812a89eced601d302f3418041.jpg" alt=""></p>
+<p>一个 Web 页面由代码最终转化为屏幕上的像素点，大致遵循图中的步骤：</p>
+<blockquote>
+<p>JS/CSS &gt; 样式 &gt; 布局 &gt; 绘制 &gt; 合成</p>
+</blockquote>
+<p>① 指由 JavaScript 和 CSS 编写的动画代码</p>
+<p>② 浏览器根据 CSS 选择器匹配计算（计算权重等）每个元素的最终样式</p>
+<p>③ 浏览器计算元素所占的空间大小及其在屏幕上的位置（由于元素会互相影响，计算布局这一步骤会经常发生）</p>
+<p>④ 在多个层上填充像素进行绘制，绘制每个元素的可视部分</p>
+<p>⑤ 合成，将上一步中绘制出的多个层，正确合成到页面上</p>
+<p>在之前的知识中，我们都知道，要正确使用、访问 CSS 属性，尽量少触发浏览器的 <code>重排重绘</code>，从而提升动画性能。</p>
+<p>重排重绘指的是上述的③④步骤，本文主要探讨的是步骤⑤中的<strong>合成</strong>相关的概念与优化手段。</p>
+<h3 id="二、渲染基础概念"><a href="#二、渲染基础概念" class="headerlink" title="二、渲染基础概念"></a>二、渲染基础概念</h3><p>在研究浏览器的 Composite 步骤前，有几个渲染相关的概念必须了解。</p>
+<p>本文主要基于 Chrome 的内核 <code>Blink</code> 的渲染概念描述。</p>
+<h4 id="1-Blink"><a href="#1-Blink" class="headerlink" title="1.Blink"></a>1.Blink</h4><p><img src="https://p1.meituan.net/scarlett/dc2500cbb537de8934117c2579ecad3227964.jpg" alt=""></p>
+<p>在此之前我一直以为 Chrome 的内核依然是 <code>Webkit</code>，真是村通网。</p>
+<p>实际上 <code>Webkit</code> 内核是苹果团队的开源作品，Chrome 在 2013 年之前一直基于其作为浏览器内核。直至 <code>Webkit2</code> 与 <code>Chromium</code> 的沙箱设计存在冲突，两方团队才决定分道扬镳。</p>
+<p>Google 团队从 Webkit 中 fork 出一份代码，将在 <code>WebKit</code> 代码的基础上研发更加快速和简约的渲染引擎，并逐步脱离 <code>WebKit</code> 的影响，创造一个完全独立的 <code>Blink</code>（据说删掉了 Webkit 中 880W 行代码）。</p>
+<p>由于此缘故，Blink 与 Webkit 对于渲染过程中的一些流程，术语并不完全相同，本文以 Blink 为准。</p>
+<h4 id="2-RenderObject-与-RenderLayer"><a href="#2-RenderObject-与-RenderLayer" class="headerlink" title="2.RenderObject 与 RenderLayer"></a>2.RenderObject 与 RenderLayer</h4><p><img src="https://p1.meituan.net/scarlett/aabc7b208641fdf392dfe9b855a109b576936.jpg" alt=""></p>
+<p>浏览器解析 HTML 文件生成 <code>DOM 树</code>，然而 <code>DOM 树</code>是不可以直接被用于排版的，内核还会再生成 <code>RenderObject 树</code>。每一个可见的 DOM 节点都会生成相应的 RenderObject 节点。</p>
+<p>排版引擎经过 DOM 树与 CSS 定义对 Render 树进行排版，Render 树作为排版引擎的输出，渲染引擎的输入。</p>
+<p>拥有相同坐标空间的 RenderObject 属于同一渲染层（RenderLayer），RenderLayer 最初被用来实现<code>层叠上下文（stacking context）</code>，以保证页面元素以正确顺序合成。</p>
+<p>生成 RenderLayer 与具备层叠上下文的条件是一样的：</p>
+<p><img src="https://p0.meituan.net/scarlett/85b3d7376bc7c693e872ca668bef980b232822.jpg" alt=""></p>
+<h4 id="3-GraphicsLayer"><a href="#3-GraphicsLayer" class="headerlink" title="3.GraphicsLayer"></a>3.GraphicsLayer</h4><p><img src="https://p0.meituan.net/scarlett/d48ec20953d86e41c8fb62bb6267690d38392.jpg" alt=""></p>
+<p>某些特殊的 <code>RenderLayer</code> 渲染层会被认为是<code>合成层（Compositing Layers）</code>，合成层拥有单独的 GraphicsLayer。这其实是浏览器为了提升动画性能做出的设计。</p>
+<p>为了在动画的每一帧的过程中不必每次都重新绘制整个页面。在特定方式下可以触发生成一个合成层，合成层拥有单独的 <code>GraphicsLayer</code>。</p>
+<p>需要进行动画的元素包含在这个合成层之下，这样动画的每一帧只需要去重新绘制这个 <code>GraphicsLayer</code> 即可，从而达到提升动画性能的目的。</p>
+<p>生成 GraphicsLayer 的条件：</p>
+<p><img src="https://p1.meituan.net/scarlett/5855a920418f70e0e50f1b0438601e42168085.jpg" alt=""></p>
+<h3 id="三、Render-Pipeline-渲染流水线"><a href="#三、Render-Pipeline-渲染流水线" class="headerlink" title="三、Render Pipeline 渲染流水线"></a>三、Render Pipeline 渲染流水线</h3><p>在了解了以上渲染概念后，我们可以来看看一个极简版的渲染流水线示意图：</p>
+<p><img src="https://p0.meituan.net/scarlett/ff9a521cfb9093806a408fa2ba2a51c26992.png" alt=""></p>
+<p>Blink 内核运行在主线程上，负责 JavaScript 的解析执行，HTML/CSS 解析，DOM 操作，排版，图层树的构建和更新等任务。</p>
+<p>Layer Compositor（图层合成器）运行在 Compositor 线程上，接收 Blink 的输入，负责图层树的管理。</p>
+<p>Display Compositor 接收 Layer Compositor 的输入，负责输出最终的 OpenGL 绘制指令，将网页内容通过 GL 绘制到显示屏上。</p>
+<p>将渲染流水线的内容按照线程做一下区分：</p>
+<p><img src="https://p0.meituan.net/scarlett/f7537a196f23b0f1f6b7ed9d893fedea39673.jpg" alt=""></p>
+<p>由此，Web 动画可以分为两大类：</p>
+<ul>
+<li>合成器动画：大多数基于 CSS 的动画，<code>transforms</code> 和 <code>opacity</code> 等都可以在合成线程中处理。</li>
+<li>非合成器动画：引起了绘制、布局的动画，<code>Timer</code> 或者 <code>requestAnimationFrame</code> 等由 JavaScript 驱动的动画。</li>
+</ul>
+<p><strong>如果浏览器在主线程上运行一些耗时的任务，合成器动画可以继续运行而不会中断</strong>。</p>
+<h3 id="四、Web-动画优化建议"><a href="#四、Web-动画优化建议" class="headerlink" title="四、Web 动画优化建议"></a>四、Web 动画优化建议</h3><p><img src="https://www.html5rocks.com/zh/tutorials/speed/high-performance-animations/cheap-operations.jpg" alt=""></p>
+<p>现代浏览器在完成以上四种属性的动画时，消耗成本较低。根本原因是这四种属性生成了自己的图形层（GraphicsLayer），开启了 <code>GPU 硬件加速</code>。</p>
+<p>开启 GPU 硬件加速的方法主要有两种：</p>
+<ul>
+<li>will-change</li>
+<li>transform: translateZ(0)</li>
+</ul>
+<p>第二种我们应该都不陌生，第一种是 CSS3 的属性，它会通知浏览器你打算更改元素的属性。浏览器会在你进行更改之前做最合适的优化。</p>
+<p>然而通过生成图形层（GraphicsLayer）的方式来进行性能优化却有个深坑 —— <code>隐式合成</code>。</p>
+<p><img src="https://p1.meituan.net/scarlett/4651555d9265a7d0280b038d501d31ac60552.jpg" alt=""></p>
+<p>如图所示，a, b两个元素都具有 absolute 和 z-index 属性，其中 a 元素的 z-index 大于 b，因此 a 位于 b 图层之上。</p>
+<p>如果我们将 a 元素使用 left 属性，做一个移动动画，那么 a元素就有了一个合成层，动画得到了性能提升。</p>
+<p>那么，如果 a 静止不动，我们让 b 元素做动画呢？b 元素将拥有一个独立合成层；然后它们将被 GPU 合成。但是因为 a 元素要在 b 元素的上面（因为 a 元素的 z-index 比 b 元素高），那么浏览器会做什么？<strong>浏览器会将 a 元素也单独做一个合成层！</strong></p>
+<p>所以我们现在有三个合成层 a 元素所在的复合层、b 元素所在的合成层、其他内容及背景层。</p>
+<p>没有自己合成层的元素要出现在有合成层元素的上方，它就会拥有自己的复合层；这种情况被称为<strong>隐式合成</strong>。</p>
+<blockquote>
+<p>GraphicsLayer 虽好，但不是越多越好，每一帧的渲染内核都会去遍历计算当前所有的 GraphicsLayer ，并计算他们下一帧的重绘区域，所以过量的 GraphicsLayer 计算也会给渲染造成性能影响。</p>
+</blockquote>
+<p>因此我们的最终结论是：</p>
+<ol>
+<li>尽量保持让需要进行 CSS 动画的元素的 z-index 保持在页面最上</li>
+<li>有节制地优化，不要过早优化（不要滥用 will-change 等 GPU 加速手段）</li>
+<li>根据 Chrome Devtool 查看 GraphicsLayer 每层占用的内存</li>
+</ol>
+<h3 id="五、参考内容"><a href="#五、参考内容" class="headerlink" title="五、参考内容"></a>五、参考内容</h3><ul>
+<li><a href="https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/" target="_blank" rel="noopener">CSS GPU Animation: Doing It Right</a></li>
+<li><a href="http://taobaofed.org/blog/2016/04/25/performance-composite/" target="_blank" rel="noopener">无线性能优化：Composite</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/30534023" target="_blank" rel="noopener">浏览器渲染流水线解析与网页动画性能优化</a></li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/post/2018/learning-regex-again/" class="prev">上一篇</a><a href="/post/2018/from-decorator-to-hoc/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2019 <a href="https://blog.colafornia.me">Colafornia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-84469017-1",'auto');ga('send','pageview');</script></body></html>

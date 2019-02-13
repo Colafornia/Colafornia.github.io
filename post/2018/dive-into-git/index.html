@@ -1,0 +1,130 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Git 原理应知应会 · Minibase</title><meta name="description" content="Git 原理应知应会 - Colafornia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.colafornia.me/atom.xml" title="Minibase"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Colafornia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Git 原理应知应会</h1><div class="post-info">May 8, 2018</div><div class="post-content"><p><img src="/images/dive-into-git/cover.jpg" alt="cover"></p>
+<p>初学编程时，Git 算是最令人心有余悸的 Boss 了，毕竟相比于写出 Bug 这种常见事情，把自己/别人代码弄丢这种事更为可怕。</p>
+<p>本文只介绍 Git 原理中最为硬核的部分，如果想把所有原理都探究明白，内容多到可以写本书。因此，本文只试图解答：</p>
+<blockquote>
+<ol>
+<li>Git 是怎么存储内容的？存到哪里了？</li>
+<li>工作区，暂存区，版本库，各种教程里这仨名词一看就晕，能说人话吗？</li>
+<li>git reset 来，git reset 去，感觉啥都能 reset，我到底在干啥？</li>
+<li>Git 快在哪里？大神都说 Git 好用，怎么还这么难学？</li>
+</ol>
+</blockquote>
+<p>Let’s go!</p>
+<a id="more"></a>
+<h3 id="一、Git-简介"><a href="#一、Git-简介" class="headerlink" title="一、Git 简介"></a>一、Git 简介</h3><p>首先回顾一下 Git 是什么，Git 是一个<code>分布式版本控制系统（Distributed Version Control System - DVCS）</code>。由 Linux 之父 Linus Torvalds 用两周时间写出了第一个版本。经过十多年的发展，Git 的内部设计基本没有变化。</p>
+<p>它与先前流行的版本控制系统 <code>SVN</code> 相比，区别在于，除了中央仓库，还有本地仓库。中央仓库仅负责同步团队代码，其它如查看历史，提交代码等操作可以在成员的本地仓库中进行。除此之外，SVN 存储的是版本间的文件差异，Git 存储的则是每一个版本的<code>快照</code>，后面我们将详细说明。</p>
+<h3 id="二、Git-文件系统"><a href="#二、Git-文件系统" class="headerlink" title="二、Git 文件系统"></a>二、Git 文件系统</h3><p>我们对于 Git 的使用，都是在使用命令，例如 <code>git add</code>，<code>git commit</code> 等，它们都属于 Git 的<code>高层命令</code>。</p>
+<p>通过 <code>git help -a</code> 查看所有的 Git 命令：</p>
+<p><img src="/images/dive-into-git/dive-into-git1.jpg" alt="dive-into-git1"></p>
+<p>实际上，Git 有一百多个命令，其中<code>底层命令</code>被设计为 Unix 风格，由脚本调用，并不常用。我们平时所使用的<code>高层命令</code>设计的更为友好（可以理解为是被高度封装过的现成工具）。因此，想要了解 Git 原理就必须从<code>底层命令</code>入手。</p>
+<p><img src="https://yanhaijing.com/blog/464.png" alt=""></p>
+<p>每当执行 <code>git init</code> 时，Git 便会创建一个 <code>.git</code> 目录，几乎 Git 所储存，操作的所有内容都在这个目录下（如果想拷贝一个 Git 仓库，拷贝这个目录即可）。了解 Git 原理也可以称为了解这个这个目录各部分是做什么的。</p>
+<p><img src="/images/dive-into-git/dive-into-git2.jpg" alt="dive-into-git2"><br>（图中是我的一个小项目的 <code>.git</code> 目录）</p>
+<ul>
+<li>指针 (HEAD, FETCH_HEAD, ORIG_HEAD)</li>
+<li>对象<ul>
+<li>objects/（所有的对象，包括blob， tree， commit）</li>
+<li>refs/ （所有的引用）<ul>
+<li>local branch</li>
+<li>remote branch</li>
+<li>tag</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>index (索引)</li>
+<li>config (设置)</li>
+</ul>
+<p>接下来我们来重点介绍一下 objects 和 refs 两个部分。</p>
+<h4 id="1-objects"><a href="#1-objects" class="headerlink" title="1. objects"></a>1. objects</h4><p><img src="/images/dive-into-git/dive-into-git7.jpg" alt="dive-into-git7"><br>（刚初始化的项目，objects 目录下只有两个空文件夹）</p>
+<p>首先看一下最基本的部分，objects 目录，Git 所存储的数据都在这里。我们来看看 Git 到底是怎么存储内容的吧。</p>
+<p>前面提到了 Git 存储的是<code>快照</code>，这实际上说的是 <code>SHA-1 哈希值</code>。</p>
+<blockquote>
+<p>Git 为每份内容生成一个文件，取得其 SHA-1 哈希值，用哈希值的前两个字符为名称创建子目录，用剩下 38 个字符为文件命名 (保存至子目录下)。</p>
+</blockquote>
+<p>听起来有点绕口，我们可以动手操作实验一下，通过底层命令 <code>hash-object</code> 可以计算内容的 SHA-1 值：</p>
+<p><img src="/images/dive-into-git/dive-into-git3.jpg" alt="dive-into-git3"><br>字符串 hello git 的哈希结果是 <code>8d0e41234f24b6da002d962a26c2495ea16a425f</code></p>
+<p>把这段字符串保存在一个文件中再计算 SHA-1：</p>
+<p><img src="/images/dive-into-git/dive-into-git4.jpg" alt="dive-into-git4"></p>
+<p>得到了一样的哈希值。</p>
+<p>改变一下文件的文本内容，哈希值则发生了改变：</p>
+<p><img src="/images/dive-into-git/dive-into-git5.jpg" alt="dive-into-git5"></p>
+<p>至此，我们已经知道：</p>
+<blockquote>
+<ol>
+<li>Git 由文件内容计算其哈希值</li>
+<li>哈希值相同则文件内容相同（即使我们将一个文件拷贝到不同目录下，Git 也仅存储一份内容）</li>
+</ol>
+</blockquote>
+<p>现在我们把 hello.txt 文件提交：</p>
+<p><img src="/images/dive-into-git/dive-into-git8.jpg" alt="dive-into-git8"></p>
+<p>再看一下 objects 目录。</p>
+<p><img src="/images/dive-into-git/dive-into-git6.jpg" alt=""></p>
+<p>发现多了三个文件夹！其中 8d 文件夹和子文件名加起来（<code>8d0e4123...</code>）正好是字符串 hello git 的哈希结果。而 10 文件夹则是本次 commit 的哈希值。</p>
+<p>除了 <code>hash-object</code> 命令之外，还有一个好用的底层命令 <code>cat-file</code>，它可以将数据内容取回，传入 <code>-p</code> 参数可以让该命令输出数据内容的类型。我们拿 commit 的哈希值试一试：</p>
+<p><img src="/images/dive-into-git/dive-into-git9.jpg" alt="dive-into-git9"><br>我们得到了 commit 对象，其中包含了本次提交的时间，commit message，提交者信息，以及一个类型为 <code>tree</code> 的哈希值 07ed5a7。对其取值查看，发现了第三个哈希对象，类型为 blob，其哈希值为 hello.txt 内容的哈希值。</p>
+<p>三个哈希对象之间的关系：</p>
+<p><img src="/images/dive-into-git/dive-into-git10.jpg" alt="dive-into-git10"><br>在此，我们已经知道了三种 <code>Git 基本对象</code>：</p>
+<ul>
+<li>Blob 对象：对单个文件的压缩存储</li>
+<li>Tree 对象：对文件目录树的存储</li>
+<li>Commit 对象：对 tree 对象的包装，带有其它提交信息</li>
+</ul>
+<p>因此仓库中的一个常规项目结构，在 .git 中会存储为右图所示的结构：</p>
+<p><img src="/images/dive-into-git/dive-into-git12.jpg" alt="dive-into-git12"></p>
+<p>现在我们再把 bye.txt 也提交了。可以发现新的 commit 哈希对象中还包含了 parent 信息，其值为上一个 commit 的哈希值。</p>
+<p>Git history 中的各个 commit 其实是一个<code>单向链表</code>的结构，通过 parent 关联父节点。</p>
+<p><img src="/images/dive-into-git/dive-into-git11.jpg" alt="dive-into-git11"><br>其中每个 commit 中都包含了当时仓库的目录结构与文件内容。这便是达成版本管理的基础。</p>
+<h4 id="2-refs"><a href="#2-refs" class="headerlink" title="2. refs"></a>2. refs</h4><p>refs 目录存储了所有的引用文件。</p>
+<p><img src="/images/dive-into-git/dive-into-git13.jpg" alt="dive-into-git13"><br>引用文件的内容也都是 40 位的 SHA-1 值。先看一下 master 是什么：</p>
+<p><code>cat .git/refs/heads/master</code></p>
+<p>哈希值为 <code>38779e1ee3e4959e21e599ad0974a2c915613d9e</code>，就是第二次提交 commit 的哈希值。我们可以猜测，<strong>branch 其实就是 commit 的引用</strong>。为了验证一下这个想法，我们新建一个分支试试：</p>
+<p><img src="/images/dive-into-git/dive-into-git14.jpg" alt="dive-into-git14"><br>可以发现，refs 目录中多了一个与新分支同名的文件，且其哈希值依然为第二次提交 commit 的哈希值。所以我们的猜想没错。</p>
+<p>但是当我们新建 new-branch 分支时，Git 是怎么知道最后一次提交的 SHA-1 值呢？答案就是 <code>HEAD 文件</code>。<strong><code>HEAD 文件</code>是一个指向你当前所在分支的引用标识符</strong>。也就是我们每次查找 log 时看到的 HEAD 标记：</p>
+<p><img src="/images/dive-into-git/dive-into-git15.jpg" alt="dive-into-git15"></p>
+<p>介绍到这里，我们可以发现<strong>Git 中的引用是非常廉价的</strong>，开新的 branch 和 tag 都只是多了一个引用文件，而有些中央式版本控制系统开分支时会复制一份内容，非常耗费资源。</p>
+<p>分支是一种移动的引用。而标签则是静止的引用。<code>.git/refs</code> 目录下的 tags 目录就是保存标签信息的地方，标签同样也是 commit 对象的引用，只是它<strong>永远指向同一个 commit，不会变化</strong>。</p>
+<p>最后一种引用类型是 <code>remote reference 远程引用</code>，我们每次执行将提交 push 到远端后，<code>.git/refs/remotes/</code> 目录下就会记录此次与远端通信的最后一个 commit 的哈希值。</p>
+<p>与 Git 的引用文件强相关的高层命令是 <code>git reset [--soft | --mixed | --hard | --merge | --keep] [-q] [&lt;commit&gt;]</code>，虽然这个命令后面可以加很多参数，但实际上它们所操作的都是 <code>.git/refs/heads</code> 目录下当前分支对应的引用文件。</p>
+<h3 id="三、Git-暂存区"><a href="#三、Git-暂存区" class="headerlink" title="三、Git 暂存区"></a>三、Git 暂存区</h3><p>工作区，暂存区，版本库，这三个名词是我一开始看各种 Git 教程时最脑阔疼的东西，每次都要小心辨认，再心里默念一遍才分的清楚。其中工作区和版本库还好理解，<code>暂存区</code> 是最为懵逼的一个概念。</p>
+<p>所以来看看 Git 暂存区到底是什么，为什么需要这个东西呢。</p>
+<p>在 .git 目录下中有一个 index 文件它与暂存区的概念相关，我们动手实验看看它是干啥的。就着前面的实验，我们继续操作一下，改一下 hello.txt 的内容，然后执行 <code>git checkout</code> 撤销对这个文件的修改：</p>
+<p><img src="/images/dive-into-git/dive-into-git16.jpg" alt="dive-into-git16"><br>撤销后工作区已经没有文件改动了，发现 <code>.git/index</code>文件的时间戳是 17:02:00。</p>
+<p><img src="/images/dive-into-git/dive-into-git17.jpg" alt="dive-into-git17"><br>再通过 <code>git status</code> 看一下工作区状态，发现 <code>.git/index</code> 文件的时间戳没有变化。</p>
+<p>我们用 Linux 命令 <code>touch</code> 改一下 hello.txt 的时间戳再看看：</p>
+<p><img src="/images/dive-into-git/dive-into-git18.jpg" alt="dive-into-git18"><br>发现虽然文件没有变化，<code>.git/index</code> 文件的时间戳却发生了改变。</p>
+<blockquote>
+<p>这是因为 <code>git status</code> 命令查看工作区状态时，先根据 .git/index 文件中记录的时间戳，长度等信息判断工作区文件是否改变。如果时间戳变了，说明文件<strong>有可能</strong>发生改变，Git 需要读取文件，与原始文件进行对比，去判断它是否发生变化。如果没有改变，则将文件新的时间戳记录到 .git/index 文件中。</p>
+<p><strong>因为判断文件是否更改，使用时间戳、文件长度等信息进行比较要比通过文件内容比较要快的多</strong>，所以 Git 这样的实现方式可以让工作区状态扫描更快速的执行，这也是 Git 高效的因素之一。</p>
+</blockquote>
+<p><strong>.git/index 文件实际上是一个包含文件索引的目录树，就是所谓的<code>暂存区</code></strong>，它记录了文件的名称，时间戳，长度等信息，但并不储存文件，文件内容依然位于 <code>.git/objects</code> 中。<code>.git/index</code> 中的索引建立了文件和对象库中对象实体之间的对应。</p>
+<p><img src="https://www.worldhello.net/wpfiles/2010/11/git-stage.png" alt="index"></p>
+<p>图中版本库中的 index 区域就是暂存区，可以看到 index 区域与 master 区域其实都是对 objects 中存储的文件内容的索引。与先前了解到的一致，游标形状的 <code>HEAD</code> 是一个指向当前所在分支的标识符。</p>
+<p>图中还列出了 Git 命令是如何影响工作区与暂存区的。值得注意的是 <code>git reset HEAD</code> 命令。</p>
+<p><code>git reset</code> 有两种使用方法：</p>
+<ol>
+<li><code>git reset [--soft | --mixed | --hard | --merge | --keep] [-q] [&lt;commit&gt;]</code></li>
+<li><code>git reset [-q] [&lt;commit&gt;] [--] &lt;paths&gt;</code></li>
+</ol>
+<p>在前面我们了解到第一种使用方法实际上是改变了引用文件。 git reset 的第二种使用方法并不会改变引用，它会用已经 commit 到版本库的文件替换掉暂存区中的文件。因此，<code>git reset HEAD &lt;paths&gt;</code> 就是取消之前执行 <code>git commit &lt;paths&gt;</code> 时所改变的暂存区。</p>
+<h3 id="四、Git-的痛点"><a href="#四、Git-的痛点" class="headerlink" title="四、Git 的痛点"></a>四、Git 的痛点</h3><p>粗浅地了解了以上原理之后，对于 Git 的痛点也可以窥知一二。</p>
+<p>Git 的诞生经历和 JavaScript 有些相似，都是短时间内打造的兵器，其设计思路一开始就是很粗糙的，甚至有些不合理反人类的地方。（但是 JavaScript 还有 ECMAScript 一年一年的修补，Git 却没啥指望改进了……）</p>
+<p>最明显的一个痛点是，一个 Git 命令身兼数职的情况非常多（git rebase，git reset，git checkout 是重灾区），这也是造成新手入门时每天一脸懵逼的一个主要原因。</p>
+<p>Git 本身的设计理念是非常清晰明确的，如果可以重新设计的话，希望指令可以与其设计思路统一，指令分为四类：</p>
+<blockquote>
+<ol>
+<li>操作当前指针</li>
+<li>操作分支</li>
+<li>操作版本</li>
+<li>操作工作环境</li>
+</ol>
+</blockquote>
+<p>有一篇论文<a href="https://groups.csail.mit.edu/sdg/pubs/2016/gitless-oopsla16.pdf" target="_blank" rel="noopener">《Purposes, Concepts, Misfits, and a Redesign of Git》</a>专门分析 Git 的设计问题。最后设计了一款新工具叫 Gitless。</p>
+<p>除了这一点之外，由于 Git 存储的是文件快照，如果项目需要频繁修改大文件的话很容易造成存储库的膨胀，这一点虽然有<a href="https://blog.colafornia.me/2018/03/09/slove-git-clone-speed/">解决方案</a>，但不可否认依然是其痛点之一。</p>
+<h3 id="五、最后"><a href="#五、最后" class="headerlink" title="五、最后"></a>五、最后</h3><p>除了以上介绍到的内容，git rebase，git reflog，git checkout，git cherry-pick 也都是值得探究的命令。</p>
+<h4 id="参考内容："><a href="#参考内容：" class="headerlink" title="参考内容："></a>参考内容：</h4><ul>
+<li><a href="https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain" target="_blank" rel="noopener">Git Internals</a></li>
+<li><a href="https://gotgit.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener">Git 权威指南</a></li>
+<li><a href="https://yanhaijing.com/git/2017/02/08/deep-git-3/" target="_blank" rel="noopener">起底Git-Git内部原理</a></li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/post/2018/from-decorator-to-hoc/" class="prev">上一篇</a><a href="/post/2018/thrift-note/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2019 <a href="https://blog.colafornia.me">Colafornia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-84469017-1",'auto');ga('send','pageview');</script></body></html>
