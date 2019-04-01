@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.colafornia.me/post/2019/2019-webpack-optimization/</loc>
+    
+    <lastmod>2019-04-01T09:54:37.167Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.colafornia.me/manifest.json</loc>
     
     <lastmod>2019-02-13T07:05:14.312Z</lastmod>
@@ -51,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
+    <loc>https://blog.colafornia.me/post/2015/note-learning-javascript-oop/</loc>
     
     <lastmod>2019-02-13T07:05:14.280Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/learning-regex-again/</loc>
+    <loc>https://blog.colafornia.me/post/2017/reading-pragmatic-programmer/</loc>
     
     <lastmod>2019-02-13T07:05:14.280Z</lastmod>
     
@@ -79,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/reading-pragmatic-programmer/</loc>
+    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
     
     <lastmod>2019-02-13T07:05:14.280Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/note-learning-javascript-oop/</loc>
+    <loc>https://blog.colafornia.me/post/2018/learning-regex-again/</loc>
     
     <lastmod>2019-02-13T07:05:14.280Z</lastmod>
     
@@ -107,7 +114,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/implement-of-frontend-route/</loc>
+    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
     
     <lastmod>2019-02-13T07:05:14.279Z</lastmod>
     
@@ -121,7 +128,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
+    <loc>https://blog.colafornia.me/post/2016/javascript-patterns/</loc>
+    
+    <lastmod>2019-02-13T07:05:14.279Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2018/implement-of-frontend-route/</loc>
     
     <lastmod>2019-02-13T07:05:14.279Z</lastmod>
     
@@ -135,14 +149,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/javascript-patterns/</loc>
+    <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
     
-    <lastmod>2019-02-13T07:05:14.279Z</lastmod>
+    <lastmod>2019-02-13T07:05:14.278Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/high-performance-javascript-a/</loc>
+    <loc>https://blog.colafornia.me/post/2016/git-rebase-workflow/</loc>
     
     <lastmod>2019-02-13T07:05:14.278Z</lastmod>
     
@@ -156,7 +170,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
+    <loc>https://blog.colafornia.me/post/2016/high-performance-javascript-a/</loc>
     
     <lastmod>2019-02-13T07:05:14.278Z</lastmod>
     
@@ -164,13 +178,6 @@
   
   <url>
     <loc>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.278Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2016/git-rebase-workflow/</loc>
     
     <lastmod>2019-02-13T07:05:14.278Z</lastmod>
     
@@ -198,13 +205,6 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/angular-ui-router/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.275Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2018/character-encoding/</loc>
     
     <lastmod>2019-02-13T07:05:14.275Z</lastmod>
@@ -226,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/cookie-localstorage-session/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.275Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2016/basic-fetch-api/</loc>
     
     <lastmod>2019-02-13T07:05:14.275Z</lastmod>
@@ -241,6 +234,20 @@
   
   <url>
     <loc>https://blog.colafornia.me/post/2016/basic-review-from-anonymous-function-to-iife/</loc>
+    
+    <lastmod>2019-02-13T07:05:14.275Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2015/angular-ui-router/</loc>
+    
+    <lastmod>2019-02-13T07:05:14.275Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2016/cookie-localstorage-session/</loc>
     
     <lastmod>2019-02-13T07:05:14.275Z</lastmod>
     
