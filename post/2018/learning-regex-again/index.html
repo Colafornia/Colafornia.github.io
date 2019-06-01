@@ -96,7 +96,7 @@
 <h3 id="回溯陷阱-Catastrophic-Backtracking"><a href="#回溯陷阱-Catastrophic-Backtracking" class="headerlink" title="回溯陷阱 Catastrophic Backtracking"></a>回溯陷阱 Catastrophic Backtracking</h3><p>回溯陷阱是正则表达式本身的一个坑了，会导致非常严重的性能问题，事故现场可以参看<a href="https://juejin.im/post/5b287ea6f265da596d04a324" target="_blank" rel="noopener">《一个正则表达式引发的血案，让线上 CPU100% 异常！》</a>。</p>
 <p>简单介绍一下回溯陷阱的问题源头，正则引擎分为 <code>NFA（确定型有穷自动机）</code> 和 <code>DFA（不确定型有穷自动机）</code>，<code>DFA</code> 是从匹配文本入手，同一个字符不会匹配两次（可以理解为手里捏着文本，挨个字符拿去匹配正则），时间复杂度是线性的，它的功能有限，不支持回溯。大多数编程语言选用的都是 <code>NFA</code>，相当于手里拿着正则表达式，去匹配文本。</p>
 <p><code>/(a(bdc|cbd|bcd)/</code> 中已经有三种匹配路径，在 <code>NFA</code> 中，以文本 ‘abcd’ 为例，将花费 7 步才能匹配成功：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/7/11/1648a0bec1e52c79?w=1332&amp;h=972&amp;f=jpeg&amp;s=46788" alt="regex101"><br>（图中还包括了字符边界的匹配步骤，因此多了三步）</p>
+<p><img src="https://s2.ax1x.com/2019/06/01/V1wCPe.jpg" alt="regex101"><br>（图中还包括了字符边界的匹配步骤，因此多了三步）</p>
 <ol>
 <li>正则中的第一个字符 a 匹配到 ‘abcd’ 中的第一个字母 ‘a’，匹配成功。</li>
 <li>此时遇到了匹配路径的分叉口，bdc 或 cbd 或 bcd，先使用 bdc 来匹配。</li>

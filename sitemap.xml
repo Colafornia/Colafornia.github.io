@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.colafornia.me/post/2018/translation-blink-render/</loc>
+    
+    <lastmod>2019-06-01T10:31:39.115Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2018/the-beginning-of-little-robot/</loc>
+    
+    <lastmod>2019-06-01T02:07:57.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2018/learning-regex-again/</loc>
+    
+    <lastmod>2019-06-01T01:54:54.612Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.colafornia.me/post/2019/2019-webpack-optimization/</loc>
     
-    <lastmod>2019-04-01T09:54:37.167Z</lastmod>
+    <lastmod>2019-06-01T01:54:09.750Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2019/2018-review/</loc>
+    
+    <lastmod>2019-06-01T01:44:17.715Z</lastmod>
     
   </url>
   
@@ -23,21 +51,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/translation-blink-render/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.281Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2016/trans-javascript-code-tips/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.281Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2018/the-beginning-of-little-robot/</loc>
     
     <lastmod>2019-02-13T07:05:14.281Z</lastmod>
     
@@ -58,27 +72,6 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/note-learning-javascript-oop/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.280Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2017/reading-pragmatic-programmer/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.280Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2018/slove-git-clone-speed/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.280Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2018/review-copy-in-javascript/</loc>
     
     <lastmod>2019-02-13T07:05:14.280Z</lastmod>
@@ -93,7 +86,21 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/learning-regex-again/</loc>
+    <loc>https://blog.colafornia.me/post/2018/slove-git-clone-speed/</loc>
+    
+    <lastmod>2019-02-13T07:05:14.280Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2017/reading-pragmatic-programmer/</loc>
+    
+    <lastmod>2019-02-13T07:05:14.280Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2015/note-learning-javascript-oop/</loc>
     
     <lastmod>2019-02-13T07:05:14.280Z</lastmod>
     
@@ -107,21 +114,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/learning-note-bfc/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.279Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.279Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2015/intern-qunar-interview/</loc>
+    <loc>https://blog.colafornia.me/post/2016/learning-clouser-scope/</loc>
     
     <lastmod>2019-02-13T07:05:14.279Z</lastmod>
     
@@ -142,21 +135,28 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/learning-clouser-scope/</loc>
+    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
     
     <lastmod>2019-02-13T07:05:14.279Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
+    <loc>https://blog.colafornia.me/post/2015/intern-qunar-interview/</loc>
     
-    <lastmod>2019-02-13T07:05:14.278Z</lastmod>
+    <lastmod>2019-02-13T07:05:14.279Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/git-rebase-workflow/</loc>
+    <loc>https://blog.colafornia.me/post/2015/learning-note-bfc/</loc>
+    
+    <lastmod>2019-02-13T07:05:14.279Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</loc>
     
     <lastmod>2019-02-13T07:05:14.278Z</lastmod>
     
@@ -177,7 +177,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</loc>
+    <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
+    
+    <lastmod>2019-02-13T07:05:14.278Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2016/git-rebase-workflow/</loc>
     
     <lastmod>2019-02-13T07:05:14.278Z</lastmod>
     
@@ -191,14 +198,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/dive-into-git/</loc>
+    <loc>https://blog.colafornia.me/post/2017/fix-chinese-input-listener/</loc>
     
     <lastmod>2019-02-13T07:05:14.276Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/fix-chinese-input-listener/</loc>
+    <loc>https://blog.colafornia.me/post/2018/dive-into-git/</loc>
     
     <lastmod>2019-02-13T07:05:14.276Z</lastmod>
     
@@ -219,14 +226,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/browser-cache-summary/</loc>
+    <loc>https://blog.colafornia.me/post/2016/cookie-localstorage-session/</loc>
     
     <lastmod>2019-02-13T07:05:14.275Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/basic-fetch-api/</loc>
+    <loc>https://blog.colafornia.me/post/2016/browser-cache-summary/</loc>
     
     <lastmod>2019-02-13T07:05:14.275Z</lastmod>
     
@@ -240,6 +247,13 @@
   </url>
   
   <url>
+    <loc>https://blog.colafornia.me/post/2016/basic-fetch-api/</loc>
+    
+    <lastmod>2019-02-13T07:05:14.275Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.colafornia.me/post/2015/angular-ui-router/</loc>
     
     <lastmod>2019-02-13T07:05:14.275Z</lastmod>
@@ -247,21 +261,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/cookie-localstorage-session/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.275Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2017/2017-review/</loc>
-    
-    <lastmod>2019-02-13T07:05:14.274Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2019/2018-review/</loc>
     
     <lastmod>2019-02-13T07:05:14.274Z</lastmod>
     
