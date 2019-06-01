@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 生命在于折腾，写一个前端资讯推送服务 · Minibase</title><meta name="description" content="生命在于折腾，写一个前端资讯推送服务 - Colafornia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.colafornia.me/atom.xml" title="Minibase"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Colafornia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">生命在于折腾，写一个前端资讯推送服务</h1><div class="post-info">Sep 11, 2018</div><div class="post-content"><p><img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d54108ab97e?w=1390&h=1154&f=jpeg&s=224666" width="600"></p>
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 生命在于折腾，写一个前端资讯推送服务 · Minibase</title><meta name="description" content="生命在于折腾，写一个前端资讯推送服务 - Colafornia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.colafornia.me/atom.xml" title="Minibase"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Colafornia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">生命在于折腾，写一个前端资讯推送服务</h1><div class="post-info">Sep 11, 2018</div><div class="post-content"><p><img src="https://s2.ax1x.com/2019/06/01/V1wi2d.jpg" width="600"></p>
 <p>去年年底开始写的一个小项目，断断续续做了些优化，在此简单的记录一下。</p>
 <a id="more"></a>
 <h2 id="源头"><a href="#源头" class="headerlink" title="源头"></a>源头</h2><p>起源是之前一直没什么机会接触到 Node 项目，工作中接触到的也仅限于用 Node 写脚本，做一些小工具，与服务器上跑的 Node 服务相差甚远。所以想写一个在服务器上跑的 Node 小项目练手。</p>
@@ -6,9 +6,7 @@
 <p>于是决定自己搞个资讯推送服务吧，满足自己的核心诉求，<strong>每个工作日早上 10 点微信推送 RSS 前端资讯的更新</strong>，这样就可以在每天抵达工位的时候舒舒服服浏览一下新鲜事，挑一些有用的存起来慢慢研读。</p>
 <p>项目仓库： <a href="https://github.com/Colafornia/little-robot" target="_blank" rel="noopener">https://github.com/Colafornia/little-robot</a></p>
 <p>推送大概长这样：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d54108ab97e?w=1390&h=1154&f=jpeg&s=224666" width="600"></p>
-<p>扫码获取推送服务：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d541080f3a0?w=500&h=500&f=png&s=12430" width="280"></p>
+<p><img src="https://s2.ax1x.com/2019/06/01/V1wi2d.jpg" width="600"></p>
 <p>现在推送源主要是各厂的知乎专栏，大佬们的个人博客，掘金前端热门文章，都是我自己的个人口味。</p>
 <p>下面来讲一下开发（与自己给自己加需求）历程。</p>
 <h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>最开始感觉这个需求是很简单的，具体操作可以分解为：</p>
@@ -37,7 +35,7 @@
 <p>这样基本解决了 90% 以上的抓取问题，保证了脚本的稳定性。</p>
 <p>针对 RSS 源写在配置文件里，每次想添加、修改源都需要改代码的问题，解决方法很简单，把源配置写到 MongoDB 里也就好了，有一些 GUI 软件可以直接在图形界面来添加、修改数据。</p>
 <p>为了解决推送服务只能存储三天内的推送，决定新增一个每周五的周抓取任务，抓取一周内的新文章，把内容作为 issue 发到仓库。也还算是一个解决方案。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d5410a067c6?w=940&h=952&f=jpeg&s=174243" width="480"></p>
+<p><img src="https://s2.ax1x.com/2019/06/01/V1wVqP.jpg" width="480"></p>
 <p>针对掘金的 RSS 源问题，最后决定直接调用掘金的接口来取数据，这就可以随心所欲按自己的需求来了，每天只抓取❤️点赞数在 70 以上的文章。</p>
 <p>顺便给抓取的文章时间范围加了一个偏移值，避免筛掉质量好但是由于刚刚发布点赞较少的文章。感觉自己棒棒哒~</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filterArticlesByDateAndCollection</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> threshold = <span class="number">70</span>;</span><br><span class="line">    <span class="comment">// articles 是已按❤️数由高到低排序的文章列表</span></span><br><span class="line">    <span class="keyword">let</span> results = articles.filter(<span class="function">(<span class="params">article</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 偏移值五小时，避免筛掉质量好但是由于刚刚发布点赞较少的文章</span></span><br><span class="line">        <span class="keyword">return</span> moment(article.createdAt).isAfter(moment(startTime).subtract(<span class="number">5</span>, <span class="string">'hours'</span>))</span><br><span class="line">            &amp;&amp; moment(article.createdAt).isBefore(moment(endTime).subtract(<span class="number">5</span>, <span class="string">'hours'</span>))</span><br><span class="line">            &amp;&amp; article.collectionCount &gt; threshold;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 掘金文章最多收录 8 篇，避免信息爆炸</span></span><br><span class="line">    <span class="keyword">return</span> results.slice(<span class="number">0</span>, <span class="number">8</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -55,9 +53,9 @@
 <p>1，2 问题很好解决，每次抓取之前先查一下日志，上次推送的具体时间。每抓到新文章时，再与最近 7 天日志里的文章比对一下，重复的不放到抓取结果中，也就解决了。</p>
 <p>对于问题 3，于是决定搭建 Koa Server，先把从 MongoDB 读取推送源，存取推送日志变成 api。</p>
 <p>目录结构如下，添加 <code>Model</code> 与 <code>Controller</code>。把 RSS 抓取脚本与掘金爬虫放到 task 文件。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d54109e1c80?w=654&h=970&f=jpeg&s=59616" width="400"></p>
+<p><img src="https://s2.ax1x.com/2019/06/01/V1wQ2j.jpg" width="400"></p>
 <p>没什么难点，就可以调用 api 来获取 RSS 源了：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/9/11/165c7d54107ab26b?w=1072&h=996&f=jpeg&s=158223" width="500"></p>
+<p><img src="https://s2.ax1x.com/2019/06/01/V1w8rq.jpg" width="500"></p>
 <p>此时想到了一个重要问题，<strong>身份验证</strong>。肯定不能把所有 api 都随意暴露出去，让外界可以任意调用，这也就相当于把数据库都暴露出去了。</p>
 <p>最终决定用 <code>JSON Web Token（缩写 JWT）</code> 作为认证方案，主要原因是 JWT 适合一次性、短时间的命令认证，目前我的服务仅限于服务器端的 api 调用，每天的使用时间也不长，无需签发有效期很长的令牌。</p>
 <p>Koa 有一个 <a href="https://github.com/koajs/jwt" target="_blank" rel="noopener">jwt</a> 的中间件</p>
@@ -75,7 +73,7 @@
 <li>由于推送服务是对时间敏感的，基础镜像的时区并不是国内时区，要手动设置一下</li>
 </ol>
 <p>然后去 <a href="https://dashboard.daocloud.io/" target="_blank" rel="noopener">DaoCloud</a> 等提供公有云服务的网站授权访问 Github 仓库，连接自己的主机，就可以实现持续集成，自动构建部署我们的镜像了。具体步骤可参考<a href="https://zhuanlan.zhihu.com/p/37961402" target="_blank" rel="noopener">基于 Docker 打造前端持续集成开发环境</a>。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/9/12/165c96207478caa7?w=2382&amp;h=366&amp;f=jpeg&amp;s=64252" alt="daocloud"></p>
+<p><img src="https://s2.ax1x.com/2019/06/01/V1wwRJ.jpg" alt="daocloud"></p>
 <p>本次优化大概就到这里了。接下来要做的可能是提供一个推送历史查看页面，优先级不是很高，有时间再做吧（顺便练习一下 Nginx）。</p>
 <p>现在的实现方案可能还是有很不合理的地方，欢迎提出建议。</p>
 </div></article></div></main><footer><div class="paginator"><a href="/post/2018/translation-blink-render/" class="prev">PREV</a><a href="/post/2018/character-encoding/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2019 <a href="https://blog.colafornia.me">Colafornia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-84469017-1",'auto');ga('send','pageview');</script></body></html>
