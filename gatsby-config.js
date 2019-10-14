@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
       title: `Minibase`,
-      siteUrl: `https://blog.colafornia.me`,
+      siteUrl: `https://gatsby.colafornia.me`,
       description: `Colafornia's Personal Blog`,
       author: `Colafornia`,
-      authorURL: `https://www.rexlnt.com`,
+      authorURL: `https://gatsby.colafornia.me`,
       socials: [
           {
               icon: 'github',
@@ -34,8 +34,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'REXLNT',
-        short_name: 'REXLNT',
+        name: 'Minibase',
+        short_name: 'Minibase',
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#fff`,
