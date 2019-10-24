@@ -4,7 +4,6 @@
 
 ## 2019
 
-- [2019.3 Webpack 升级改造小记](https://blog.colafornia.me/post/2019/2019-webpack-optimization/)
 - [2018 年度总结](https://blog.colafornia.me/post/2019/2018-review/)
 
 ## 2018
