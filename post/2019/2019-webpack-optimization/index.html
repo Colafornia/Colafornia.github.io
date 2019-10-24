@@ -1,9 +1,11 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 2019.3 Webpack 升级改造小记 · Minibase</title><meta name="description" content="2019.3 Webpack 升级改造小记 - Colafornia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.colafornia.me/atom.xml" title="Minibase"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Colafornia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">2019.3 Webpack 升级改造小记</h1><div class="post-info">Mar 31, 2019</div><div class="post-content"><p><img src="/images/2019-3-webpack.png" alt="webpack"></p>
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 2019.3 Webpack 升级改造小记 · Minibase</title><meta name="description" content="2019.3 Webpack 升级改造小记 - Colafornia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.colafornia.me/atom.xml" title="Minibase"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/colafornia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">2019.3 Webpack 升级改造小记</h1><div class="post-info">Mar 31, 2019</div><div class="post-content"><p><img src="/images/2019-3-webpack.png" alt="webpack-cover"></p>
 <blockquote>
-<p>时间：2019.3<br>Webpack 稳定版本为4, 正在 5 的 roadmap 中<br>记录一下当前时间对前端项目构建打包优化的策略</p>
+<p>时间：2019.3</p>
+<p>Webpack 稳定版本为4, 正在 5 的 roadmap 中</p>
+<p>记录一下当前时间对前端项目构建打包优化的策略</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="当前项目问题"><a href="#当前项目问题" class="headerlink" title="当前项目问题"></a>当前项目问题</h2><p>我们的前端项目基本都是使用的是 <a href="https://github.com/facebook/create-react-app" target="_blank" rel="noopener">create-react-app</a> 的配置，冗余项太多，升级难。</p>
+<h2 id="当前项目问题"><a href="#当前项目问题" class="headerlink" title="当前项目问题"></a>当前项目问题</h2><p>我们的前端项目基本都是使用的是 <a href="https://github.com/facebook/create-react-app" target="_blank" rel="external">create-react-app</a> 的配置，冗余项太多，升级难。</p>
 <p>在这个前提下，有个“极限项目”每次代码改动之后的 hot reload 都需要 30s，实在坐不住了，就动手做了打包升级。</p>
 <p><img src="https://s2.ax1x.com/2019/06/01/V1dq29.png" alt="before"></p>
 <p>这次是从代码依赖相对简单，后续测试回滚负担小的后台管理系统下手的。</p>
@@ -21,20 +23,23 @@
 <p>治疗各种编译慢</p>
 <p>本地启动 server 编译时间： 30s =&gt; 10s</p>
 <h3 id="3-splitChunks-分包"><a href="#3-splitChunks-分包" class="headerlink" title="3.splitChunks 分包"></a>3.splitChunks 分包</h3><p><img src="https://s2.ax1x.com/2019/06/01/V1dXK1.png" alt="splitChunks"></p>
-<p>这一功能在之前版本中是通过 <a href="https://webpack.js.org/plugins/commons-chunk-plugin/" target="_blank" rel="noopener">CommonsChunkPlugin</a> 来进行的。</p>
+<p>这一功能在之前版本中是通过 <a href="https://webpack.js.org/plugins/commons-chunk-plugin/" target="_blank" rel="external">CommonsChunkPlugin</a> 来进行的。</p>
 <p>初步分成三个包，减小 main 包体积。</p>
 <p>根据业务特点，其实可以做懒加载，但是注意不能分太多，增加 http 请求数得不偿失。后台管理项目体积目前不大，各模块也没什么业务上的明显区分，就没啥做懒加载的必要。</p>
 <p>结果：包体积：6M =&gt; 3M</p>
-<h3 id="4-将第三方巨型包打入-externals"><a href="#4-将第三方巨型包打入-externals" class="headerlink" title="4.将第三方巨型包打入 externals"></a>4.将第三方巨型包打入 externals</h3><p>经过以上分包后，用 <a href="https://github.com/webpack-contrib/webpack-bundle-analyzer" target="_blank" rel="noopener">BundleAnalyzerPlugin</a> 看了下结果</p>
+<h3 id="4-将第三方巨型包打入-externals"><a href="#4-将第三方巨型包打入-externals" class="headerlink" title="4.将第三方巨型包打入 externals"></a>4.将第三方巨型包打入 externals</h3><p>经过以上分包后，用 <a href="https://github.com/webpack-contrib/webpack-bundle-analyzer" target="_blank" rel="external">BundleAnalyzerPlugin</a> 看了下结果</p>
 <p>发现有个非常显眼的巨型包 <code>echarts</code></p>
 <p>把它的 min.js 扔到公司 cdn 上，在 html 中直接引入：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">externals: &#123;</span><br><span class="line">  echarts: <span class="string">'echarts'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">externals: &#123;</div><div class="line">  echarts: <span class="string">'echarts'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>效果也很明显，当时没截图，就不贴对比图了</p>
 <h3 id="5-gzip"><a href="#5-gzip" class="headerlink" title="5.gzip"></a>5.gzip</h3><p><img src="https://s2.ax1x.com/2019/06/01/V1dLvR.png" alt="after"></p>
 <p>通过引入 CompressionWebpackPlugin 插件，打出来 .js.gz 资源，在服务器已支持 gzip 的情况下，所加载资源体积（直接到了 1.3M）和时间提升非常明显</p>
 <h3 id="6-常规操作"><a href="#6-常规操作" class="headerlink" title="6.常规操作"></a>6.常规操作</h3><p>还有很多升到 webpack@4 之后的常规操作：</p>
 <blockquote>
-<p>MiniCssExtractPlugin<br>TerserPlugin<br>OptimizeCSSAssetsPlugin<br>等等</p>
+<p>MiniCssExtractPlugin</p>
+<p>TerserPlugin</p>
+<p>OptimizeCSSAssetsPlugin</p>
+<p>等等</p>
 </blockquote>
 <p>随便搜搜，或者按图索骥去最新版的 create-react-app 源码里看看用了啥就行</p>
-</div></article></div></main><footer><div class="paginator"><a href="/post/2019/2018-review/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2019 <a href="https://blog.colafornia.me">Colafornia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-84469017-1",'auto');ga('send','pageview');</script></body></html>
+</div></article></div></main><footer><div class="paginator"><a href="/post/2019/e2e-test-cypress/" class="prev">PREV</a><a href="/post/2019/2018-review/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2019 <a href="https://blog.colafornia.me">Colafornia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-84469017-1",'auto');ga('send','pageview');</script></body></html>
