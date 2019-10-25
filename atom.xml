@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.colafornia.me/"/>
-  <updated>2019-10-24T16:45:50.392Z</updated>
+  <updated>2019-10-25T03:13:12.557Z</updated>
   <id>https://blog.colafornia.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://blog.colafornia.me/post/2019/e2e-test-cypress/"/>
     <id>https://blog.colafornia.me/post/2019/e2e-test-cypress/</id>
     <published>2019-10-24T02:00:00.000Z</published>
-    <updated>2019-10-24T16:45:50.392Z</updated>
+    <updated>2019-10-25T03:13:12.557Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;/images/cypress.png&quot; alt=&quot;cypress-cover&quot;&gt;&lt;/p&gt;
 &lt;p&gt;关于前端测试的一些理论与基于 &lt;code&gt;Cypress&lt;/code&gt; 的 E2E 测试具体实践。&lt;/p&gt;
@@ -110,7 +110,7 @@
 &lt;p&gt;在 CI 设置和测试用例管理中可以深挖的点还有很多。比如将测试用例分为冒烟测试，全量测试，或者 Client 端测试，Node 层测试等等。&lt;/p&gt;
 &lt;p&gt;Cypress 可应用的测试场景也更多，比如通过设置 Cookie 实现不同权限用户的测试，引入 Chance.js 实现随机点击 Tab 进行不同选项卡的测试，Mock 接口返回值等等。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://glebbahmutov.com/blog/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://glebbahmutov.com/blog/&lt;/a&gt; 是 Cypress 的主要维护者的博客，其中也记录了很多骚操作（比如检查网页对比度是否满足条件等等），如有兴趣，可以继续进行挖掘。&lt;/p&gt;
-&lt;h2 id=&quot;一个坑点&quot;&gt;&lt;a href=&quot;#一个坑点&quot; class=&quot;headerlink&quot; title=&quot;一个坑点&quot;&gt;&lt;/a&gt;一个坑点&lt;/h2&gt;&lt;p&gt;在我的实践中发现的一个坑点是 Cypress 缺少对于 &lt;code&gt;fetch&lt;/code&gt; 请求的支持（&lt;a href=&quot;https://github.com/cypress-io/cypress/issues/95），它无法捕捉或者&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/cypress-io/cypress/issues/95），它无法捕捉或者&lt;/a&gt; mock 请求，只能通过一个有点脏的方法来 hack 解决。&lt;/p&gt;
+&lt;h2 id=&quot;一个坑点&quot;&gt;&lt;a href=&quot;#一个坑点&quot; class=&quot;headerlink&quot; title=&quot;一个坑点&quot;&gt;&lt;/a&gt;一个坑点&lt;/h2&gt;&lt;p&gt;在我的实践中发现的一个坑点是 &lt;a href=&quot;https://github.com/cypress-io/cypress/issues/95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Cypress 缺少对于 &lt;code&gt;fetch&lt;/code&gt; 请求的支持&lt;/a&gt;，它无法捕捉或者 mock 请求，只能通过一个有点脏的方法来 hack 解决。&lt;/p&gt;
 &lt;p&gt;在项目中引入&lt;a href=&quot;https://github.com/whatwg/fetch&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;whatwg-fetch&lt;/a&gt;，再修改 &lt;code&gt;cypress/support/command.js&lt;/code&gt;:&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// cypress/support/command.js&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Cypress.Commands.add(&lt;span class=&quot;string&quot;&gt;&#39;visitWithDelWinFetch&#39;&lt;/span&gt;, (path, opts = &amp;#123;&amp;#125;) =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    cy.visit(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        path,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;.assign(opts, &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            onBeforeLoad(win) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;delete&lt;/span&gt; win.fetch;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;这样我们就可以测试我们项目的登录重定向判断了：&lt;/p&gt;
