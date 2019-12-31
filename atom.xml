@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.colafornia.me/"/>
-  <updated>2019-11-05T03:31:42.858Z</updated>
+  <updated>2019-12-31T16:29:14.669Z</updated>
   <id>https://blog.colafornia.me/</id>
   
   <author>
@@ -14,6 +14,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019 年度总结</title>
+    <link href="https://blog.colafornia.me/post/2019/2019-review/"/>
+    <id>https://blog.colafornia.me/post/2019/2019-review/</id>
+    <published>2019-12-31T14:00:00.000Z</published>
+    <updated>2019-12-31T16:29:14.669Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/chengdu-2019.jpeg&quot; alt=&quot;sunset roller coaster&quot;&gt;&lt;/p&gt;
+&lt;p&gt;2019:  to see the world as it is, and &lt;em&gt;to love it&lt;/em&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;工作与学习&quot;&gt;&lt;a href=&quot;#工作与学习&quot; class=&quot;headerlink&quot; title=&quot;工作与学习&quot;&gt;&lt;/a&gt;工作与学习&lt;/h3&gt;&lt;p&gt;写&lt;a href=&quot;/post/2019/2018-review/&quot;&gt;去年的年终总结&lt;/a&gt;当天收到了百词斩的 offer，这让这一整年画风都变得完全不一样了。&lt;/p&gt;
+&lt;p&gt;接触到了我自以为从不会踏足的“儿童教育”领域，体验了“966”的神奇作息，被“成都式外企”的英文用语轰炸了一年，也在圣诞被拉到了西双版纳和全公司一起“读书”。&lt;/p&gt;
+&lt;p&gt;这一年总算是得偿所愿做了很多服务器相关的东西，用 &lt;code&gt;Golang&lt;/code&gt; 开发了内容量产系统（总算学习且投产了一门新的编程语言），也给基于 &lt;code&gt;Ruby on Rails&lt;/code&gt; 的老项目做了些删删改改，这大概是今年与 Coding 相关的最激动人心的事情了。&lt;/p&gt;
+&lt;p&gt;在前端的投入并不算多，与其概括为平台期，“疲劳期”可能更为合适，做了三年多的前端开发之后，更想一窥 Web 软件开发的全貌，而不是沉迷于 TC39 的提案或是前端框架的源码了。与前端比较相关的内容也基本是关于工程化，&lt;code&gt;CI/CD&lt;/code&gt; 等等。到了年底翻了翻各个技术资讯平台上的内容还是集中在事件循环，deep clone , vue 原理的时候松了口气，问题不大不用太慌，当然关于 &lt;code&gt;WebAssembly&lt;/code&gt;，&lt;code&gt;Serverless&lt;/code&gt; ， &lt;code&gt;TypeScript&lt;/code&gt; 最佳实践这些东西还是要尽快打起鸡血学起来。&lt;/p&gt;
+&lt;p&gt;关于工作最大的收获还是一个好 leader，带着我去做了这些很 Cool 的东西，让我对写代码这件事的态度从“小心翼翼别搞坏了”变成了“来吧都能学，我也都能搞得定，要么能 fancy 地搞定，最差也能挫挫地解决”。这大概是给我高投入高消耗了三年多的开发经历里注入一管新鲜血液，让我能走得更远。&lt;/p&gt;
+&lt;p&gt;关于计算机基础学习有了一些进步，刷了 &lt;a href=&quot;https://github.com/Colafornia/Coursera&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Coursera&lt;/a&gt; 的两门课，北大的计算机组成原理和普林斯顿的算法，野生程序员的野生含量低了点。&lt;/p&gt;
+&lt;p&gt;今年的一大变化是显式地学了很多英语，平时跟着公司的薄荷英语作为每日的基本英语输入，年底裸考了一把均6的雅思感觉还是很6的（至于为啥变成裸考又是个 long long story 了）。学习过程中发现我的发音还是很成问题，元音的发音有些是混淆的，基本都是往小嘴型，往懒的方向发音，现在想纠正回来真的很费劲。&lt;/p&gt;
+&lt;h3 id=&quot;生活与玩乐&quot;&gt;&lt;a href=&quot;#生活与玩乐&quot; class=&quot;headerlink&quot; title=&quot;生活与玩乐&quot;&gt;&lt;/a&gt;生活与玩乐&lt;/h3&gt;&lt;p&gt;「没有年假的 966 生活与玩乐就相当于没有吧」&lt;/p&gt;
+&lt;h4 id=&quot;健身&quot;&gt;&lt;a href=&quot;#健身&quot; class=&quot;headerlink&quot; title=&quot;健身&quot;&gt;&lt;/a&gt;健身&lt;/h4&gt;&lt;p&gt;今年没有买私教课，选择自己练了，练的不是很较真，“三分练七分吃”里大概只得了一分练两分吃，今年的锻炼主要是为了保证运动量和心肺锻炼，避免在 966 里萎靡不振。但是年底 trans 到新的项目组之后，可以利用的健身时间越来越少了，这是新年亟待解决的第一个问题。&lt;/p&gt;
+&lt;h4 id=&quot;观影与阅读&quot;&gt;&lt;a href=&quot;#观影与阅读&quot; class=&quot;headerlink&quot; title=&quot;观影与阅读&quot;&gt;&lt;/a&gt;观影与阅读&lt;/h4&gt;&lt;p&gt;今年电影和剧看得都很少，书有 36 本，达标了去年定的 35本+，基本上大多数都是非技术类。&lt;/p&gt;
+&lt;h4 id=&quot;年度最佳清单&quot;&gt;&lt;a href=&quot;#年度最佳清单&quot; class=&quot;headerlink&quot; title=&quot;年度最佳清单&quot;&gt;&lt;/a&gt;年度最佳清单&lt;/h4&gt;&lt;p&gt;观影最佳：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.《昨日的美食》&lt;/p&gt;
+&lt;p&gt;2.《盗梦特工队》&lt;/p&gt;
+&lt;p&gt;3.《Live》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;阅读最佳：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.《献给阿尔吉侬的花束》&lt;/p&gt;
+&lt;p&gt;2.《海风中失落的血色馈赠》&lt;/p&gt;
+&lt;p&gt;3.《网 阿加西自传》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;好物最佳：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.戴森V7&lt;/p&gt;
+&lt;p&gt;2.Asics 运动鞋&lt;/p&gt;
+&lt;p&gt;3.Airpods Pro&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;新的期许&quot;&gt;&lt;a href=&quot;#新的期许&quot; class=&quot;headerlink&quot; title=&quot;新的期许&quot;&gt;&lt;/a&gt;新的期许&lt;/h3&gt;&lt;p&gt;又到了新年 Flag 时间~&lt;/p&gt;
+&lt;p&gt;工作学习方面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;提高英文输出能力，新年用英文写一篇技术博客&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Leetcode Hit 300&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;补足 &lt;a href=&quot;https://github.com/Colafornia/golang-exercise&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Golang 的练习项目&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;完成两门 CS 公开课（再学一门语言或者熟悉数据库吧）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;生活方面（和去年定的&lt;strong&gt;一模一样&lt;/strong&gt;）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;阅读量 35 本+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;至少去两个没去过的城市玩&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;体重减掉 5kg&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;培养一个新爱好(这条很虚，但又很必要)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/01/01/l8kcXq.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/chengdu-2019.jpeg&quot; alt=&quot;sunset roller coaster&quot;&gt;&lt;/p&gt;
+&lt;p&gt;2019:  to see the world as it is, and &lt;em&gt;to love it&lt;/em&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="summary" scheme="https://blog.colafornia.me/categories/summary/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>理解 Go 语言中的 Slice</title>
@@ -1782,103 +1858,6 @@
     
       &lt;h3 id=&quot;一、问题&quot;&gt;&lt;a href=&quot;#一、问题&quot; class=&quot;headerlink&quot; title=&quot;一、问题&quot;&gt;&lt;/a&gt;一、问题&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/images/chinese-pinyin.gif&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
 &lt;p&gt;在通过监听用户输入，将输入作为 Keyword 进行查询时（做了防抖）发现有如图问题，使用中文拼音输入法时，未选中所要的字词前，会自动将输入法分词过的拼音作为文本，由于实时监听输入，就存在将 ce’shi 作为 keyword 查询的问题了。&lt;br&gt;在这里，前端需要对拼音输入法的这种情况进行处理。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="front-end javascript" scheme="https://blog.colafornia.me/categories/front-end-javascript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>You Don&#39;t Know setTimeout</title>
-    <link href="https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/"/>
-    <id>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</id>
-    <published>2017-06-04T13:15:00.000Z</published>
-    <updated>2019-10-24T02:22:04.200Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/jstips-animation.gif&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;几个可能不知道的定时器⏲特性&quot;&gt;&lt;a href=&quot;#几个可能不知道的定时器⏲特性&quot; class=&quot;headerlink&quot; title=&quot;几个可能不知道的定时器⏲特性&quot;&gt;&lt;/a&gt;几个可能不知道的定时器⏲特性&lt;/h3&gt;&lt;p&gt;首先，&lt;strong&gt;setTimeout()/setInterval()&lt;/strong&gt; 方法不是 ECMAScript 规范定义的内容，而是属于 BOM 提供的功能，也就是说定时器作为 BOM 对象和方法的一部分才能在浏览器中使用。&lt;/p&gt;
-&lt;p&gt;需要注意的是 &lt;strong&gt;setTimeout() 与 setInterval() 在触发周期的定义上完全不一样&lt;/strong&gt;，在下面例子 setTimeout() 代码中，要在前一个 callback 回调执行结束并延迟 10ms 以后才能再次执行 setTimeout()，即延迟是要求运行时(runtime) 处理请求所需的最小时间，但不是有所保证的时间。而 setInterval() 则是每隔 10ms 就执行一次 callback 回调，不会关注 callback 何时执行结束。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 由于触发周期定义不同，以下两个定时器有非常大的区别&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 定义一个 timeout 定时器，每10毫秒重新调用自己&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;repeatMe&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// do something&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  setTimeout(repeatMe, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 定义一个 interval 定时器，每10毫秒触发一次&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;setInterval(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;// do something&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;除此之外，在 &lt;a href=&quot;https://html.spec.whatwg.org/multipage/webappapis.html#timers&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML spec&lt;/a&gt; 中定义 &lt;strong&gt;setTimeout 的最小延迟时间是4ms&lt;/strong&gt;，但通常认为浏览器可实现的定时器的最小延迟时间是10ms，即 setTimeout(fn, 0) 也是会延迟至少10ms，如果想实现 0 delay 的话可以通过 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;window.postMessage&lt;/a&gt; 实现。&lt;/p&gt;
-&lt;p&gt;定时器还有一个小特性，在开发移动公告的滚动动画时发现，从动画所在的 tab 页切换到别的 tab 之后再切回，动画会完全乱掉，并不会按代码中所设置的延迟时间进行。这是为了减少背景 tab 页面的代码运行消耗（电量），&lt;strong&gt;背景 tab 页面中定时器的间隔会增加到1000ms&lt;/strong&gt;，如果遇到需要解决这个问题的场景，可以通过 &lt;a href=&quot;https://robertnyman.com/2010/03/25/using-html5-web-workers-to-have-background-computational-power/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML5 Web Workers&lt;/a&gt; 或者用 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;requestAnimationFrame&lt;/a&gt; 代替定时器来解决。&lt;/p&gt;
-&lt;p&gt;最后，由于 webkit 中 timer 类的实现原理决定：&lt;strong&gt;预期延时时间最小的任务最先被执行，同时，预期延时时间相同的两个任务，其执行顺序是按照注册的先后顺序执行。&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; start = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;fn1&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;fn2&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;30&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;another fn2&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;30&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;fn3&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;start while&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt; - start &amp;lt; &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;) &amp;#123;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&#39;end while&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 打印结果如下&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// start while&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// end while&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// fn3&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// fn1&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// fn2&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// another fn2&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;Event-Loop-相关概念&quot;&gt;&lt;a href=&quot;#Event-Loop-相关概念&quot; class=&quot;headerlink&quot; title=&quot;Event Loop 相关概念&quot;&gt;&lt;/a&gt;Event Loop 相关概念&lt;/h3&gt;&lt;p&gt;浏览器让一个单线程共用于解释和执行 JavaScript，我们可以将它称为是“主线程”。其它的处理AJAX请求的线程、处理DOM事件的线程、定时器线程等等可以称为是“工作线程”。&lt;/p&gt;
-&lt;p&gt;JavaScript 的单线程意味着只有一个 call stack，也意味着同一时间是能做一件事。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://o7ts2uaks.bkt.clouddn.com/v2-25076e938167ad11c6a2a9ec099e0973_b.png&quot; alt=&quot;Event Loop&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;调用栈(call stack): 后进先出，函数被调用时会被加入到调用栈顶部，等执行结束再从顶部移除。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;堆(heap): 内存分配区&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;消息队列(quene): 也叫任务队列。先进先出，一旦调用栈中的所有任务执行完毕，栈清空，就会读取消息队列。&lt;strong&gt;消息/任务就是注册异步任务时添加的回调函数&lt;/strong&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;同步任务: 在主线程的调用栈排队执行的任务。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;异步任务: 主线程发起执行异步函数的请求，对应的工作线程（浏览器事件触发线程、异步http请求线程等）接收请求并告知主线程已收到(异步函数返回)；主线程可以继续执行后面的代码，同时工作线程执行异步任务；工作线程完成工作后，将完成消息放到消息队列，主线程通过事件循环过程去取消息，然后执行回调。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;事件循环(event loop): 事件循环是指主线程重复从消息队列中取消息、执行的过程。&lt;strong&gt;&lt;br&gt;取一个消息并执行的过程叫做一次循环&lt;/strong&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Web APIs: 如 AJAX，定时器，DOM事件这些异步事务并不在 V8(JavaScript)运行环境中，是由浏览器提供的 Web API&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;相关概念就是这些，&lt;a href=&quot;http://latentflip.com/loupe/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://latentflip.com/loupe/&lt;/a&gt; 是一个可视化调用栈的网站，可以把自己的代码敲到里面运行来看 event loop 的具体动态。&lt;/p&gt;
-&lt;h3 id=&quot;定时器和线程是如何工作的&quot;&gt;&lt;a href=&quot;#定时器和线程是如何工作的&quot; class=&quot;headerlink&quot; title=&quot;定时器和线程是如何工作的&quot;&gt;&lt;/a&gt;定时器和线程是如何工作的&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://johnresig.com/files/Timers.png&quot; alt=&quot;timer&quot;&gt;&lt;/p&gt;
-&lt;p&gt;以此图为例，来理解 JavaScript 中异步事件的执行。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;0ms: 启动即执行第一段 JavaScript 代码块，启动一个10ms延迟定时器(timeout)和10ms间隔定时器(interval)，延迟定时器是先于间隔定时器声明启动的。&lt;/p&gt;
-&lt;p&gt;5ms: 鼠标单击，但是由于现在正在执行第一个代码块，调用栈不为空，单击事件的处理函数不能立即执行，只能在消息队列中进行排队&lt;/p&gt;
-&lt;p&gt;10ms: 延迟定时器触发，间隔定时器触发，同理也都进行排队&lt;/p&gt;
-&lt;p&gt;18ms: 第一段代码块执行结束，调用栈为空，此时有三个代码块在排队执行(click 事件处理函数，延迟定时器处理函数，间隔定时器第一次触发的处理函数)，按顺序此时主线程中执行 click 事件回调。消息队列中此时还有两个回调。&lt;/p&gt;
-&lt;p&gt;20ms: 间隔定时器又触发了，由于间隔定时器第一次触发的处理函数仍在排队，浏览器不会对同一 interval 处理函数的多个实例同时进行排队，于是此次调用作废，消息队列不变，仍然还是那两个回调。&lt;/p&gt;
-&lt;p&gt;28ms: click 事件回调函数执行完毕，按顺序，此时主线程中将执行延时定时器处理函数。消息队列中只有间隔定时器的第一次触发回调在排队。&lt;/p&gt;
-&lt;p&gt;30ms: 间隔定时器再一次触发了，仍然因为第一次触发的回调仍在排队，此次调用作废。&lt;/p&gt;
-&lt;p&gt;34ms: 延时定时器回调函数执行完毕。开始执行间隔定时器第一次触发的回调函数。此时消息队列为空。&lt;/p&gt;
-&lt;p&gt;40ms: 间隔定时器再一次触发了，导致新的 interval 回调函数进入消息队列中排队。&lt;/p&gt;
-&lt;p&gt;42ms: 间隔定时器第一次回调函数执行完毕，正在排队的回调开始执行。消息队列再次为空。&lt;/p&gt;
-&lt;p&gt;47ms: 回调执行完毕，此时还没有到触发 interval 的时间，因此下一个 interval 回调可以等到触发事件立即执行。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;由此，我们可以知道：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如果无法立即执行定时器，该定时器会被推迟到下一个可用的执行时间点上(验证了实际延迟时间必然会比指定的延迟时间更长)&lt;/li&gt;
-&lt;li&gt;同一个 interval 执行程序的多个实例不能同时进行排队&lt;/li&gt;
-&lt;li&gt;延迟时间足够长的话，很有可能会有两个 interval 回调会无延迟连续执行&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;setTimeout-fn-0&quot;&gt;&lt;a href=&quot;#setTimeout-fn-0&quot; class=&quot;headerlink&quot; title=&quot;setTimeout(fn, 0)&quot;&gt;&lt;/a&gt;setTimeout(fn, 0)&lt;/h3&gt;&lt;p&gt;由上述内容可知，setTimeout(fn, 0) 中的代码并不是为了 fn 立即执行，而是将 fn 插入到消息队列，使得待调用栈为空时将立即调用执行 fn，保证了 fn 的后执行。因此我们可以通过这一特性，&lt;strong&gt;用 setTimeout(fn, 0) 调整事件的发生顺序&lt;/strong&gt;。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; input = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&#39;input[type=button]&#39;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;input.onclick = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    input.value +=&lt;span class=&quot;string&quot;&gt;&#39; input&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.body.onclick = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  input.value += &lt;span class=&quot;string&quot;&gt;&#39; body&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 模拟事件捕获，实现父元素的事件回调函数先发生&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;在《高性能JavaScript》中认为 &lt;strong&gt;单个 JavaScript 操作花费的总时间不应该超过100毫秒&lt;/strong&gt;。否则用户会感到与界面失去联系。实际上，如果一段 js 代码的运行时间超过 500ms，Firefox 和 Opera 浏览器将弹出警告对话框，Safari 会默认终止运行时间超过500 ms 的脚本。因此我们需要定时器将计算量大耗时长的任务分割成不会让浏览器挂掉的碎片。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; div = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&#39;div&#39;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 会造成浏览器阻塞&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i=&lt;span class=&quot;number&quot;&gt;0xA00000&lt;/span&gt;;i&amp;lt;&lt;span class=&quot;number&quot;&gt;0xFFFFFF&lt;/span&gt;;i++) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  div.style.backgroundColor = &lt;span class=&quot;string&quot;&gt;&#39;#&#39;&lt;/span&gt;+i.toString(&lt;span class=&quot;number&quot;&gt;16&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 分割成小的任务&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; timer;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i=&lt;span class=&quot;number&quot;&gt;0x100000&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;func&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  timer = setTimeout(func, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  div.style.backgroundColor = &lt;span class=&quot;string&quot;&gt;&#39;#&#39;&lt;/span&gt;+i.toString(&lt;span class=&quot;number&quot;&gt;16&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (i++ == &lt;span class=&quot;number&quot;&gt;0xFFFFFF&lt;/span&gt;) clearInterval(timer);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;timer = setTimeout(func, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;定时器的其它应用&quot;&gt;&lt;a href=&quot;#定时器的其它应用&quot; class=&quot;headerlink&quot; title=&quot;定时器的其它应用&quot;&gt;&lt;/a&gt;定时器的其它应用&lt;/h3&gt;&lt;p&gt;这里就是说函数节流(throttle)与函数防抖(debounce)&lt;/p&gt;
-&lt;p&gt;以 Underscore.js 中 debounce 的实现为例：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;40&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;41&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;42&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;43&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;44&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;45&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;46&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;47&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;48&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; * 空闲控制 返回函数连续调用时，空闲时间必须大于或等于 wait，func 才会执行&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; *&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; * @param  &amp;#123;function&amp;#125; func        传入函数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; * @param  &amp;#123;number&amp;#125;   wait        表示时间窗口的间隔&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; * @param  &amp;#123;boolean&amp;#125;  immediate   设置为ture时，调用触发于开始边界而不是结束边界&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; * @return &amp;#123;function&amp;#125;             返回调用函数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; */&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;_.debounce = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;func, wait, immediate&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; timeout, args, context, timestamp, result;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; later = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 设置 last 为当前时间与上次触发的时间间隔&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; last = _.now() - timestamp;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (last &amp;lt; wait &amp;amp;&amp;amp; last &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;// 如果时间间隔小于所传入的 wait&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;// 还没到触发时间，继续设置定时器&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      timeout = setTimeout(later, wait - last);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;// 到了触发时间，清空计时器，避免影响下次触发&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      timeout = &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;// 如果设定为immediate===true，因为开始边界已经调用过了此处无需调用&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!immediate) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 执行 func&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        result = func.apply(context, args);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!timeout) context = args = &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    context = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    args = &lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 每次触发之后 更新时间戳为此次触发时间&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    timestamp = _.now();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 判断是否符合立即触发的条件&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; callNow = immediate &amp;amp;&amp;amp; !timeout;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 如果延时不存在，重新设定延时&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!timeout) timeout = setTimeout(later, wait);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (callNow) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;// 立即触发&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      result = func.apply(context, args);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      context = args = &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; result;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;需要注意的是，&lt;strong&gt;管理多个定时器会产生许多问题，同时创建大量的定时器将会在浏览器中增加垃圾回收任务发生的可能性&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;定时器是一个特殊的垃圾回收问题，这是由于它们是在 JavaScript 主线程之外的浏览器线程进行管理的。不同浏览器垃圾回收的周期不同，这也是通过定时器处理动画时，动画在有的浏览器上很流畅，有的浏览器上特别卡的原因之一。因此应该注意减少同时使用的定时器的数量或者使用中央定时器来管理多个回调。&lt;/p&gt;
-&lt;h3 id=&quot;几个后续值得探究的问题&quot;&gt;&lt;a href=&quot;#几个后续值得探究的问题&quot; class=&quot;headerlink&quot; title=&quot;几个后续值得探究的问题&quot;&gt;&lt;/a&gt;几个后续值得探究的问题&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;HTML5 Web Workers: HTML5标准的一部分，这一规范定义了一套 API，它允许一段JavaScript程序运行在主线程之外的另外一个线程中&lt;/li&gt;
-&lt;li&gt;requestAnimationFrame: 更适合动画使用的“定时循环器”&lt;/li&gt;
-&lt;li&gt;setImmediate: 一个比较新的定时器，setTimeout(0)的替代版&lt;/li&gt;
-&lt;li&gt;Node.js 中的 Event Loop&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;参考内容&quot;&gt;&lt;a href=&quot;#参考内容&quot; class=&quot;headerlink&quot; title=&quot;参考内容&quot;&gt;&lt;/a&gt;参考内容&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=8aGhZQkoFbQ&amp;amp;t=669s&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Philip Roberts: What the heck is the event loop anyway&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://johnresig.com/blog/how-javascript-timers-work/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;John Resig: How JavaScript Timers Work&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.alloyteam.com/2015/10/turning-to-javascript-series-from-settimeout-said-the-event-loop-model/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AlloyTeam: 从 setTimeout 说起事件循环&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2014/10/event-loop&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;阮一峰: JavaScript 运行机制详解——再谈Event Loop&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/jstips-animation.gif&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;几个可能不知道的定时器⏲特性&quot;&gt;&lt;a href=&quot;#几个可能不知道的定时器⏲特性&quot; class=&quot;headerlink&quot; title=&quot;几个可能不知道的定时器⏲特性&quot;&gt;&lt;/a&gt;几个可能不知道的定时器⏲特性&lt;/h3&gt;&lt;p&gt;首先，&lt;strong&gt;setTimeout()/setInterval()&lt;/strong&gt; 方法不是 ECMAScript 规范定义的内容，而是属于 BOM 提供的功能，也就是说定时器作为 BOM 对象和方法的一部分才能在浏览器中使用。&lt;/p&gt;
-&lt;p&gt;需要注意的是 &lt;strong&gt;setTimeout() 与 setInterval() 在触发周期的定义上完全不一样&lt;/strong&gt;，在下面例子 setTimeout() 代码中，要在前一个 callback 回调执行结束并延迟 10ms 以后才能再次执行 setTimeout()，即延迟是要求运行时(runtime) 处理请求所需的最小时间，但不是有所保证的时间。而 setInterval() 则是每隔 10ms 就执行一次 callback 回调，不会关注 callback 何时执行结束。&lt;/p&gt;
     
     </summary>
     
