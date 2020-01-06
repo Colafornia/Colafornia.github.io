@@ -2,8 +2,15 @@
 
 <p align="center">技术博客，只写不会的</p>
 
+## 2020
+- [React Hooks 起手式](https://blog.colafornia.me/post/2020/react-hooks-starter/)
+
 ## 2019
 
+- [2019 年度总结](https://blog.colafornia.me/post/2019/2019-review/)
+- [理解 Go 语言中的 Slice](https://blog.colafornia.me/post/2019/understand-golang-slice/)
+- [用 Cypress 拯救业务项目的前端自动化测试](https://blog.colafornia.me/post/2019/e2e-test-cypress/)
+- [2019.3 Webpack 升级改造小记](https://blog.colafornia.me/post/2019/2019-webpack-optimization/)
 - [2018 年度总结](https://blog.colafornia.me/post/2019/2018-review/)
 
 ## 2018

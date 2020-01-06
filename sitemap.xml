@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.colafornia.me/post/2020/react-hooks-starter/</loc>
+    
+    <lastmod>2020-01-06T15:22:05.506Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.colafornia.me/post/2019/2019-review/</loc>
     
     <lastmod>2019-12-31T16:29:14.669Z</lastmod>
@@ -107,7 +114,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/note-learning-javascript-oop/</loc>
+    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
     
     <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
@@ -121,14 +128,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
+    <loc>https://blog.colafornia.me/post/2017/make-shell-and-git-better/</loc>
     
     <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/make-shell-and-git-better/</loc>
+    <loc>https://blog.colafornia.me/post/2015/note-learning-javascript-oop/</loc>
     
     <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
@@ -149,7 +156,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/implement-of-frontend-route/</loc>
+    <loc>https://blog.colafornia.me/post/2016/javascript-patterns/</loc>
     
     <lastmod>2019-10-24T02:22:04.202Z</lastmod>
     
@@ -163,7 +170,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/javascript-patterns/</loc>
+    <loc>https://blog.colafornia.me/post/2018/implement-of-frontend-route/</loc>
     
     <lastmod>2019-10-24T02:22:04.202Z</lastmod>
     
@@ -198,14 +205,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
+    <loc>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</loc>
     
     <lastmod>2019-10-24T02:22:04.200Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</loc>
+    <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
     
     <lastmod>2019-10-24T02:22:04.200Z</lastmod>
     
@@ -254,6 +261,13 @@
   </url>
   
   <url>
+    <loc>https://blog.colafornia.me/post/2015/angular-ui-router/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.195Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.colafornia.me/post/2016/basic-review-from-anonymous-function-to-iife/</loc>
     
     <lastmod>2019-10-24T02:22:04.195Z</lastmod>
@@ -268,21 +282,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/angular-ui-router/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.195Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2017/2017-review/</loc>
+    <loc>https://blog.colafornia.me/post/2016/angular-data-binding/</loc>
     
     <lastmod>2019-10-24T02:22:04.194Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/angular-data-binding/</loc>
+    <loc>https://blog.colafornia.me/post/2017/2017-review/</loc>
     
     <lastmod>2019-10-24T02:22:04.194Z</lastmod>
     
