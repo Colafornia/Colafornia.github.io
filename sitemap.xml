@@ -4,7 +4,7 @@
   <url>
     <loc>https://blog.colafornia.me/post/2020/react-hooks-starter/</loc>
     
-    <lastmod>2020-01-06T15:22:05.506Z</lastmod>
+    <lastmod>2020-01-17T03:24:56.661Z</lastmod>
     
   </url>
   
@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/trans-javascript-code-tips/</loc>
+    <loc>https://blog.colafornia.me/post/2018/thrift-note/</loc>
     
     <lastmod>2019-10-24T02:22:04.206Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/thrift-note/</loc>
+    <loc>https://blog.colafornia.me/post/2016/trans-javascript-code-tips/</loc>
     
     <lastmod>2019-10-24T02:22:04.206Z</lastmod>
     
@@ -114,14 +114,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.204Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2017/reading-pragmatic-programmer/</loc>
+    <loc>https://blog.colafornia.me/post/2015/note-learning-javascript-oop/</loc>
     
     <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
@@ -135,21 +128,28 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/note-learning-javascript-oop/</loc>
+    <loc>https://blog.colafornia.me/post/2017/reading-pragmatic-programmer/</loc>
     
     <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/learning-note-bfc/</loc>
+    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2016/learning-clouser-scope/</loc>
     
     <lastmod>2019-10-24T02:22:04.203Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/learning-clouser-scope/</loc>
+    <loc>https://blog.colafornia.me/post/2015/learning-note-bfc/</loc>
     
     <lastmod>2019-10-24T02:22:04.203Z</lastmod>
     
@@ -177,13 +177,6 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.201Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2016/high-performance-javascript-b/</loc>
     
     <lastmod>2019-10-24T02:22:04.201Z</lastmod>
@@ -198,14 +191,21 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/git-rebase-workflow/</loc>
+    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.201Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</loc>
     
     <lastmod>2019-10-24T02:22:04.200Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</loc>
+    <loc>https://blog.colafornia.me/post/2016/git-rebase-workflow/</loc>
     
     <lastmod>2019-10-24T02:22:04.200Z</lastmod>
     
@@ -247,13 +247,6 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/cookie-localstorage-session/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.196Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2016/browser-cache-summary/</loc>
     
     <lastmod>2019-10-24T02:22:04.196Z</lastmod>
@@ -261,7 +254,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/angular-ui-router/</loc>
+    <loc>https://blog.colafornia.me/post/2016/cookie-localstorage-session/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.196Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2016/basic-fetch-api/</loc>
     
     <lastmod>2019-10-24T02:22:04.195Z</lastmod>
     
@@ -275,21 +275,21 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/basic-fetch-api/</loc>
+    <loc>https://blog.colafornia.me/post/2015/angular-ui-router/</loc>
     
     <lastmod>2019-10-24T02:22:04.195Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/angular-data-binding/</loc>
+    <loc>https://blog.colafornia.me/post/2017/2017-review/</loc>
     
     <lastmod>2019-10-24T02:22:04.194Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/2017-review/</loc>
+    <loc>https://blog.colafornia.me/post/2016/angular-data-binding/</loc>
     
     <lastmod>2019-10-24T02:22:04.194Z</lastmod>
     
