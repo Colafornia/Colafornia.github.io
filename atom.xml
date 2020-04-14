@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.colafornia.me/"/>
-  <updated>2020-01-17T03:24:56.661Z</updated>
+  <updated>2020-04-14T02:04:07.248Z</updated>
   <id>https://blog.colafornia.me/</id>
   
   <author>
@@ -14,6 +14,283 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>年轻人的第一次裸辞找工作面试记录</title>
+    <link href="https://blog.colafornia.me/post/2020/2020-interviews/"/>
+    <id>https://blog.colafornia.me/post/2020/2020-interviews/</id>
+    <published>2020-04-13T14:00:00.000Z</published>
+    <updated>2020-04-14T02:04:07.248Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-interview.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;16年本科毕业，一直以来也没太多面试经历。&lt;/p&gt;
+&lt;p&gt;今年三月初裸辞，赶上疫情，有蛮多时间进行面试，按时间顺序面了伴鱼/好未来/OPPO/贝壳/滴滴/Shopee/头条/快手/阿里，在此特地总结一下。&lt;/p&gt;
+&lt;p&gt;前面的面试都记得很认真，到后面精神和体力值都指数级下降，面经就记录得越发简洁了……&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;面经&quot;&gt;&lt;a href=&quot;#面经&quot; class=&quot;headerlink&quot; title=&quot;面经&quot;&gt;&lt;/a&gt;面经&lt;/h1&gt;&lt;p&gt;先放面经，只贴与项目没太大关系的知识点考察题目&lt;/p&gt;
+&lt;h3 id=&quot;伴鱼（C轮在线教育公司）Offer&quot;&gt;&lt;a href=&quot;#伴鱼（C轮在线教育公司）Offer&quot; class=&quot;headerlink&quot; title=&quot;伴鱼（C轮在线教育公司）Offer&quot;&gt;&lt;/a&gt;伴鱼（C轮在线教育公司）&lt;code&gt;Offer&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;一开始投了两家教育类公司，算是我老东家的竞品，业务比较类似所以第一波来面。三轮技术面体验非常好，收到 offer 之后大前端负责人也给了很多关于选组与个人发展的建议。&lt;/p&gt;
+&lt;h4 id=&quot;一面&quot;&gt;&lt;a href=&quot;#一面&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;看代码说输出，常规 EventLoop 题目&lt;/li&gt;
+&lt;li&gt;看代码说输出，考察 JavaScript 参数按值传递&lt;/li&gt;
+&lt;li&gt;说说内存堆栈&lt;/li&gt;
+&lt;li&gt;Fiber 架构&lt;/li&gt;
+&lt;li&gt;尤雨溪说 Vue3 没有采用 Fiber，依然很快，为什么 （这是个好题目）&lt;/li&gt;
+&lt;li&gt;懒加载与动态 import 语法的坑&lt;/li&gt;
+&lt;li&gt;Webpack 怎么给 chunk 包命名，再说说怎么合理分包&lt;/li&gt;
+&lt;li&gt;说说怎么本地调试 npm 包，考察 npm link&lt;/li&gt;
+&lt;li&gt;WeakMap 是什么，相比 Object 有什么优点&lt;/li&gt;
+&lt;li&gt;有没有写过 Webpack 插件，讲讲 Webpack 原理&lt;/li&gt;
+&lt;li&gt;老生常谈说说从输入 url 到页面加载发生了什么，面试官追问了网络应用层以下的内容&lt;/li&gt;
+&lt;li&gt;Promise 的状态，Promise.all 是干什么的&lt;/li&gt;
+&lt;li&gt;Promise.then.catch.then 会执行吗&lt;/li&gt;
+&lt;li&gt;HTTP 缓存&lt;/li&gt;
+&lt;li&gt;简短聊了聊项目，顺着简历提到的性能优化点问了一些内容&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;二面&quot;&gt;&lt;a href=&quot;#二面&quot; class=&quot;headerlink&quot; title=&quot;二面&quot;&gt;&lt;/a&gt;二面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;CI / CD怎么做的&lt;/li&gt;
+&lt;li&gt;Docker 分层是什么，怎么做&lt;/li&gt;
+&lt;li&gt;Tree-shaking 原理&lt;/li&gt;
+&lt;li&gt;新版 React 的特性&lt;/li&gt;
+&lt;li&gt;对 React 做的优化&lt;/li&gt;
+&lt;li&gt;Hooks VS HOC/ Render Props&lt;/li&gt;
+&lt;li&gt;给 Render props 传 pure component 有优化吗，解决了什么问题 （也是个埋坑问题）&lt;/li&gt;
+&lt;li&gt;HTML 渲染机制， CSS 阻塞渲染吗&lt;/li&gt;
+&lt;li&gt;合成层怎么触发，怎么分的&lt;/li&gt;
+&lt;li&gt;Node 端 Event Loop&lt;/li&gt;
+&lt;li&gt;微前端了解多少，如果让你做微前端的技术选型，你怎么考虑&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;三面&quot;&gt;&lt;a href=&quot;#三面&quot; class=&quot;headerlink&quot; title=&quot;三面&quot;&gt;&lt;/a&gt;三面&lt;/h4&gt;&lt;p&gt;三面是大前端负责人，疯狂问项目，也考察了对业务的思考和看法，没有什么具体的知识点就没记了&lt;/p&gt;
+&lt;h3 id=&quot;好未来（中台）技术面通过，放弃-Offer&quot;&gt;&lt;a href=&quot;#好未来（中台）技术面通过，放弃-Offer&quot; class=&quot;headerlink&quot; title=&quot;好未来（中台）技术面通过，放弃 Offer&quot;&gt;&lt;/a&gt;好未来（中台）&lt;code&gt;技术面通过，放弃 Offer&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;题目很神奇，恍惚回到了四年前找实习的时候 = = 两轮技术面但都没问什么有用的，就没怎么记&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;CSS 定位方式， sticky 的使用场景&lt;/li&gt;
+&lt;li&gt;说说 CSS3 新属性&lt;/li&gt;
+&lt;li&gt;居中方式， flex布局怎么做&lt;/li&gt;
+&lt;li&gt;script 标签的 async 和 defer 属性&lt;/li&gt;
+&lt;li&gt;怎么实现一个扑克牌翻转效果&lt;/li&gt;
+&lt;li&gt;怎么实现一个富文本编辑器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;OPPO（智能搜索-base-北京）-Offer&quot;&gt;&lt;a href=&quot;#OPPO（智能搜索-base-北京）-Offer&quot; class=&quot;headerlink&quot; title=&quot;OPPO（智能搜索 base 北京） Offer&quot;&gt;&lt;/a&gt;OPPO（智能搜索 base 北京） &lt;code&gt;Offer&lt;/code&gt;&lt;/h2&gt;&lt;h4 id=&quot;一面-1&quot;&gt;&lt;a href=&quot;#一面-1&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;JSBridge 原理&lt;/li&gt;
+&lt;li&gt;React 16 中 Diff 算法的变化&lt;/li&gt;
+&lt;li&gt;向一个 DOM 后面插入节点怎么做&lt;/li&gt;
+&lt;li&gt;怎么实现 lodash.get 方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;二面-1&quot;&gt;&lt;a href=&quot;#二面-1&quot; class=&quot;headerlink&quot; title=&quot;二面&quot;&gt;&lt;/a&gt;二面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;CDN 的特点，用 CDN 资源为什么快（分布式节点，回源，缓存，CDN 主动拉取）&lt;/li&gt;
+&lt;li&gt;Vue 与 React 的区别&lt;/li&gt;
+&lt;li&gt;浏览器渲染相关的思考，怎么优化，对平时开发有什么启示&lt;/li&gt;
+&lt;li&gt;Node 的特点，为什么适合高并发&lt;/li&gt;
+&lt;li&gt;Node 服务部署，运维&lt;/li&gt;
+&lt;li&gt;Node 框架用的什么， Koa 与 Express 相比有什么不同&lt;/li&gt;
+&lt;li&gt;简历项目挨个聊&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;三面-1&quot;&gt;&lt;a href=&quot;#三面-1&quot; class=&quot;headerlink&quot; title=&quot;三面&quot;&gt;&lt;/a&gt;三面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;介绍一个项目&lt;/li&gt;
+&lt;li&gt;懒加载怎么做&lt;/li&gt;
+&lt;li&gt;说说其它性能优化方式&lt;/li&gt;
+&lt;li&gt;浏览器缓存&lt;/li&gt;
+&lt;li&gt;路由模式&lt;/li&gt;
+&lt;li&gt;HTTPS 原理&lt;/li&gt;
+&lt;li&gt;ContentType 模式，formData 里面是什么结构&lt;/li&gt;
+&lt;li&gt;数据上报怎么做，除了 img 标签&lt;/li&gt;
+&lt;li&gt;git workflow，merge 与 rebase 的区别&lt;/li&gt;
+&lt;li&gt;Promise 原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;四面&quot;&gt;&lt;a href=&quot;#四面&quot; class=&quot;headerlink&quot; title=&quot;四面&quot;&gt;&lt;/a&gt;四面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Node 底层了解多少&lt;/li&gt;
+&lt;li&gt;React 冷启动很慢，为什么，哪些地方可以优化&lt;/li&gt;
+&lt;li&gt;用户弱网环境问题排查与优化&lt;/li&gt;
+&lt;li&gt;性能数据上报怎么实现，什么时候上报&lt;/li&gt;
+&lt;li&gt;CSRF 防范方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;贝壳（如视）-Offer&quot;&gt;&lt;a href=&quot;#贝壳（如视）-Offer&quot; class=&quot;headerlink&quot; title=&quot;贝壳（如视） Offer&quot;&gt;&lt;/a&gt;贝壳（如视） &lt;code&gt;Offer&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;如视是贝壳的 VR 业务线，链家、自如 app 里的 VR 看房就是他们做的，很好的团队，做的事情也很酷！&lt;/p&gt;
+&lt;h4 id=&quot;一面-2&quot;&gt;&lt;a href=&quot;#一面-2&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;JSBridge 原理&lt;/li&gt;
+&lt;li&gt;开发 WebView 遇到过哪些问题&lt;/li&gt;
+&lt;li&gt;开发直播应用的心得体会（算是与简历项目相关）&lt;/li&gt;
+&lt;li&gt;如何设计一个日志分析，现场还原系统（记录画面）&lt;/li&gt;
+&lt;li&gt;实现一个单例&lt;/li&gt;
+&lt;li&gt;算法，括号匹配问题，Leetcode Easy 题目小变形&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;二面-2&quot;&gt;&lt;a href=&quot;#二面-2&quot; class=&quot;headerlink&quot; title=&quot;二面&quot;&gt;&lt;/a&gt;二面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;SSO 鉴权流程&lt;/li&gt;
+&lt;li&gt;samesite cookie&lt;/li&gt;
+&lt;li&gt;toB 和 toC 业务特点，区别&lt;/li&gt;
+&lt;li&gt;在上家公司遇到了什么问题，怎么解决的，技术和非技术都可以说说&lt;/li&gt;
+&lt;li&gt;Electron 播放音视频踩过什么坑吗&lt;/li&gt;
+&lt;li&gt;CSRF 防范方法&lt;/li&gt;
+&lt;li&gt;Buffer 与 Stream&lt;/li&gt;
+&lt;li&gt;createObjectURL 与 canvas.toDataURL&lt;/li&gt;
+&lt;li&gt;base64 是什么&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;三面-2&quot;&gt;&lt;a href=&quot;#三面-2&quot; class=&quot;headerlink&quot; title=&quot;三面&quot;&gt;&lt;/a&gt;三面&lt;/h4&gt;&lt;p&gt;聊项目为主，问了一些个人规划职业发展的问题&lt;/p&gt;
+&lt;h3 id=&quot;滴滴（网约车-C端）-Offer&quot;&gt;&lt;a href=&quot;#滴滴（网约车-C端）-Offer&quot; class=&quot;headerlink&quot; title=&quot;滴滴（网约车 C端） Offer&quot;&gt;&lt;/a&gt;滴滴（网约车 C端） &lt;code&gt;Offer&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;从晚上五点开始，连着面三轮，流程很快&lt;/p&gt;
+&lt;h4 id=&quot;一面-3&quot;&gt;&lt;a href=&quot;#一面-3&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;TypeScript 里有哪些 JavaScript 没有的类型&lt;/li&gt;
+&lt;li&gt;React Hooks 原理&lt;/li&gt;
+&lt;li&gt;节流防抖的使用场景&lt;/li&gt;
+&lt;li&gt;Event Loop&lt;/li&gt;
+&lt;li&gt;数组与对象有哪些遍历方式，for…in 与 Object.keys 有什么区别&lt;/li&gt;
+&lt;li&gt;ES6 的 Module 与 CommonJS&lt;/li&gt;
+&lt;li&gt;Promise 有哪些方法，都是做什么的&lt;/li&gt;
+&lt;li&gt;按需加载怎么做&lt;/li&gt;
+&lt;li&gt;实现 Bind&lt;/li&gt;
+&lt;li&gt;实现一个乱序算法&lt;/li&gt;
+&lt;li&gt;实现一个深拷贝&lt;/li&gt;
+&lt;li&gt;跨域场景与常规解决方案&lt;/li&gt;
+&lt;li&gt;HTTP 缓存&lt;/li&gt;
+&lt;li&gt;垂直居中与盒子模型&lt;/li&gt;
+&lt;li&gt;图片跑马灯效果怎么实现&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;二面-3&quot;&gt;&lt;a href=&quot;#二面-3&quot; class=&quot;headerlink&quot; title=&quot;二面&quot;&gt;&lt;/a&gt;二面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;JSBridge 原理&lt;/li&gt;
+&lt;li&gt;如何自己实现一个组件按需加载&lt;/li&gt;
+&lt;li&gt;Webpack 原理，追问让说的更细一些&lt;/li&gt;
+&lt;li&gt;Webpack 热更新原理&lt;/li&gt;
+&lt;li&gt;Flex 布局&lt;/li&gt;
+&lt;li&gt;BFC 的原理和使用场景&lt;/li&gt;
+&lt;li&gt;CI/CD 怎么做的，哪些有提效&lt;/li&gt;
+&lt;li&gt;说一件让你有成就感的事情&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;三面-3&quot;&gt;&lt;a href=&quot;#三面-3&quot; class=&quot;headerlink&quot; title=&quot;三面&quot;&gt;&lt;/a&gt;三面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;TypeScript type 与 interface 的区别&lt;/li&gt;
+&lt;li&gt;React Fiber&lt;/li&gt;
+&lt;li&gt;Babel loader 原理&lt;/li&gt;
+&lt;li&gt;Node Stream 是干什么的&lt;/li&gt;
+&lt;li&gt;写一个 ES5 继承&lt;/li&gt;
+&lt;li&gt;写一个 twoSum 算法&lt;/li&gt;
+&lt;li&gt;Webpack 常用优化方式&lt;/li&gt;
+&lt;li&gt;Webpack 原理&lt;/li&gt;
+&lt;li&gt;React 里 key 做什么的&lt;/li&gt;
+&lt;li&gt;z-index 干啥的，有哪些条件会形成层叠上下文&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Shopee-卖家平台-base-深圳-Offer&quot;&gt;&lt;a href=&quot;#Shopee-卖家平台-base-深圳-Offer&quot; class=&quot;headerlink&quot; title=&quot;Shopee (卖家平台 base 深圳) Offer&quot;&gt;&lt;/a&gt;Shopee (卖家平台 base 深圳) &lt;code&gt;Offer&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;疫情期间被家里催着回北方，就还是拒了 offer&lt;/p&gt;
+&lt;h4 id=&quot;一面（各种基础题，没记多少）&quot;&gt;&lt;a href=&quot;#一面（各种基础题，没记多少）&quot; class=&quot;headerlink&quot; title=&quot;一面（各种基础题，没记多少）&quot;&gt;&lt;/a&gt;一面（各种基础题，没记多少）&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;CSS 块级元素与行内元素， BFC 等等&lt;/li&gt;
+&lt;li&gt;各种看输出题目，event loop，原型链&lt;/li&gt;
+&lt;li&gt;写一个大数加法&lt;/li&gt;
+&lt;li&gt;写一个数组拍平&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;二面-4&quot;&gt;&lt;a href=&quot;#二面-4&quot; class=&quot;headerlink&quot; title=&quot;二面&quot;&gt;&lt;/a&gt;二面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;遍历 Object 属性的方式，哪些可以只遍历自有属性&lt;/li&gt;
+&lt;li&gt;async 的异常捕获&lt;/li&gt;
+&lt;li&gt;如何并发执行 async&lt;/li&gt;
+&lt;li&gt;针对 HTTP 请求的优化方案&lt;/li&gt;
+&lt;li&gt;icon 是怎么引入的， iconfont 里面怎么识别我们引入的 icon&lt;/li&gt;
+&lt;li&gt;如何检测浏览器、服务器是否支持 http2.0&lt;/li&gt;
+&lt;li&gt;Sentry 这类监控怎么监控错误的，对于跨域脚本错误呢&lt;/li&gt;
+&lt;li&gt;GraphQL 接口的性能与质量，单机QPS多少，单核还是多核部署（这个算问项目）&lt;/li&gt;
+&lt;li&gt;怎么做懒加载，如果我们想点击一个按钮，然后动态加载 modal，要怎么做&lt;/li&gt;
+&lt;li&gt;mobx 和 redux&lt;/li&gt;
+&lt;li&gt;实现一个记忆函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;头条（广告系统）Offer&quot;&gt;&lt;a href=&quot;#头条（广告系统）Offer&quot; class=&quot;headerlink&quot; title=&quot;头条（广告系统）Offer&quot;&gt;&lt;/a&gt;头条（广告系统）&lt;code&gt;Offer&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;快被二面虐哭了&lt;/p&gt;
+&lt;h4 id=&quot;一面-4&quot;&gt;&lt;a href=&quot;#一面-4&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;移动端自适应方案&lt;/li&gt;
+&lt;li&gt;几道看输出的题目，考察变量声明提升，暂时性死区，原型链&lt;/li&gt;
+&lt;li&gt;React 虚拟 DOM diff 算法&lt;/li&gt;
+&lt;li&gt;Webpack HMR 原理&lt;/li&gt;
+&lt;li&gt;说几个 HTTP Content-Type&lt;/li&gt;
+&lt;li&gt;cookie 的属性有哪些，都是干啥的&lt;/li&gt;
+&lt;li&gt;React 组件间通信机制&lt;/li&gt;
+&lt;li&gt;React 路由模式原理&lt;/li&gt;
+&lt;li&gt;JSBridge 原理&lt;/li&gt;
+&lt;li&gt;手写实现 Promise.all，后面还有加上并发限制的几个小变形&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;二面-5&quot;&gt;&lt;a href=&quot;#二面-5&quot; class=&quot;headerlink&quot; title=&quot;二面&quot;&gt;&lt;/a&gt;二面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;聊聊 React Fiber，Fiber 是依据什么切分任务的&lt;/li&gt;
+&lt;li&gt;显示器刷新率与浏览器帧率&lt;/li&gt;
+&lt;li&gt;瀑布流计算逻辑&lt;/li&gt;
+&lt;li&gt;CSS 幽灵空白节点与解决方案&lt;/li&gt;
+&lt;li&gt;CSS 行内元素的 baseline 问题&lt;/li&gt;
+&lt;li&gt;写个深拷贝&lt;/li&gt;
+&lt;li&gt;Object.create 是干啥的，自己实现一个&lt;/li&gt;
+&lt;li&gt;JavaScript 里的包装类型&lt;/li&gt;
+&lt;li&gt;聊聊 JavaScript 的语法解析， JIT 等等&lt;/li&gt;
+&lt;li&gt;WebAssembly 了解么，是干啥的&lt;/li&gt;
+&lt;li&gt;说说最近很火的面试题 a == 1 &amp;amp;&amp;amp; a == 2 &amp;amp;&amp;amp; a == 3&lt;/li&gt;
+&lt;li&gt;聊聊尾递归&lt;/li&gt;
+&lt;li&gt;HTTPS 原理&lt;/li&gt;
+&lt;li&gt;HTTP 缓存&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;三面-4&quot;&gt;&lt;a href=&quot;#三面-4&quot; class=&quot;headerlink&quot; title=&quot;三面&quot;&gt;&lt;/a&gt;三面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;介绍一个项目&lt;/li&gt;
+&lt;li&gt;这个项目还有哪些可以做的优化，技术优化，产品优化等等&lt;/li&gt;
+&lt;li&gt;错误监控的实现原理&lt;/li&gt;
+&lt;li&gt;数据上报的几种方案比较&lt;/li&gt;
+&lt;li&gt;挨个问了问简历里大佬比较感兴趣的内容&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;快手（中台）Offer&quot;&gt;&lt;a href=&quot;#快手（中台）Offer&quot; class=&quot;headerlink&quot; title=&quot;快手（中台）Offer&quot;&gt;&lt;/a&gt;快手（中台）&lt;code&gt;Offer&lt;/code&gt;&lt;/h3&gt;&lt;h4 id=&quot;一面-5&quot;&gt;&lt;a href=&quot;#一面-5&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;聊了很久项目，各种项目&lt;/li&gt;
+&lt;li&gt;Webpack 常见优化手段&lt;/li&gt;
+&lt;li&gt;Webpack 里有几种哈希，都是干什么的&lt;/li&gt;
+&lt;li&gt;实现 LRU&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;二面-6&quot;&gt;&lt;a href=&quot;#二面-6&quot; class=&quot;headerlink&quot; title=&quot;二面&quot;&gt;&lt;/a&gt;二面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;介绍一个项目&lt;/li&gt;
+&lt;li&gt;介绍一下 React Hooks，相比于 HOC 它有什么特点，解决了什么问题&lt;/li&gt;
+&lt;li&gt;Mobx 如何监听到 Object array 的元素属性变化&lt;/li&gt;
+&lt;li&gt;开发移动端与 PC 端项目有什么不同&lt;/li&gt;
+&lt;li&gt;JSBridge 原理，怎么解决安全问题&lt;/li&gt;
+&lt;li&gt;实现 Promise.all，加上一些变形&lt;/li&gt;
+&lt;li&gt;写个 treeToArray，再写个 arrayToTree&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;三面-5&quot;&gt;&lt;a href=&quot;#三面-5&quot; class=&quot;headerlink&quot; title=&quot;三面&quot;&gt;&lt;/a&gt;三面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;移动端适配方案，rem 解决了什么问题，为什么要采用 rem&lt;/li&gt;
+&lt;li&gt;只用原生 API 实现一个拖拽跟随效果（好题目，又扩展地问了很多问题，有空再写写）&lt;/li&gt;
+&lt;li&gt;除了你一面说的那些，Webpack 还有什么优化手段（这个问法好厉害…）&lt;/li&gt;
+&lt;li&gt;深入考察了一波 CSS 绝对定位，相对定位，块级元素的本身概念&lt;/li&gt;
+&lt;li&gt;拐着弯问了个 @import 的特性和坑&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;阿里（钉钉-base-北京）HR面挂&quot;&gt;&lt;a href=&quot;#阿里（钉钉-base-北京）HR面挂&quot; class=&quot;headerlink&quot; title=&quot;阿里（钉钉 base 北京）HR面挂&quot;&gt;&lt;/a&gt;阿里（钉钉 base 北京）&lt;code&gt;HR面挂&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;作为面试季的结束，这个结果挺酸爽的……&lt;/p&gt;
+&lt;p&gt;总体感觉钉钉重点考察候选人对业务甚至商业模式的理解，hr 面都详细地问了做的事情对业务的帮助与影响，当前业务模式下技术有哪些手段可以降低项目成本等等&lt;/p&gt;
+&lt;p&gt;由于已经到了面试季的最尾声了，题目几乎都没怎么记，其实挺多知识点的切入，扩展方式都很赞&lt;/p&gt;
+&lt;h4 id=&quot;一面-6&quot;&gt;&lt;a href=&quot;#一面-6&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;聊项目&lt;/li&gt;
+&lt;li&gt;React Fiber&lt;/li&gt;
+&lt;li&gt;比较一下 Mixin / HOC / Hooks&lt;/li&gt;
+&lt;li&gt;数据劫持的几种方式&lt;/li&gt;
+&lt;li&gt;手写 compareVersion 两种解法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;二面-7&quot;&gt;&lt;a href=&quot;#二面-7&quot; class=&quot;headerlink&quot; title=&quot;二面&quot;&gt;&lt;/a&gt;二面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;聊项目，有没有调研过业界竞品的技术方案&lt;/li&gt;
+&lt;li&gt;CI 怎么做的， E2E测试的具体收益，适用于哪些场景&lt;/li&gt;
+&lt;li&gt;扫码登录的实现逻辑&lt;/li&gt;
+&lt;li&gt;JSBridge 原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;三面-6&quot;&gt;&lt;a href=&quot;#三面-6&quot; class=&quot;headerlink&quot; title=&quot;三面&quot;&gt;&lt;/a&gt;三面&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;各种聊项目，对过往工作经历里的一些业务理解（各种对业务的理解，有哪些深挖的点）&lt;/li&gt;
+&lt;li&gt;聊虚拟 DOM 和 diff 算法，与真实 DOM 对比&lt;/li&gt;
+&lt;li&gt;聊闭包&lt;/li&gt;
+&lt;li&gt;聊工程化&lt;/li&gt;
+&lt;li&gt;聊 Web 安全&lt;/li&gt;
+&lt;li&gt;聊 Go 语言&lt;/li&gt;
+&lt;li&gt;聊你对钉钉的看法和对业务，前景理解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;四面-1&quot;&gt;&lt;a href=&quot;#四面-1&quot; class=&quot;headerlink&quot; title=&quot;四面&quot;&gt;&lt;/a&gt;四面&lt;/h4&gt;&lt;p&gt;这一面聊技术的内容不多，更多还是一些职业规划，技术规划，和业务方有分歧怎么处理这些软素质相关的问题。&lt;/p&gt;
+&lt;p&gt;四面之后本来还要有一轮大佬面，但是时间没排上就先进行 hr 面了，hr 面了一个半小时，然后就挂了…&lt;/p&gt;
+&lt;h1 id=&quot;体会&quot;&gt;&lt;a href=&quot;#体会&quot; class=&quot;headerlink&quot; title=&quot;体会&quot;&gt;&lt;/a&gt;体会&lt;/h1&gt;&lt;p&gt;本来春节期间趁着在家还着重刷了一波算法的，但还是菜，面试期间手撕算法的场合也不多。&lt;/p&gt;
+&lt;p&gt;除了以上列出的技术考察点，还是聊项目更多，所以功在平时，好好做项目，多思考是必要积累。大多数面试里都是一轮纯基础面，类似于题库抽题的方式来考察各种基本点。第一轮通过之后都是聊项目为主，穿插着一些技术点面试也是很虚的“聊聊xx”，在我看来这种提问方式很考察对技术点的纵向理解，要自己扩展着一直说说说才行，这种题目也达成了一问一答的话就会减分，在面试官那里看起来是卡壳的。&lt;/p&gt;
+&lt;p&gt;还是要继续努力才行~&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/2020-interview.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;16年本科毕业，一直以来也没太多面试经历。&lt;/p&gt;
+&lt;p&gt;今年三月初裸辞，赶上疫情，有蛮多时间进行面试，按时间顺序面了伴鱼/好未来/OPPO/贝壳/滴滴/Shopee/头条/快手/阿里，在此特地总结一下。&lt;/p&gt;
+&lt;p&gt;前面的面试都记得很认真，到后面精神和体力值都指数级下降，面经就记录得越发简洁了……&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="interview" scheme="https://blog.colafornia.me/categories/interview/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>React Hooks 起手式</title>
@@ -53,7 +330,7 @@
 &lt;p&gt;&lt;code&gt;Class Component&lt;/code&gt;:&lt;/p&gt;
 &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;React&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;Component&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;constructor&lt;/span&gt;(props)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;(props);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.state = &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    componentDidMount() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.fetchData()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    render() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;// ...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;code&gt;Function Component&lt;/code&gt;:&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;App&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;links&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;lt;div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;lt;ul&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;links.map((&amp;#123;href, title&amp;#125;)=&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#123;href&amp;#125;&amp;gt;&amp;#123;title&amp;#125;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; )&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;lt;/ul&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;lt;/div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    )&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;App&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;links&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;links.map((&amp;#123;href, title&amp;#125;)=&amp;gt; &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;#123;href&amp;#125;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;#123;title&amp;#125;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt; )&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    )&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;类组件中会维护内部状态，函数组件则是无状态的。&lt;/p&gt;
 &lt;p&gt;这就是关键之处，&lt;strong&gt;函数组件无法保存状态&lt;/strong&gt;，每次重新运行函数都会导致其作用域内所有函数被重置，也无法像类组件一样通过继承  &lt;code&gt;React.Component&lt;/code&gt; 原型上的方法 &lt;code&gt;setState&lt;/code&gt; 来更新自己的状态。所以，在过去，如果我们想让一个函数组件具有状态，就不得不将其转为类组件。&lt;/p&gt;
 &lt;p&gt;那么，如果我们想抛弃 Class，转向函数组件的话，必须解决的事便是让函数组件也能保留、修改、持久化自己的状态。&lt;/p&gt;
@@ -98,7 +375,7 @@
 &lt;p&gt;调用 Hook API 实际上就是新增一个 Hook 实例并将其追加到 Hooks 链表上，返回给组件的是这个 Hook 的 state 和对应的 setter，链表的结构决定了 re-render 时 React 并不会知道这个 setter 对应的是哪个 hooks，因此它会从链表的头开始一一执行（这是采用了链表结构的弊端，但是如果通过 HashMap 来存储的话，每次调用 Hook API 都需要显示地传入一个 Key 值来区分不同 Hook，更复杂了）。&lt;/p&gt;
 &lt;p&gt;这个 Hooks 链表是在 mount 阶段时构造的，所以声明 Hook 时的&lt;strong&gt;顺序很重要&lt;/strong&gt;，这也是为什么我们只能在函数组件顶部作用域调用Hook API，不能在条件语句、循环、子函数里调用 Hooks。&lt;/p&gt;
 &lt;h3 id=&quot;Notice-Capture-Value&quot;&gt;&lt;a href=&quot;#Notice-Capture-Value&quot; class=&quot;headerlink&quot; title=&quot;Notice: Capture Value&quot;&gt;&lt;/a&gt;Notice: Capture Value&lt;/h3&gt;&lt;p&gt;这是一个新手常见坑，首先来看一段代码（&lt;a href=&quot;https://codesandbox.io/s/k5pmk0omx7&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;在线地址&lt;/a&gt;）：&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Example&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; [count, setCount] = useState(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; handleAlertClick = useCallback(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    () =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      setTimeout(() =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        alert(&lt;span class=&quot;string&quot;&gt;&quot;You clicked on: &quot;&lt;/span&gt; + count);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;, &lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [count]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;p&amp;gt;You clicked &amp;#123;count&amp;#125; times&amp;lt;/p&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;button onClick=&amp;#123;() =&amp;gt; setCount(count + 1)&amp;#125;&amp;gt;增加 count&amp;lt;/button&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;button onClick=&amp;#123;handleAlertClick&amp;#125;&amp;gt;显示 count&amp;lt;/button&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;/div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Example&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; [count, setCount] = useState(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; handleAlertClick = useCallback(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    () =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      setTimeout(() =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        alert(&lt;span class=&quot;string&quot;&gt;&quot;You clicked on: &quot;&lt;/span&gt; + count);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;, &lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [count]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;You clicked &amp;#123;count&amp;#125; times&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;onClick&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;#123;()&lt;/span&gt; =&amp;gt;&lt;/span&gt; setCount(count + 1)&amp;#125;&amp;gt;增加 count&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;onClick&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;#123;handleAlertClick&amp;#125;&lt;/span&gt;&amp;gt;&lt;/span&gt;显示 count&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;先点击 “显示 count” 按钮，然后快速点击 “增加 count” 两下，会发现 alert 弹窗上显示的是 0，然而 p 标签里已经是2了。这就是 React Hook 的 &lt;code&gt;Capture Value&lt;/code&gt; 快照特性。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2020/01/17/lziPWn.png&quot; alt=&quot;image-20200106180246276&quot;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -107,7 +384,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;每次 Render 的内容都会形成一个快照并保存下来，因此当状态变更而 re-render 时，就有了 N 个快照，每个都拥有自己独立的，固定不变的 Props 和 State。在每个快照之间（在这段代码里即每次点击之间），count 只是一个常量，不存在数据绑定，watcher 或者 proxy 之类的东西，它只是一个常量数字。因此点击“显示 count” 按钮时，当前快照内 count 值为 0，alert 弹窗为 0，后面无论点击多少次“增加 count” 按钮，都是新的快照，与它无关了。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Capture Value&lt;/code&gt; 特性存在于除 &lt;code&gt;useRef&lt;/code&gt; 之外的所有 Hook API 中（因为&lt;strong&gt;非 useRef 相关的 Hook API，本质上都形成了闭包，闭包有自己独立的状态，这就是 Capture Value 的本质&lt;/strong&gt;）。所以如果想避免上述例子中取不到 state 最新值的情况，可以通过 &lt;code&gt;useRef&lt;/code&gt; 把所需的 state 值保存下来：&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Example&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; [count, setCount] = useState(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; countRef = useRef(&lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; handleAlertClick = useCallback(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    () =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      setTimeout(() =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        alert(&lt;span class=&quot;string&quot;&gt;&quot;You clicked on: &quot;&lt;/span&gt; + countRef.current);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;, &lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [count]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;p&amp;gt;You clicked &amp;#123;count&amp;#125; times&amp;lt;/p&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;button onClick=&amp;#123;() =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        countRef.current = count + 1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        setCount(count + 1)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;&amp;#125;&amp;gt;增加 count&amp;lt;/button&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;button onClick=&amp;#123;handleAlertClick&amp;#125;&amp;gt;显示 count&amp;lt;/button&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;/div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Example&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; [count, setCount] = useState(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; countRef = useRef(&lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; handleAlertClick = useCallback(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    () =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      setTimeout(() =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        alert(&lt;span class=&quot;string&quot;&gt;&quot;You clicked on: &quot;&lt;/span&gt; + countRef.current);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;, &lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [count]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;You clicked &amp;#123;count&amp;#125; times&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;onClick&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;#123;()&lt;/span&gt; =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        countRef.current = count + 1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        setCount(count + 1)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;&amp;#125;&amp;gt;增加 count&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;onClick&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;#123;handleAlertClick&amp;#125;&lt;/span&gt;&amp;gt;&lt;/span&gt;显示 count&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;Hooks-API&quot;&gt;&lt;a href=&quot;#Hooks-API&quot; class=&quot;headerlink&quot; title=&quot;Hooks API&quot;&gt;&lt;/a&gt;Hooks API&lt;/h3&gt;&lt;p&gt;接下来简单介绍一下官方的几个有意思的 Hooks 的常规用法和注意事项。&lt;/p&gt;
 &lt;h4 id=&quot;useRef&quot;&gt;&lt;a href=&quot;#useRef&quot; class=&quot;headerlink&quot; title=&quot;useRef&quot;&gt;&lt;/a&gt;useRef&lt;/h4&gt;&lt;p&gt;前面在 Capture Value 也介绍了，它是唯一返回 mutable 数据的 Hook，它不仅可以 DOM 引用，还可以存储任意 JavaScript 值。&lt;/p&gt;
 &lt;p&gt;修改 useRef 的值必须改其 current 属性，否则不会触发 re-render&lt;/p&gt;
@@ -115,7 +392,7 @@
 &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 只要 a 或 b 不变，这个值就不会变化&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; memoizedCallback = useCallback(() =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  doSomething(a, b);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;, [a, b]);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;需要注意的是，用 useCallback 包裹的函数所用参数，也必须在 hook 的 deps 数组里。&lt;/p&gt;
 &lt;p&gt;使用场景：&lt;/p&gt;
-&lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Counter&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; [count, setCount] = useState(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; handleIncrement = useCallback(() =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    setCount(count + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;, [count])&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&amp;lt;div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#123;count&amp;#125;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;lt;ComplexButton onClick=&amp;#123;handleIncrement&amp;#125;&amp;gt;increment&amp;lt;/ComplexButton&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;lt;/div&amp;gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight jsx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Counter&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; [count, setCount] = useState(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; handleIncrement = useCallback(() =&amp;gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    setCount(count + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;, [count])&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#123;count&amp;#125;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;ComplexButton&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;onClick&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&amp;#123;handleIncrement&amp;#125;&lt;/span&gt;&amp;gt;&lt;/span&gt;increment&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;ComplexButton&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;如果不使用 useCallback 来包住回调函数的话，那么每次点击按钮修改 count 值时触发 re-render 生成新的回调函数，传入 ComplexButton 的 props 发生变化，导致了 ComplexButton 重新渲染。&lt;/p&gt;
 &lt;h4 id=&quot;useMemo&quot;&gt;&lt;a href=&quot;#useMemo&quot; class=&quot;headerlink&quot; title=&quot;useMemo&quot;&gt;&lt;/a&gt;useMemo&lt;/h4&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; memoizedValue = useMemo(() =&amp;gt; computeExpensiveValue(a, b), [a, b]);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;仅当依赖项发生改变时，才会重新计算  memoizedValue，常被用于缓存昂贵计算函数的返回值。&lt;/p&gt;
@@ -1921,48 +2198,6 @@
     </summary>
     
       <category term="programmer reading" scheme="https://blog.colafornia.me/categories/programmer-reading/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Make Shell/Git Better</title>
-    <link href="https://blog.colafornia.me/post/2017/make-shell-and-git-better/"/>
-    <id>https://blog.colafornia.me/post/2017/make-shell-and-git-better/</id>
-    <published>2017-09-15T09:43:00.000Z</published>
-    <updated>2019-10-24T02:22:04.204Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;1-起手式-oh-my-zsh&quot;&gt;&lt;a href=&quot;#1-起手式-oh-my-zsh&quot; class=&quot;headerlink&quot; title=&quot;1.起手式 oh-my-zsh&quot;&gt;&lt;/a&gt;1.起手式 oh-my-zsh&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/5c385f15f3eaedb72cfcfbbaf75355b700ac0757/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6f686d797a73682f6f682d6d792d7a73682d6c6f676f2e706e67&quot; alt=&quot;oh-my-zsh&quot;&gt;&lt;/p&gt;
-&lt;p&gt;zsh 被称作是最强大的 shell，而 oh-my-zsh 则是最流行的 zsh 配置文件，提供了丰富的主题以及大量插件，极大地扩展了 zsh 的功能。&lt;br&gt;可以无脑引入，便得到了最基本又好用的文件夹跳转，路径、命令、参数补全等便利操作。&lt;br&gt;推荐 plugin: git, &lt;a href=&quot;https://github.com/wting/autojump/wiki&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;autojump&lt;/a&gt;, &lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/osx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;osx&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2-优化你的-Git&quot;&gt;&lt;a href=&quot;#2-优化你的-Git&quot; class=&quot;headerlink&quot; title=&quot;2.优化你的 Git&quot;&gt;&lt;/a&gt;2.优化你的 Git&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;① 美化 diff&lt;/strong&gt;&lt;br&gt;Git 自己的 git diff 还是蛮不好用也不好看的，文件名和 diff 内容不太好定位。&lt;br&gt;基于 &lt;a href=&quot;https://github.com/so-fancy/diff-so-fancy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;diff-so-fancy&lt;/a&gt; 我们可以做一些美化工作。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install diff-so-fancy -g&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后在 &lt;code&gt;~/.gitconfig&lt;/code&gt; 文件中编辑&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[alias]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  d = &amp;quot;!f() &amp;#123; [ -z \&amp;quot;$GIT_PREFIX\&amp;quot; ] || cd \&amp;quot;$GIT_PREFIX\&amp;quot; &amp;amp;&amp;amp; git diff --color \&amp;quot;$@\&amp;quot; | diff-so-fancy  | less --tabs=4 -    RFX; &amp;#125;; f&amp;quot;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;可以参考 &lt;code&gt;diff-so-fancy&lt;/code&gt; 中的推荐颜色做配置，然后通过 &lt;code&gt;git d&lt;/code&gt; 命令就可以看到优化过的 diff 信息了&lt;br&gt;（git diff VS git d）&lt;br&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/39191/13622719/7cc7c54c-e555-11e5-86c4-7045d91af041.png&quot; alt=&quot;diff&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;② 美化 log&lt;/strong&gt;&lt;br&gt;git log 打出来的日志结构是完全扁平的，信息也不够全，依然是很难一眼找到自己想要的信息&lt;br&gt;依然是在 &lt;code&gt;~/.gitconfig&lt;/code&gt; 中编辑：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[alias]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;lg = log --graph --abbrev-commit --decorate --format=format:&amp;apos;%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset)     %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)&amp;apos; --all&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;这样信息清晰好看了很多，也可以看到每个提交所在的分支及其分化衍合的情况&lt;br&gt;(git log VS git lg)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://o7ts2uaks.bkt.clouddn.com/6E897688-D526-4DC5-A373-05FB41734A91.png&quot; alt=&quot;log&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://o7ts2uaks.bkt.clouddn.com/84B43431-AB74-446F-8442-3DFCD8E8E8BE.png&quot; alt=&quot;lg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;③ 命令加强 &lt;a href=&quot;https://github.com/tj/git-extras&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git-extras&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;TJ出品的 git 命令扩展集，应有尽有，要啥有啥，按需取用&lt;/p&gt;
-&lt;h2 id=&quot;3-终端复用神器-Tmux&quot;&gt;&lt;a href=&quot;#3-终端复用神器-Tmux&quot; class=&quot;headerlink&quot; title=&quot;3.终端复用神器 Tmux&quot;&gt;&lt;/a&gt;3.终端复用神器 Tmux&lt;/h2&gt;&lt;p&gt;Tmux 是 Linux 中一种管理窗口的程序，用 Tmux 的主要原因是它提供了一个窗体组随时存储和恢复的功能。&lt;br&gt;现在我们经常在开发时给一个项目起很多 server，webpack server 占一个 tab，mock server 占一个 tab，开的时候开半天，哪个断了还要挨个找。&lt;br&gt;或者，在用 SSH 登录远程服务器进行调试时，开了N多窗口，过了一会儿发现 &lt;code&gt;Broken Pipe&lt;/code&gt; 管子裂了，又得重来。&lt;br&gt;Tmux 可以帮助我们 split 窗口以及进行终端复用保证工作现场不丢失。&lt;br&gt;&lt;a href=&quot;http://cenalulu.github.io/linux/tmux/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用与安装方法&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;4-给命令行使用的代理工具-proxychains-ng&quot;&gt;&lt;a href=&quot;#4-给命令行使用的代理工具-proxychains-ng&quot; class=&quot;headerlink&quot; title=&quot;4.给命令行使用的代理工具 proxychains-ng&quot;&gt;&lt;/a&gt;4.给命令行使用的代理工具 &lt;a href=&quot;https://github.com/rofl0r/proxychains-ng&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;proxychains-ng&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;用公司的 mnpm 镜像其实就基本不需要这个了。&lt;br&gt;自己搭服务器或者在家里办公有需求的话可以用。&lt;/p&gt;
-&lt;h2 id=&quot;5-commit-message-规范工具-commitizen&quot;&gt;&lt;a href=&quot;#5-commit-message-规范工具-commitizen&quot; class=&quot;headerlink&quot; title=&quot;5. commit message 规范工具 commitizen&quot;&gt;&lt;/a&gt;5. commit message 规范工具 &lt;a href=&quot;https://github.com/commitizen/cz-cli&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;commitizen&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;制定 Code Review 规范时看到了 &lt;a href=&quot;https://eggjs.org/zh-cn/contributing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Egg.js 的代码贡献规范&lt;/a&gt;&lt;br&gt;其中总结了一条好的，有意义的 commit message 应该包含：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;① type: 本次 commit 的类型(feat/fix/stype/perf….)&lt;br&gt;② scope: 改动范围&lt;br&gt;③ subject: 简要概述本次提交做了什么&lt;br&gt;④ body: 补充 subject, 可以不写&lt;br&gt;⑤ footer: 本次提交关联的 issue, task&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;手动按这个写还挺累挺难的，因此决定在团队中推行使用 commitizen&lt;br&gt;简单好用，立竿见影&lt;br&gt;&lt;img src=&quot;https://github.com/commitizen/cz-cli/raw/master/meta/screenshots/add-commit.png&quot; alt=&quot;commitizen&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;6-好玩的-thefuck&quot;&gt;&lt;a href=&quot;#6-好玩的-thefuck&quot; class=&quot;headerlink&quot; title=&quot;6.好玩的 thefuck&quot;&gt;&lt;/a&gt;6.好玩的 &lt;a href=&quot;https://github.com/nvbn/thefuck&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;thefuck&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/nvbn/thefuck/master/example.gif&quot; alt=&quot;thefuck&quot;&gt;&lt;/p&gt;
-&lt;p&gt;一个好玩的小工具，给开发添点乐趣。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-起手式-oh-my-zsh&quot;&gt;&lt;a href=&quot;#1-起手式-oh-my-zsh&quot; class=&quot;headerlink&quot; title=&quot;1.起手式 oh-my-zsh&quot;&gt;&lt;/a&gt;1.起手式 oh-my-zsh&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/5c385f15f3eaedb72cfcfbbaf75355b700ac0757/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6f686d797a73682f6f682d6d792d7a73682d6c6f676f2e706e67&quot; alt=&quot;oh-my-zsh&quot;&gt;&lt;/p&gt;
-&lt;p&gt;zsh 被称作是最强大的 shell，而 oh-my-zsh 则是最流行的 zsh 配置文件，提供了丰富的主题以及大量插件，极大地扩展了 zsh 的功能。&lt;br&gt;可以无脑引入，便得到了最基本又好用的文件夹跳转，路径、命令、参数补全等便利操作。&lt;br&gt;推荐 plugin: git, &lt;a href=&quot;https://github.com/wting/autojump/wiki&quot;&gt;autojump&lt;/a&gt;, &lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/osx&quot;&gt;osx&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2-优化你的-Git&quot;&gt;&lt;a href=&quot;#2-优化你的-Git&quot; class=&quot;headerlink&quot; title=&quot;2.优化你的 Git&quot;&gt;&lt;/a&gt;2.优化你的 Git&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;① 美化 diff&lt;/strong&gt;&lt;br&gt;Git 自己的 git diff 还是蛮不好用也不好看的，文件名和 diff 内容不太好定位。&lt;br&gt;基于 &lt;a href=&quot;https://github.com/so-fancy/diff-so-fancy&quot;&gt;diff-so-fancy&lt;/a&gt; 我们可以做一些美化工作。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="shell git linux" scheme="https://blog.colafornia.me/categories/shell-git-linux/"/>
     
     
   </entry>
