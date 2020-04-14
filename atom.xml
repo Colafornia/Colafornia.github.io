@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.colafornia.me/"/>
-  <updated>2020-04-14T02:04:07.248Z</updated>
+  <updated>2020-04-14T03:33:00.193Z</updated>
   <id>https://blog.colafornia.me/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>年轻人的第一次裸辞找工作面试记录</title>
     <link href="https://blog.colafornia.me/post/2020/2020-interviews/"/>
     <id>https://blog.colafornia.me/post/2020/2020-interviews/</id>
-    <published>2020-04-13T14:00:00.000Z</published>
-    <updated>2020-04-14T02:04:07.248Z</updated>
+    <published>2020-04-21T14:00:00.000Z</published>
+    <updated>2020-04-14T03:33:00.193Z</updated>
     
     <content type="html">&lt;p&gt;&lt;img src=&quot;/images/2020-interview.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -29,7 +29,7 @@
 &lt;p&gt;前面的面试都记得很认真，到后面精神和体力值都指数级下降，面经就记录得越发简洁了……&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;面经&quot;&gt;&lt;a href=&quot;#面经&quot; class=&quot;headerlink&quot; title=&quot;面经&quot;&gt;&lt;/a&gt;面经&lt;/h1&gt;&lt;p&gt;先放面经，只贴与项目没太大关系的知识点考察题目&lt;/p&gt;
+&lt;h1 id=&quot;面经&quot;&gt;&lt;a href=&quot;#面经&quot; class=&quot;headerlink&quot; title=&quot;面经&quot;&gt;&lt;/a&gt;面经&lt;/h1&gt;&lt;p&gt;先放面经，主要贴一下与项目没太大关系的知识点考察题目&lt;/p&gt;
 &lt;h3 id=&quot;伴鱼（C轮在线教育公司）Offer&quot;&gt;&lt;a href=&quot;#伴鱼（C轮在线教育公司）Offer&quot; class=&quot;headerlink&quot; title=&quot;伴鱼（C轮在线教育公司）Offer&quot;&gt;&lt;/a&gt;伴鱼（C轮在线教育公司）&lt;code&gt;Offer&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;一开始投了两家教育类公司，算是我老东家的竞品，业务比较类似所以第一波来面。三轮技术面体验非常好，收到 offer 之后大前端负责人也给了很多关于选组与个人发展的建议。&lt;/p&gt;
 &lt;h4 id=&quot;一面&quot;&gt;&lt;a href=&quot;#一面&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;看代码说输出，常规 EventLoop 题目&lt;/li&gt;
