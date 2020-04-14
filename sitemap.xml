@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.colafornia.me/post/2020/2020-interviews/</loc>
+    <loc>https://blog.colafornia.me/2020-interviews.html</loc>
     
-    <lastmod>2020-04-14T03:33:00.193Z</lastmod>
+    <lastmod>2020-04-14T03:36:44.787Z</lastmod>
     
   </url>
   
@@ -93,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/trans-javascript-code-tips/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.206Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2018/thrift-note/</loc>
     
     <lastmod>2019-10-24T02:22:04.206Z</lastmod>
@@ -107,9 +100,9 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/review-copy-in-javascript/</loc>
+    <loc>https://blog.colafornia.me/post/2016/trans-javascript-code-tips/</loc>
     
-    <lastmod>2019-10-24T02:22:04.205Z</lastmod>
+    <lastmod>2019-10-24T02:22:04.206Z</lastmod>
     
   </url>
   
@@ -121,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/reading-pragmatic-programmer/</loc>
+    <loc>https://blog.colafornia.me/post/2018/review-copy-in-javascript/</loc>
     
-    <lastmod>2019-10-24T02:22:04.204Z</lastmod>
+    <lastmod>2019-10-24T02:22:04.205Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/make-shell-and-git-better/</loc>
+    <loc>https://blog.colafornia.me/post/2017/reading-pragmatic-programmer/</loc>
     
     <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
@@ -149,9 +142,9 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/learning-clouser-scope/</loc>
+    <loc>https://blog.colafornia.me/post/2017/make-shell-and-git-better/</loc>
     
-    <lastmod>2019-10-24T02:22:04.203Z</lastmod>
+    <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
   </url>
   
@@ -163,7 +156,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/javascript-patterns/</loc>
+    <loc>https://blog.colafornia.me/post/2016/learning-clouser-scope/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.203Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2015/intern-qunar-interview/</loc>
     
     <lastmod>2019-10-24T02:22:04.202Z</lastmod>
     
@@ -177,7 +177,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/intern-qunar-interview/</loc>
+    <loc>https://blog.colafornia.me/post/2016/javascript-patterns/</loc>
     
     <lastmod>2019-10-24T02:22:04.202Z</lastmod>
     
@@ -205,14 +205,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
+    <loc>https://blog.colafornia.me/post/2016/git-rebase-workflow/</loc>
     
     <lastmod>2019-10-24T02:22:04.200Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/git-rebase-workflow/</loc>
+    <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
     
     <lastmod>2019-10-24T02:22:04.200Z</lastmod>
     
