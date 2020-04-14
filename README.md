@@ -3,6 +3,7 @@
 <p align="center">技术博客，只写不会的</p>
 
 ## 2020
+- [年轻人的第一次裸辞找工作面试记录](https://blog.colafornia.me/post/2020/2020-interviews/)
 - [React Hooks 起手式](https://blog.colafornia.me/post/2020/react-hooks-starter/)
 
 ## 2019
