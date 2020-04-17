@@ -4,7 +4,7 @@
   <url>
     <loc>https://blog.colafornia.me/post/2020/2020-interviews/</loc>
     
-    <lastmod>2020-04-17T13:31:38.840Z</lastmod>
+    <lastmod>2020-04-17T13:33:52.019Z</lastmod>
     
   </url>
   
@@ -93,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/trans-javascript-code-tips/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.206Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2018/thrift-note/</loc>
     
     <lastmod>2019-10-24T02:22:04.206Z</lastmod>
@@ -107,14 +100,21 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/slove-git-clone-speed/</loc>
+    <loc>https://blog.colafornia.me/post/2016/trans-javascript-code-tips/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.206Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2018/review-copy-in-javascript/</loc>
     
     <lastmod>2019-10-24T02:22:04.205Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/review-copy-in-javascript/</loc>
+    <loc>https://blog.colafornia.me/post/2018/slove-git-clone-speed/</loc>
     
     <lastmod>2019-10-24T02:22:04.205Z</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/make-shell-and-git-better/</loc>
+    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
     
     <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
@@ -142,7 +142,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
+    <loc>https://blog.colafornia.me/post/2017/make-shell-and-git-better/</loc>
     
     <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
@@ -163,6 +163,13 @@
   </url>
   
   <url>
+    <loc>https://blog.colafornia.me/post/2016/javascript-patterns/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.202Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.colafornia.me/post/2015/intern-qunar-interview/</loc>
     
     <lastmod>2019-10-24T02:22:04.202Z</lastmod>
@@ -177,21 +184,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/javascript-patterns/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.202Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
+    <loc>https://blog.colafornia.me/post/2016/high-performance-javascript-b/</loc>
     
     <lastmod>2019-10-24T02:22:04.201Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/high-performance-javascript-b/</loc>
+    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
     
     <lastmod>2019-10-24T02:22:04.201Z</lastmod>
     
@@ -205,6 +205,13 @@
   </url>
   
   <url>
+    <loc>https://blog.colafornia.me/post/2016/git-rebase-workflow/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.200Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
     
     <lastmod>2019-10-24T02:22:04.200Z</lastmod>
@@ -213,13 +220,6 @@
   
   <url>
     <loc>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.200Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.colafornia.me/post/2016/git-rebase-workflow/</loc>
     
     <lastmod>2019-10-24T02:22:04.200Z</lastmod>
     
