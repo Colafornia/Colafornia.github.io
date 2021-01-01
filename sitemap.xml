@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.colafornia.me/post/2021/2020-review/</loc>
+    
+    <lastmod>2021-01-01T10:20:39.191Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.colafornia.me/post/2020/2020-interviews/</loc>
     
     <lastmod>2020-04-17T13:33:52.019Z</lastmod>
@@ -93,13 +100,6 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/thrift-note/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.206Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2016/trans-javascript-code-tips/</loc>
     
     <lastmod>2019-10-24T02:22:04.206Z</lastmod>
@@ -107,9 +107,9 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/review-copy-in-javascript/</loc>
+    <loc>https://blog.colafornia.me/post/2018/thrift-note/</loc>
     
-    <lastmod>2019-10-24T02:22:04.205Z</lastmod>
+    <lastmod>2019-10-24T02:22:04.206Z</lastmod>
     
   </url>
   
@@ -121,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/reading-pragmatic-programmer/</loc>
+    <loc>https://blog.colafornia.me/post/2018/review-copy-in-javascript/</loc>
     
-    <lastmod>2019-10-24T02:22:04.204Z</lastmod>
+    <lastmod>2019-10-24T02:22:04.205Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
+    <loc>https://blog.colafornia.me/post/2017/reading-pragmatic-programmer/</loc>
     
     <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
@@ -149,14 +149,21 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/learning-note-bfc/</loc>
+    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2016/learning-clouser-scope/</loc>
     
     <lastmod>2019-10-24T02:22:04.203Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/learning-clouser-scope/</loc>
+    <loc>https://blog.colafornia.me/post/2015/learning-note-bfc/</loc>
     
     <lastmod>2019-10-24T02:22:04.203Z</lastmod>
     
@@ -184,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/high-performance-javascript-b/</loc>
+    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
     
     <lastmod>2019-10-24T02:22:04.201Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
+    <loc>https://blog.colafornia.me/post/2016/high-performance-javascript-b/</loc>
     
     <lastmod>2019-10-24T02:22:04.201Z</lastmod>
     
@@ -233,13 +240,6 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/dive-into-git/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.197Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2017/fix-chinese-input-listener/</loc>
     
     <lastmod>2019-10-24T02:22:04.197Z</lastmod>
@@ -247,7 +247,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/character-encoding/</loc>
+    <loc>https://blog.colafornia.me/post/2018/dive-into-git/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.197Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2016/browser-cache-summary/</loc>
     
     <lastmod>2019-10-24T02:22:04.196Z</lastmod>
     
@@ -261,7 +268,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/browser-cache-summary/</loc>
+    <loc>https://blog.colafornia.me/post/2018/character-encoding/</loc>
     
     <lastmod>2019-10-24T02:22:04.196Z</lastmod>
     
