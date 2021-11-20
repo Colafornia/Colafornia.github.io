@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.colafornia.me/"/>
-  <updated>2021-01-01T15:29:35.347Z</updated>
+  <updated>2021-11-20T15:31:42.949Z</updated>
   <id>https://blog.colafornia.me/</id>
   
   <author>
@@ -14,6 +14,139 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据可视化基础学习与实践解析</title>
+    <link href="https://blog.colafornia.me/post/2021/visualization-share/"/>
+    <id>https://blog.colafornia.me/post/2021/visualization-share/</id>
+    <published>2021-11-21T03:00:00.000Z</published>
+    <updated>2021-11-20T15:31:42.949Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/visualization.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文是对在组里做的技术分享的脱敏版本，移除了公司内技术架构相关内容，保留了开源部分&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h1&gt;&lt;p&gt;数据报表在B端业务中，是一个非常基础常用的功能模块，对数据可视化进行进一步的学习可以帮助我们保障海量数据渲染性能、代码可维护性的同时，对数据报表的业务场景有更进一步的认识&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据可视化的定义与特点&lt;/li&gt;
+&lt;li&gt;Web 前端数据可视化的实现方式&lt;/li&gt;
+&lt;li&gt;图形语法&lt;/li&gt;
+&lt;li&gt;ECharts/HighCharts/Antv G2/D3 这些开源热门工具是做什么的，解决了什么问题&lt;/li&gt;
+&lt;li&gt;了解一下开源工具的实现思路：ECharts 架构实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;数据可视化是什么&quot;&gt;&lt;a href=&quot;#数据可视化是什么&quot; class=&quot;headerlink&quot; title=&quot;数据可视化是什么&quot;&gt;&lt;/a&gt;数据可视化是什么&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Data visualization&lt;/em&gt; &lt;a href=&quot;https://en.wikipedia.org/wiki/Data_visualization&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;wikipedia&lt;/a&gt;   is an interdisciplinary field that deals with the graphic representation of data. It is a particularly efficient way of communicating when the data is numerous as for example a time series.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;可视化是将数据组织成易于为人所理解和认知的结构，然后用图形的方式形象地呈现出来的理论、方法和技术。数据可视化是一个交叉领域，对于 Web 前端数据可视化而言，有三个关键要素，数据、图形与交互&lt;/p&gt;
+&lt;p&gt;只陈列数据，我们很难直观了解到数据中隐藏着趋势或者模式，可视化的图形和图像能够帮我们发现、分析这些隐藏信息，从另一个角度来看，数据可视化也是一种表达、传递信息的方式，选择恰当的展现形式可以帮助我们更好地传达信息&lt;/p&gt;
+&lt;p&gt;举例：陈列表达 VS 可视表达（南丁格尔玫瑰图）&lt;/p&gt;
+&lt;div style=&quot;display:flex&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IOgQwn.png&quot; width=&quot;300&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IOg0T1.png&quot; width=&quot;100&quot;&gt;&lt;br&gt;&lt;/div&gt;
+
+
+&lt;h2 id=&quot;优秀的可视化案例&quot;&gt;&lt;a href=&quot;#优秀的可视化案例&quot; class=&quot;headerlink&quot; title=&quot;优秀的可视化案例&quot;&gt;&lt;/a&gt;优秀的可视化案例&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://globe.cid.harvard.edu/?mode=gridSphere&amp;id=JO&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;哈佛大学：全球经济复杂度&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IOg6SO.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;更多优秀案例可参考：&lt;br&gt;&lt;a href=&quot;https://www.visualcapitalist.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.visualcapitalist.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在数据可视化话题中，前端开发同学可以认为是关键玩家：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如何处理大量、海量数据的 format、丝滑渲染与流畅交互&lt;/li&gt;
+&lt;li&gt;如何处理可视化逻辑，维护可视化相关代码，而不是查一下 bar chart 的文档，搬来官网 demo 改改能用就行，项目里充斥着每个图表的一次性代码&lt;/li&gt;
+&lt;li&gt;如何基于业务场景选择、实现合适的形式和图表，这是前端同学需要主动思考来助力业务的一个场景&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;可视化基础与图形语法&quot;&gt;&lt;a href=&quot;#可视化基础与图形语法&quot; class=&quot;headerlink&quot; title=&quot;可视化基础与图形语法&quot;&gt;&lt;/a&gt;可视化基础与图形语法&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IOgWmd.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;四种可视化实现方式&quot;&gt;&lt;a href=&quot;#四种可视化实现方式&quot; class=&quot;headerlink&quot; title=&quot;四种可视化实现方式&quot;&gt;&lt;/a&gt;四种可视化实现方式&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;HTML/CSS&lt;br&gt;HTML/CSS 当然也是一种实现方式，并且方便，不需要第三方依赖，如果我们仅需要绘制少量常见的图表其实是可以考虑由 HTML/CSS 来实现。缺点是 CSS 属性不能直观体现数据，绘制起来也比较麻烦，并且当图形发生变化时，可能要重新执行浏览器渲染的全过程，这样的性能开销非常大&lt;/li&gt;
+&lt;li&gt;SVG&lt;br&gt;是对 HTML/CSS 的增强，弥补了 HTML 绘制不规则图形的能力。它通过属性设置图形，可以直观地体现数据，使用起来非常方便。但是 SVG 也有和 HTML/CSS 同样的问题，图形复杂时需要的 SVG 元素太多，也非常消耗性能&lt;/li&gt;
+&lt;li&gt;Canvas2D&lt;br&gt;Canvas2D 是浏览器提供的简便快捷的指令式图形系统，它通过一些简单的指令就能快速绘制出复杂的图形。由于它直接操作绘图上下文，因此没有 HTML/CSS 和 SVG 绘图因为元素多导致消耗性能的问题，性能要比前两者快得多。但是如果要绘制的图形太多，或者处理大量的像素计算时，Canvas2D 依然会遇到性能瓶颈，且交互处理比较难，需要经过数学计算，定位的方式来获取局部图形的操作事件&lt;/li&gt;
+&lt;li&gt;WebGL&lt;br&gt;使用复杂，但是功能强大，能够充分利用 GPU 并行计算的能力，来快速、精准地操作图像的像素，在同一时间完成数十万或数百万次计算。除此之外还内置了对 3D 物体的投影、深度检测等处理，这让它更适合绘制 3D 场景&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;举个例子：选择恰当的实现方式的重要性&lt;br&gt;在2020 美国总统大选结果披露过程中，各家媒体都做了类似的各州选票披露展示：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.foxnews.com/elections/2020/general-results&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;foxnews&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://apps.npr.org/elections20-interactive/#/president&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;npr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.nytimes.com/interactive/2020/11/03/us/elections/results-president.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Nytimes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IOgqXQ.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;除了纽约时报 Nytimes 选择了用 Canvas 绘制之外，各家都选择了用 SVG 来实现，对比体验差异也是非常明显的，在这种固定时间内用户频繁刷新查看数据且图形无变化，只是进行实时的选票数字与颜色披露，SVG 无疑是非常适合的场景，简单方便。而 Nytimes 的选择则有些笨重，用户反映「卡，电脑都烫」&lt;/p&gt;
+&lt;h2 id=&quot;那些业界热门可视化工具都是干什么的&quot;&gt;&lt;a href=&quot;#那些业界热门可视化工具都是干什么的&quot; class=&quot;headerlink&quot; title=&quot;那些业界热门可视化工具都是干什么的&quot;&gt;&lt;/a&gt;那些业界热门可视化工具都是干什么的&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;图表库&lt;ul&gt;
+&lt;li&gt;ECharts &lt;/li&gt;
+&lt;li&gt;Chart.js &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;GIS 地图库&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.mapbox.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mapbox&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;Leaflet &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;渲染库&lt;ul&gt;
+&lt;li&gt;Three.js &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;数据驱动框架&lt;ul&gt;
+&lt;li&gt;D3 Data Driven Document  &lt;a href=&quot;https://medium.com/@Elijah_Meeks/d3-is-not-a-data-visualization-library-67ba549e8520&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;D3 is not a Data Visualization Library&lt;/a&gt;  使用绘图指令对数据进行转换，在源数据的基础上创建新的可绘制数据，生成 SVG 路径以及通过数据和方法在 DOM 中创建数据可视化元素&lt;br&gt;D3 是数据可视化基础库，ECharts 是图表库，G2 是图形语法库，如果说 D3 是面粉，ECharts 是面条，那么 G2 就是面团，它介于面粉和面条之间，比 ECharts 更加灵活，比 D3 效率更高&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IOgj7n.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;图形语法&quot;&gt;&lt;a href=&quot;#图形语法&quot; class=&quot;headerlink&quot; title=&quot;图形语法&quot;&gt;&lt;/a&gt;图形语法&lt;/h2&gt;&lt;p&gt;在设计一个图表库时，很难设计出足够多的图表类型来满足用户的各类需求。一个基于图表分类的图表库会面临随着图表量增大，而整个系统的结构变得复杂而难以维护的问题。图表与图表之间的一些相似的部分也难以得到高效的复用&lt;/p&gt;
+&lt;p&gt;因此，在工程实现方面，有一个问题越来越突出：如何能以比较小的代价穷举（使工程适应）尽可能多的图形？归根到底，就是如何表示一个可视化图表的问题&lt;/p&gt;
+&lt;p&gt; &lt;a href=&quot;https://en.wikipedia.org/wiki/Leland_Wilkinson&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Leland Wilkinson&lt;/a&gt;  在上世纪 80 年代开始开发 SYSTAT 的统计图形软件包时，也遇到了这个问题。最初的版本是枚举每一个能收集到的统计图形，最终代码量非常大，约 1.5M 左右。90 年代初，他基于面向对象重构了这个项目，以一种树形结构管理图形元素，得到了更易扩展和动态的结果。这时软件包的大小下降到了 1M 以内。到了 90 年代末期，他和几个统计学家、计算机学家合作基于之前的工作开发了统计图形绘图工具  &lt;a href=&quot;http://www.unige.ch/ses/sococ/cl/spss/graph/gpl.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GPL&lt;/a&gt; 。这个 Java 版本的软件代码量下降到了 0.5M 以下，并且沉淀出了一套稳定可靠的架构&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IO2AB9.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;《The Grammar of Graphics》（简称 GOG）就是 Wilkinson 在开发这套可视化软件的时候编写的，既有他对无数统计图表分析研究后的理论总结，也不乏实现图形语法的软件架构细节。至此，用一套语法描述任意图形的方法诞生了，编写基于图形语法的软件包有了理论依据和设计实践指导&lt;/p&gt;
+&lt;p&gt;GOG 把创建图形的步骤分为 3 步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Specification 定义、描述&lt;/li&gt;
+&lt;li&gt;Assembly 装配&lt;/li&gt;
+&lt;li&gt;Display 展现&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Specification-定义、描述&quot;&gt;&lt;a href=&quot;#Specification-定义、描述&quot; class=&quot;headerlink&quot; title=&quot;Specification 定义、描述&quot;&gt;&lt;/a&gt;Specification 定义、描述&lt;/h3&gt;&lt;p&gt;一个图形系统需要通过描述来处理数据，定义图形，显示图形。描述的另一种定义是说它是图形的底层语法。一个图形系统的描述总结为以下六条：&lt;br&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IO28HA.png&quot;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;DATA：从数据集创建变量的一系列数据操作 &lt;/li&gt;
+&lt;li&gt;TRANS：对数据的一些转化操作，例如聚合、排序、筛选 &lt;/li&gt;
+&lt;li&gt;SCALE: 缩放变换 &lt;/li&gt;
+&lt;li&gt;COORD：坐标系统。例如极坐标系 &lt;/li&gt;
+&lt;li&gt;ELEMENT：图形的视觉属性和属性。例如颜色、大小、形状 &lt;/li&gt;
+&lt;li&gt;GUIDE：一个或多个辅助项。例如刻度、图例 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;Assembly-装配&quot;&gt;&lt;a href=&quot;#Assembly-装配&quot; class=&quot;headerlink&quot; title=&quot;Assembly 装配&quot;&gt;&lt;/a&gt;Assembly 装配&lt;/h3&gt;&lt;p&gt;将上面示例图表的描述信息转换为下图所示的树形结构&lt;br&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IO25DJ.png&quot;&gt;&lt;br&gt;这就是面向对象思想的应用，将场景内包含的元素进行分类和组合，利用继承实现分类和代码复用，利用集合（包含关系）对元素进行分组划分。有了一个完整的树形结构之后，在展现阶段，就可以遍历这棵树进行渲染了&lt;/p&gt;
+&lt;h3 id=&quot;Display-展现&quot;&gt;&lt;a href=&quot;#Display-展现&quot; class=&quot;headerlink&quot; title=&quot;Display 展现&quot;&gt;&lt;/a&gt;Display 展现&lt;/h3&gt;&lt;p&gt;上面的树形结构结合渲染工具（符号、折线，曲线，多边形等），布局规则，我们就可以渲染最终结果了。图形语法使得我们可以单独对其中的某个元素进行添加、删除、修改属性，而不需要重新定义整个对象结构&lt;/p&gt;
+&lt;h3 id=&quot;从数据生成图形的步骤&quot;&gt;&lt;a href=&quot;#从数据生成图形的步骤&quot; class=&quot;headerlink&quot; title=&quot;从数据生成图形的步骤&quot;&gt;&lt;/a&gt;从数据生成图形的步骤&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IORZrQ.png&quot;&gt;&lt;br&gt;Antv G2 其中的 两个 G 就是来源于 The &lt;em&gt;G&lt;/em&gt;rammar of &lt;em&gt;G&lt;/em&gt;raphics 中的两个 G，是目前 JavaScript 社区对《The Grammar of Graphics》还原度最高的实现，也受到了 Wilkinson 本人的肯定&lt;/p&gt;
+&lt;p&gt;Antv G2 实现饼图的示例：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; data = [&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#123; k: ‘一’, v: &lt;span class=&quot;number&quot;&gt;40&lt;/span&gt; &amp;#125;, &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#123; k: ‘二’, v: &lt;span class=&quot;number&quot;&gt;21&lt;/span&gt; &amp;#125;, &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#123; k: ‘三’, v: &lt;span class=&quot;number&quot;&gt;17&lt;/span&gt; &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#123; k: ‘四’, v: &lt;span class=&quot;number&quot;&gt;13&lt;/span&gt; &amp;#125;, &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#123; k: ‘五’, v: &lt;span class=&quot;number&quot;&gt;9&lt;/span&gt; &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; dv = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DataSet.View().source(data) &lt;span class=&quot;comment&quot;&gt;// 载入数据&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  .transform(&amp;#123; &lt;span class=&quot;comment&quot;&gt;// 数据处理：统计每一个 key 对应数值 value 占总和的比例&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    type: ‘percent’,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    field: ‘v’,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    dimension: ‘k’,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;: ‘percent’&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; chart = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; G2.Chart(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  container: ‘id’ &lt;span class=&quot;comment&quot;&gt;// 指定图表容器，可以是 DomNode，也可以是 id&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chart.source(dv)                      &lt;span class=&quot;comment&quot;&gt;// 载入数据&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chart.axis(&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;)                     &lt;span class=&quot;comment&quot;&gt;// 不显示坐标轴&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chart.coordinate(‘polar’).transpose() &lt;span class=&quot;comment&quot;&gt;// 坐标转换&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chart.intervalStack()                 &lt;span class=&quot;comment&quot;&gt;// interval 类型的 element，做堆叠处理&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  .position(‘&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;*percent’)              &lt;span class=&quot;comment&quot;&gt;// 位置映射&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  .color(‘k’)                         &lt;span class=&quot;comment&quot;&gt;// 颜色映射&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chart.render()                        &lt;span class=&quot;comment&quot;&gt;// 渲染图表&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果通过传统的枚举型图表来实现饼图的话，我们需要写一个饼图的类，然后提供数据的接口和配置，数据需要满足要求的格式，配置只能支持固定的选项，然后实现绘制&lt;/p&gt;
+&lt;p&gt;而在图形语法的设计下，生成每一个图形的过程就是组合不同的基础图形语法的过程。上述饼图的生成过程就经历了从原始数据 data 到数据转换、坐标轴转换、指定辅助元素、指定基础图形对象、度量转换、数据映射等过程&lt;/p&gt;
+&lt;p&gt;图形语法的灵活和强大之处就在于，我们只需要改动其中某一步的处理过程，就能得到完全不同的、全新的图表。通过一连串链式的变换调用，就实现了饼图，而其中任何一部都可以修改和复用。所以通过这种抽象机制，代码本身就表示了配置&lt;br&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IOfABQ.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;开源库拆解：ECharts-架构&quot;&gt;&lt;a href=&quot;#开源库拆解：ECharts-架构&quot; class=&quot;headerlink&quot; title=&quot;开源库拆解：ECharts 架构&quot;&gt;&lt;/a&gt;开源库拆解：ECharts 架构&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;主要参考论文 Li, Deqing, et al. “ECharts: a declarative framework for rapid construction of web-based visualization.”  &lt;a href=&quot;https://www.sciencedirect.com/science/journal/2468502X&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Visual Informatics&lt;/a&gt;  June 2018, Pages 136-146&lt;br&gt;&lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S2468502X18300068&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.sciencedirect.com/science/article/pii/S2468502X18300068&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;数据流架构&quot;&gt;&lt;a href=&quot;#数据流架构&quot; class=&quot;headerlink&quot; title=&quot;数据流架构&quot;&gt;&lt;/a&gt;数据流架构&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IOfeNn.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;作为一个非常复杂的图表库，ECharts 采用了数据驱动架构来实现，把步骤切分成数据处理，视觉编码和渲染阶段，其最终产生图形元素。数据流是单向的，任何用户交互只会会修改原始选项或数据，并从头开始运行 pipeline。此外，每个阶段都可以作为切面暴露给开发者&lt;/p&gt;
+&lt;h1 id=&quot;渐进式的可视化渲染&quot;&gt;&lt;a href=&quot;#渐进式的可视化渲染&quot; class=&quot;headerlink&quot; title=&quot;渐进式的可视化渲染&quot;&gt;&lt;/a&gt;渐进式的可视化渲染&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/11/20/IOf3B4.png&quot;&gt;&lt;br&gt;在进行数据量较大的图表绘制时，数据处理和渲染都会耗费许多时间，当用户进行交互操作时，问题会更加明显，会触发图表从头更新，会导致主线程阻塞，无法处理动画和交互响应&lt;/p&gt;
+&lt;p&gt;ECharts 采用 chunk data 的方式来解决这个问题。将数据源划分为多个小的 chunk。每一个区块的数据独立进行布局渲染。这样做是为了保证每个 chunk 都能尽可能在 16ms 内完成计算，每个 chunk 计算任务完成后，会调用 requestAnimationFrame，同时暂停接下来的任务，直到下一帧。如果在这个过程中发生了交互行为，那么已创建的旧任务都会被废弃，重新创建新的任务。这样，就可以保证浏览器的主线程不被阻塞，及时响应用户交互&lt;/p&gt;
+&lt;h1 id=&quot;2D-绘图引擎-ZRender&quot;&gt;&lt;a href=&quot;#2D-绘图引擎-ZRender&quot; class=&quot;headerlink&quot; title=&quot;2D 绘图引擎 ZRender&quot;&gt;&lt;/a&gt;2D 绘图引擎 ZRender&lt;/h1&gt;&lt;p&gt;官网： &lt;a href=&quot;https://ecomfe.github.io/zrender-doc/public/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/zrender-doc/public/&lt;/a&gt;&lt;br&gt;GitHub： &lt;a href=&quot;https://github.com/ecomfe/zrender&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/ecomfe/zrender&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ZRender 是 ECharts 底层依赖的 2D 绘图引擎，用于图形元素管理、渲染器管理和事件系统，提供 Canvas、SVG、VML 多种渲染方式&lt;/p&gt;
+&lt;p&gt;ZRender 中有三种绘制类型，image / text / path，image 和 text 的绘制都可以借助 canvas API 来实现，对于 path， 会通过一个叫 PathProxy 的类，它会负责记录底层的绘制指令，把路径命令数据以 Float32Array 存储起来，通过这个数据实现了对多种渲染方式的支持，path 数据也会被用来在事件系统中做事件命中检查&lt;/p&gt;
+&lt;p&gt;为了让不同的渲染器可以有相同的事件处理机制，ECharts 对整个图表容器绑定了事件。SVG 也并不是其对 DOM 树的每个元素绑定事件，SVG/Canvas 都是使用一套统一的事件处理机制。ECharts 会检测事件的位置坐标 (x, y) 是否在图形边框里，对于 image/text 来说，这一步就可以判断事件是否命中、命中了哪个元素。对于 path 来说，会先检查事件位置是否在实际渲染区域里，然后再去做精确判断&lt;/p&gt;
+&lt;h1 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.yuque.com/antv/blog/hq2dmt&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;可视化图形语法简史 · 语雀&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://antv-g2.gitee.io/en/docs/manual/concepts/grammar-of-graphics/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Antv: The Grammar of Graphics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/visualization.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文是对在组里做的技术分享的脱敏版本，移除了公司内技术架构相关内容，保留了开源部分&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="visualization" scheme="https://blog.colafornia.me/categories/visualization/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>2020 年度总结</title>
@@ -2173,62 +2306,6 @@
     </summary>
     
       <category term="javascript" scheme="https://blog.colafornia.me/categories/javascript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2017 年度总结</title>
-    <link href="https://blog.colafornia.me/post/2017/2017-review/"/>
-    <id>https://blog.colafornia.me/post/2017/2017-review/</id>
-    <published>2017-12-31T04:00:00.000Z</published>
-    <updated>2019-10-24T02:22:04.194Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/tokyo-in-2017.jpg&quot; alt=&quot;tokyo in 2017&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2017: no silver bullet.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h4 id=&quot;工作&quot;&gt;&lt;a href=&quot;#工作&quot; class=&quot;headerlink&quot; title=&quot;工作&quot;&gt;&lt;/a&gt;工作&lt;/h4&gt;&lt;p&gt;二月底入职了美团，到现在也快一年了。&lt;/p&gt;
-&lt;p&gt;借助于在下厨房时一行一行代码 review 出的好习惯以及一些技术选型上的经验红利，这大半年包括职级晋升也过得还是很顺利。在此非常感谢也怀念在下厨房的那些菜鸟日子。&lt;/p&gt;
-&lt;p&gt;美团的知识wiki 藏龙卧虎，有完善的新人培养以及 Mentor 机制，每天各个 BU 都有些质量很不错的技术分享，精力足够的话在新人期是有非常多的机会去学习观摩的。在终端组时还有被要求记录 work log，虽然一开始有些痛苦，最后还是养成了注重人效与时间管理的习惯。&lt;/p&gt;
-&lt;p&gt;除了以上，最大的感受还是在于，一直被培养“做事的方法”，要求注重软素质。在大厂当螺丝钉，基本不会遇到每天应付 PM 改需求，调整开发时间这类事。PM 包办了项目管理，与业务方的沟通等事情，作为 FE 只需要确定好自己的估时排期，关注后端提供的接口定义就可以。好处显而易见，坏处就是过于螺丝钉了，没什么机会去做自身领域外的事情。今后还是需要自己多努力扩展能力边界。&lt;/p&gt;
-&lt;h4 id=&quot;生活&quot;&gt;&lt;a href=&quot;#生活&quot; class=&quot;headerlink&quot; title=&quot;生活&quot;&gt;&lt;/a&gt;生活&lt;/h4&gt;&lt;p&gt;四月的时候去了趟日本，走了东京和伊东两座城市。在东京六本木的观景台拍了题图这张夜景。伊豆半岛的性价比很高，和牛比在东京吃的更好吃，因为没什么游客，看到了蛮多更市井的场景。感觉出来玩还是慢悠悠的会比较有意思。&lt;/p&gt;
-&lt;p&gt;生活中最重要的事是，年底把户口迁到了成都。买房和定居还不一定是什么时候，应该要等工作能力再提高一些，不那么菜之后再说。时隔三年又去了一次成都，除了好吃更感觉是真的安逸。&lt;/p&gt;
-&lt;p&gt;就在跨年这两天，我搬家到了望京这边，换了一个一居室，更适合猫猫住。离公司近一些，节省了通勤时间，想把节省的时间用在健身上。毕业一年半，体质是稳步地下降，精力不太够用，嗜糖这一坏习惯也没有多大好转。再这样下去应该是迟早 💊。&lt;/p&gt;
-&lt;p&gt;今年有在做基金定投，收益 10% 左右，只是年底由于订明年出行的机票酒店吃了波土，最后两个月没有继续投入了。这种强制储蓄的理财方式确实很实用，只是需要每月都在发薪日投出去，免得最后又花超了变月光。&lt;/p&gt;
-&lt;h4 id=&quot;📚-和-🎬&quot;&gt;&lt;a href=&quot;#📚-和-🎬&quot; class=&quot;headerlink&quot; title=&quot;📚 和 🎬&quot;&gt;&lt;/a&gt;📚 和 🎬&lt;/h4&gt;&lt;p&gt;今年一共看了 13 本书，去年制定的看书计划基本完成了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;《学习JavaScript数据结构与算法》&lt;/li&gt;
-&lt;li&gt;《禅与摩托车维修艺术》&lt;/li&gt;
-&lt;li&gt;《程序员修炼之道 : 从小工到专家》&lt;/li&gt;
-&lt;li&gt;《Node.js实战》&lt;/li&gt;
-&lt;li&gt;《图解HTTP》&lt;/li&gt;
-&lt;li&gt;《Web全栈工程师的自我修养》&lt;/li&gt;
-&lt;li&gt;《牛津通识读本 : 数学》&lt;/li&gt;
-&lt;li&gt;《刻意练习》&lt;/li&gt;
-&lt;li&gt;《淘宝技术这十年》&lt;/li&gt;
-&lt;li&gt;《亲密关系》&lt;/li&gt;
-&lt;li&gt;《地球与太空》&lt;/li&gt;
-&lt;li&gt;《一首小夜曲》&lt;/li&gt;
-&lt;li&gt;《死神的精确度》&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;只是技术上没看什么大部头，还有几本已经看到最后几章但是计划被打乱迟迟没有看完。&lt;/p&gt;
-&lt;p&gt;电影看了 79 部，从豆瓣的报告来看还是院线片居多，可能也反映出了心态比较浮躁吧。&lt;/p&gt;
-&lt;h4 id=&quot;新的计划&quot;&gt;&lt;a href=&quot;#新的计划&quot; class=&quot;headerlink&quot; title=&quot;新的计划&quot;&gt;&lt;/a&gt;新的计划&lt;/h4&gt;&lt;p&gt;这里只列举一些急切需要完成（三个月内）的事。在此推荐一个最近感觉很好用的 APP， &lt;a href=&quot;https://www.v2ex.com/t/413134#reply11&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;我的小目标&lt;/a&gt;，是由一名 iOS 开发者独立开发的个人作品，其中集成了番茄钟与单核工作法，金币积攒与消耗这种类似于打怪升级的模式很适合我。&lt;/p&gt;
-&lt;p&gt;待办事项：&lt;br&gt;1.读完《JavaScript 设计模式与开发实践》&lt;br&gt;2.完成《Git 原理解析》的 blog &amp;amp;&amp;amp; 分享&lt;br&gt;3.移动端预渲染方案&lt;/p&gt;
-&lt;p&gt;习惯养成：&lt;br&gt;1.leetcode每周一题&lt;br&gt;2.每周健身一次（看看前五周降体脂的效果如何&lt;br&gt;3.每周在掘金翻译计划校对/推荐文章一次&lt;/p&gt;
-&lt;h4 id=&quot;Less-is-more&quot;&gt;&lt;a href=&quot;#Less-is-more&quot; class=&quot;headerlink&quot; title=&quot;Less is more&quot;&gt;&lt;/a&gt;Less is more&lt;/h4&gt;&lt;p&gt;最后还是总结一下，生活和工作上都没有银弹，好好管理生活与代码的复杂度。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/tokyo-in-2017.jpg&quot; alt=&quot;tokyo in 2017&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2017: no silver bullet.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="summary" scheme="https://blog.colafornia.me/categories/summary/"/>
     
     
   </entry>
