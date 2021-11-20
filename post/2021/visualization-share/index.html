@@ -1,0 +1,111 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 数据可视化基础学习与实践解析 · Minibase</title><meta name="description" content="数据可视化基础学习与实践解析 - Colafornia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.colafornia.me/atom.xml" title="Minibase"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/colafornia" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">数据可视化基础学习与实践解析</h1><div class="post-info">Nov 21, 2021</div><div class="post-content"><p><img src="/images/visualization.png" alt="cover"></p>
+<blockquote>
+<p>本文是对在组里做的技术分享的脱敏版本，移除了公司内技术架构相关内容，保留了开源部分</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>数据报表在B端业务中，是一个非常基础常用的功能模块，对数据可视化进行进一步的学习可以帮助我们保障海量数据渲染性能、代码可维护性的同时，对数据报表的业务场景有更进一步的认识</p>
+<ul>
+<li>数据可视化的定义与特点</li>
+<li>Web 前端数据可视化的实现方式</li>
+<li>图形语法</li>
+<li>ECharts/HighCharts/Antv G2/D3 这些开源热门工具是做什么的，解决了什么问题</li>
+<li>了解一下开源工具的实现思路：ECharts 架构实现</li>
+</ul>
+<h1 id="数据可视化是什么"><a href="#数据可视化是什么" class="headerlink" title="数据可视化是什么"></a>数据可视化是什么</h1><blockquote>
+<p><em>Data visualization</em> <a href="https://en.wikipedia.org/wiki/Data_visualization" target="_blank" rel="external">wikipedia</a>   is an interdisciplinary field that deals with the graphic representation of data. It is a particularly efficient way of communicating when the data is numerous as for example a time series.</p>
+</blockquote>
+<p>可视化是将数据组织成易于为人所理解和认知的结构，然后用图形的方式形象地呈现出来的理论、方法和技术。数据可视化是一个交叉领域，对于 Web 前端数据可视化而言，有三个关键要素，数据、图形与交互</p>
+<p>只陈列数据，我们很难直观了解到数据中隐藏着趋势或者模式，可视化的图形和图像能够帮我们发现、分析这些隐藏信息，从另一个角度来看，数据可视化也是一种表达、传递信息的方式，选择恰当的展现形式可以帮助我们更好地传达信息</p>
+<p>举例：陈列表达 VS 可视表达（南丁格尔玫瑰图）</p>
+<div style="display:flex"><br><img src="https://z3.ax1x.com/2021/11/20/IOgQwn.png" width="300"><br><img src="https://z3.ax1x.com/2021/11/20/IOg0T1.png" width="100"><br></div>
+
+
+<h2 id="优秀的可视化案例"><a href="#优秀的可视化案例" class="headerlink" title="优秀的可视化案例"></a>优秀的可视化案例</h2><p><a href="http://globe.cid.harvard.edu/?mode=gridSphere&id=JO" target="_blank" rel="external">哈佛大学：全球经济复杂度</a><br><img src="https://z3.ax1x.com/2021/11/20/IOg6SO.png"></p>
+<blockquote>
+<p>更多优秀案例可参考：<br><a href="https://www.visualcapitalist.com/" target="_blank" rel="external">https://www.visualcapitalist.com/</a></p>
+</blockquote>
+<p>在数据可视化话题中，前端开发同学可以认为是关键玩家：</p>
+<ul>
+<li>如何处理大量、海量数据的 format、丝滑渲染与流畅交互</li>
+<li>如何处理可视化逻辑，维护可视化相关代码，而不是查一下 bar chart 的文档，搬来官网 demo 改改能用就行，项目里充斥着每个图表的一次性代码</li>
+<li>如何基于业务场景选择、实现合适的形式和图表，这是前端同学需要主动思考来助力业务的一个场景</li>
+</ul>
+<h1 id="可视化基础与图形语法"><a href="#可视化基础与图形语法" class="headerlink" title="可视化基础与图形语法"></a>可视化基础与图形语法</h1><p><img src="https://z3.ax1x.com/2021/11/20/IOgWmd.png"></p>
+<h2 id="四种可视化实现方式"><a href="#四种可视化实现方式" class="headerlink" title="四种可视化实现方式"></a>四种可视化实现方式</h2><ul>
+<li>HTML/CSS<br>HTML/CSS 当然也是一种实现方式，并且方便，不需要第三方依赖，如果我们仅需要绘制少量常见的图表其实是可以考虑由 HTML/CSS 来实现。缺点是 CSS 属性不能直观体现数据，绘制起来也比较麻烦，并且当图形发生变化时，可能要重新执行浏览器渲染的全过程，这样的性能开销非常大</li>
+<li>SVG<br>是对 HTML/CSS 的增强，弥补了 HTML 绘制不规则图形的能力。它通过属性设置图形，可以直观地体现数据，使用起来非常方便。但是 SVG 也有和 HTML/CSS 同样的问题，图形复杂时需要的 SVG 元素太多，也非常消耗性能</li>
+<li>Canvas2D<br>Canvas2D 是浏览器提供的简便快捷的指令式图形系统，它通过一些简单的指令就能快速绘制出复杂的图形。由于它直接操作绘图上下文，因此没有 HTML/CSS 和 SVG 绘图因为元素多导致消耗性能的问题，性能要比前两者快得多。但是如果要绘制的图形太多，或者处理大量的像素计算时，Canvas2D 依然会遇到性能瓶颈，且交互处理比较难，需要经过数学计算，定位的方式来获取局部图形的操作事件</li>
+<li>WebGL<br>使用复杂，但是功能强大，能够充分利用 GPU 并行计算的能力，来快速、精准地操作图像的像素，在同一时间完成数十万或数百万次计算。除此之外还内置了对 3D 物体的投影、深度检测等处理，这让它更适合绘制 3D 场景</li>
+</ul>
+<p>举个例子：选择恰当的实现方式的重要性<br>在2020 美国总统大选结果披露过程中，各家媒体都做了类似的各州选票披露展示：</p>
+<ul>
+<li><a href="https://www.foxnews.com/elections/2020/general-results" target="_blank" rel="external">foxnews</a></li>
+<li><a href="https://apps.npr.org/elections20-interactive/#/president" target="_blank" rel="external">npr</a></li>
+<li><a href="https://www.nytimes.com/interactive/2020/11/03/us/elections/results-president.html" target="_blank" rel="external">Nytimes</a></li>
+</ul>
+<p><img src="https://z3.ax1x.com/2021/11/20/IOgqXQ.png"></p>
+<p>除了纽约时报 Nytimes 选择了用 Canvas 绘制之外，各家都选择了用 SVG 来实现，对比体验差异也是非常明显的，在这种固定时间内用户频繁刷新查看数据且图形无变化，只是进行实时的选票数字与颜色披露，SVG 无疑是非常适合的场景，简单方便。而 Nytimes 的选择则有些笨重，用户反映「卡，电脑都烫」</p>
+<h2 id="那些业界热门可视化工具都是干什么的"><a href="#那些业界热门可视化工具都是干什么的" class="headerlink" title="那些业界热门可视化工具都是干什么的"></a>那些业界热门可视化工具都是干什么的</h2><ul>
+<li>图表库<ul>
+<li>ECharts </li>
+<li>Chart.js </li>
+</ul>
+</li>
+<li>GIS 地图库<ul>
+<li><a href="https://www.mapbox.com/" target="_blank" rel="external">Mapbox</a>  </li>
+<li>Leaflet </li>
+</ul>
+</li>
+<li>渲染库<ul>
+<li>Three.js </li>
+</ul>
+</li>
+<li>数据驱动框架<ul>
+<li>D3 Data Driven Document  <a href="https://medium.com/@Elijah_Meeks/d3-is-not-a-data-visualization-library-67ba549e8520" target="_blank" rel="external">D3 is not a Data Visualization Library</a>  使用绘图指令对数据进行转换，在源数据的基础上创建新的可绘制数据，生成 SVG 路径以及通过数据和方法在 DOM 中创建数据可视化元素<br>D3 是数据可视化基础库，ECharts 是图表库，G2 是图形语法库，如果说 D3 是面粉，ECharts 是面条，那么 G2 就是面团，它介于面粉和面条之间，比 ECharts 更加灵活，比 D3 效率更高</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://z3.ax1x.com/2021/11/20/IOgj7n.png"></p>
+<h2 id="图形语法"><a href="#图形语法" class="headerlink" title="图形语法"></a>图形语法</h2><p>在设计一个图表库时，很难设计出足够多的图表类型来满足用户的各类需求。一个基于图表分类的图表库会面临随着图表量增大，而整个系统的结构变得复杂而难以维护的问题。图表与图表之间的一些相似的部分也难以得到高效的复用</p>
+<p>因此，在工程实现方面，有一个问题越来越突出：如何能以比较小的代价穷举（使工程适应）尽可能多的图形？归根到底，就是如何表示一个可视化图表的问题</p>
+<p> <a href="https://en.wikipedia.org/wiki/Leland_Wilkinson" target="_blank" rel="external">Leland Wilkinson</a>  在上世纪 80 年代开始开发 SYSTAT 的统计图形软件包时，也遇到了这个问题。最初的版本是枚举每一个能收集到的统计图形，最终代码量非常大，约 1.5M 左右。90 年代初，他基于面向对象重构了这个项目，以一种树形结构管理图形元素，得到了更易扩展和动态的结果。这时软件包的大小下降到了 1M 以内。到了 90 年代末期，他和几个统计学家、计算机学家合作基于之前的工作开发了统计图形绘图工具  <a href="http://www.unige.ch/ses/sococ/cl/spss/graph/gpl.html" target="_blank" rel="external">GPL</a> 。这个 Java 版本的软件代码量下降到了 0.5M 以下，并且沉淀出了一套稳定可靠的架构</p>
+<p><img src="https://z3.ax1x.com/2021/11/20/IO2AB9.png"></p>
+<p>《The Grammar of Graphics》（简称 GOG）就是 Wilkinson 在开发这套可视化软件的时候编写的，既有他对无数统计图表分析研究后的理论总结，也不乏实现图形语法的软件架构细节。至此，用一套语法描述任意图形的方法诞生了，编写基于图形语法的软件包有了理论依据和设计实践指导</p>
+<p>GOG 把创建图形的步骤分为 3 步：</p>
+<ol>
+<li>Specification 定义、描述</li>
+<li>Assembly 装配</li>
+<li>Display 展现</li>
+</ol>
+<h3 id="Specification-定义、描述"><a href="#Specification-定义、描述" class="headerlink" title="Specification 定义、描述"></a>Specification 定义、描述</h3><p>一个图形系统需要通过描述来处理数据，定义图形，显示图形。描述的另一种定义是说它是图形的底层语法。一个图形系统的描述总结为以下六条：<br><img src="https://z3.ax1x.com/2021/11/20/IO28HA.png"></p>
+<ol>
+<li>DATA：从数据集创建变量的一系列数据操作 </li>
+<li>TRANS：对数据的一些转化操作，例如聚合、排序、筛选 </li>
+<li>SCALE: 缩放变换 </li>
+<li>COORD：坐标系统。例如极坐标系 </li>
+<li>ELEMENT：图形的视觉属性和属性。例如颜色、大小、形状 </li>
+<li>GUIDE：一个或多个辅助项。例如刻度、图例 </li>
+</ol>
+<h3 id="Assembly-装配"><a href="#Assembly-装配" class="headerlink" title="Assembly 装配"></a>Assembly 装配</h3><p>将上面示例图表的描述信息转换为下图所示的树形结构<br><img src="https://z3.ax1x.com/2021/11/20/IO25DJ.png"><br>这就是面向对象思想的应用，将场景内包含的元素进行分类和组合，利用继承实现分类和代码复用，利用集合（包含关系）对元素进行分组划分。有了一个完整的树形结构之后，在展现阶段，就可以遍历这棵树进行渲染了</p>
+<h3 id="Display-展现"><a href="#Display-展现" class="headerlink" title="Display 展现"></a>Display 展现</h3><p>上面的树形结构结合渲染工具（符号、折线，曲线，多边形等），布局规则，我们就可以渲染最终结果了。图形语法使得我们可以单独对其中的某个元素进行添加、删除、修改属性，而不需要重新定义整个对象结构</p>
+<h3 id="从数据生成图形的步骤"><a href="#从数据生成图形的步骤" class="headerlink" title="从数据生成图形的步骤"></a>从数据生成图形的步骤</h3><p><img src="https://z3.ax1x.com/2021/11/20/IORZrQ.png"><br>Antv G2 其中的 两个 G 就是来源于 The <em>G</em>rammar of <em>G</em>raphics 中的两个 G，是目前 JavaScript 社区对《The Grammar of Graphics》还原度最高的实现，也受到了 Wilkinson 本人的肯定</p>
+<p>Antv G2 实现饼图的示例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> data = [</div><div class="line">  &#123; k: ‘一’, v: <span class="number">40</span> &#125;, </div><div class="line">  &#123; k: ‘二’, v: <span class="number">21</span> &#125;, </div><div class="line">  &#123; k: ‘三’, v: <span class="number">17</span> &#125;,</div><div class="line">  &#123; k: ‘四’, v: <span class="number">13</span> &#125;, </div><div class="line">  &#123; k: ‘五’, v: <span class="number">9</span> &#125;</div><div class="line">]</div><div class="line"><span class="keyword">const</span> dv = <span class="keyword">new</span> DataSet.View().source(data) <span class="comment">// 载入数据</span></div><div class="line">  .transform(&#123; <span class="comment">// 数据处理：统计每一个 key 对应数值 value 占总和的比例</span></div><div class="line">    type: ‘percent’,</div><div class="line">    field: ‘v’,</div><div class="line">    dimension: ‘k’,</div><div class="line">    <span class="keyword">as</span>: ‘percent’</div><div class="line">  &#125;)</div><div class="line"><span class="keyword">const</span> chart = <span class="keyword">new</span> G2.Chart(&#123;</div><div class="line">  container: ‘id’ <span class="comment">// 指定图表容器，可以是 DomNode，也可以是 id</span></div><div class="line">&#125;)</div><div class="line">chart.source(dv)                      <span class="comment">// 载入数据</span></div><div class="line">chart.axis(<span class="literal">false</span>)                     <span class="comment">// 不显示坐标轴</span></div><div class="line">chart.coordinate(‘polar’).transpose() <span class="comment">// 坐标转换</span></div><div class="line">chart.intervalStack()                 <span class="comment">// interval 类型的 element，做堆叠处理</span></div><div class="line">  .position(‘<span class="number">1</span>*percent’)              <span class="comment">// 位置映射</span></div><div class="line">  .color(‘k’)                         <span class="comment">// 颜色映射</span></div><div class="line">chart.render()                        <span class="comment">// 渲染图表</span></div></pre></td></tr></table></figure></p>
+<p>如果通过传统的枚举型图表来实现饼图的话，我们需要写一个饼图的类，然后提供数据的接口和配置，数据需要满足要求的格式，配置只能支持固定的选项，然后实现绘制</p>
+<p>而在图形语法的设计下，生成每一个图形的过程就是组合不同的基础图形语法的过程。上述饼图的生成过程就经历了从原始数据 data 到数据转换、坐标轴转换、指定辅助元素、指定基础图形对象、度量转换、数据映射等过程</p>
+<p>图形语法的灵活和强大之处就在于，我们只需要改动其中某一步的处理过程，就能得到完全不同的、全新的图表。通过一连串链式的变换调用，就实现了饼图，而其中任何一部都可以修改和复用。所以通过这种抽象机制，代码本身就表示了配置<br><img src="https://z3.ax1x.com/2021/11/20/IOfABQ.png"></p>
+<h1 id="开源库拆解：ECharts-架构"><a href="#开源库拆解：ECharts-架构" class="headerlink" title="开源库拆解：ECharts 架构"></a>开源库拆解：ECharts 架构</h1><blockquote>
+<p>主要参考论文 Li, Deqing, et al. “ECharts: a declarative framework for rapid construction of web-based visualization.”  <a href="https://www.sciencedirect.com/science/journal/2468502X" target="_blank" rel="external">Visual Informatics</a>  June 2018, Pages 136-146<br><a href="https://www.sciencedirect.com/science/article/pii/S2468502X18300068" target="_blank" rel="external">https://www.sciencedirect.com/science/article/pii/S2468502X18300068</a></p>
+</blockquote>
+<h1 id="数据流架构"><a href="#数据流架构" class="headerlink" title="数据流架构"></a>数据流架构</h1><p><img src="https://z3.ax1x.com/2021/11/20/IOfeNn.png"></p>
+<p>作为一个非常复杂的图表库，ECharts 采用了数据驱动架构来实现，把步骤切分成数据处理，视觉编码和渲染阶段，其最终产生图形元素。数据流是单向的，任何用户交互只会会修改原始选项或数据，并从头开始运行 pipeline。此外，每个阶段都可以作为切面暴露给开发者</p>
+<h1 id="渐进式的可视化渲染"><a href="#渐进式的可视化渲染" class="headerlink" title="渐进式的可视化渲染"></a>渐进式的可视化渲染</h1><p><img src="https://z3.ax1x.com/2021/11/20/IOf3B4.png"><br>在进行数据量较大的图表绘制时，数据处理和渲染都会耗费许多时间，当用户进行交互操作时，问题会更加明显，会触发图表从头更新，会导致主线程阻塞，无法处理动画和交互响应</p>
+<p>ECharts 采用 chunk data 的方式来解决这个问题。将数据源划分为多个小的 chunk。每一个区块的数据独立进行布局渲染。这样做是为了保证每个 chunk 都能尽可能在 16ms 内完成计算，每个 chunk 计算任务完成后，会调用 requestAnimationFrame，同时暂停接下来的任务，直到下一帧。如果在这个过程中发生了交互行为，那么已创建的旧任务都会被废弃，重新创建新的任务。这样，就可以保证浏览器的主线程不被阻塞，及时响应用户交互</p>
+<h1 id="2D-绘图引擎-ZRender"><a href="#2D-绘图引擎-ZRender" class="headerlink" title="2D 绘图引擎 ZRender"></a>2D 绘图引擎 ZRender</h1><p>官网： <a href="https://ecomfe.github.io/zrender-doc/public/" target="_blank" rel="external">https://ecomfe.github.io/zrender-doc/public/</a><br>GitHub： <a href="https://github.com/ecomfe/zrender" target="_blank" rel="external">https://github.com/ecomfe/zrender</a></p>
+<p>ZRender 是 ECharts 底层依赖的 2D 绘图引擎，用于图形元素管理、渲染器管理和事件系统，提供 Canvas、SVG、VML 多种渲染方式</p>
+<p>ZRender 中有三种绘制类型，image / text / path，image 和 text 的绘制都可以借助 canvas API 来实现，对于 path， 会通过一个叫 PathProxy 的类，它会负责记录底层的绘制指令，把路径命令数据以 Float32Array 存储起来，通过这个数据实现了对多种渲染方式的支持，path 数据也会被用来在事件系统中做事件命中检查</p>
+<p>为了让不同的渲染器可以有相同的事件处理机制，ECharts 对整个图表容器绑定了事件。SVG 也并不是其对 DOM 树的每个元素绑定事件，SVG/Canvas 都是使用一套统一的事件处理机制。ECharts 会检测事件的位置坐标 (x, y) 是否在图形边框里，对于 image/text 来说，这一步就可以判断事件是否命中、命中了哪个元素。对于 path 来说，会先检查事件位置是否在实际渲染区域里，然后再去做精确判断</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://www.yuque.com/antv/blog/hq2dmt" target="_blank" rel="external">可视化图形语法简史 · 语雀</a></li>
+<li><a href="https://antv-g2.gitee.io/en/docs/manual/concepts/grammar-of-graphics/" target="_blank" rel="external">Antv: The Grammar of Graphics</a></li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/post/2021/2020-review/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2021 <a href="https://blog.colafornia.me">Colafornia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-84469017-1",'auto');ga('send','pageview');</script></body></html>
