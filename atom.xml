@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.colafornia.me/"/>
-  <updated>2021-11-20T15:31:42.949Z</updated>
+  <updated>2022-01-01T15:43:05.936Z</updated>
   <id>https://blog.colafornia.me/</id>
   
   <author>
@@ -14,6 +14,94 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021 年度总结</title>
+    <link href="https://blog.colafornia.me/post/2022/2021-review/"/>
+    <id>https://blog.colafornia.me/post/2022/2021-review/</id>
+    <published>2022-01-01T13:00:00.000Z</published>
+    <updated>2022-01-01T15:43:05.936Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;https://s4.ax1x.com/2022/01/01/ToC8qs.md.jpg&quot; alt=&quot;airport with u&quot;&gt;&lt;/p&gt;
+&lt;p&gt;2021: &lt;em&gt;mathematical elegance is not a question of esthetics, of taste, or fashion&lt;/em&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;工作与学习&quot;&gt;&lt;a href=&quot;#工作与学习&quot; class=&quot;headerlink&quot; title=&quot;工作与学习&quot;&gt;&lt;/a&gt;工作与学习&lt;/h3&gt;&lt;p&gt;一入字节深似海，博客已经正式变成年更博客了，在年终总结之外，只更新了一篇在组内做的技术分享。2021 年是本科毕业之后工作的第 5 个年头了，经过了刚毕业时的快速成长期、平台期之后，今年是深入业务的一年。&lt;/p&gt;
+&lt;p&gt;年初即忙于 iOS 14，Apple 隐私政策的更新影响了整个广告投放链路。之后便是 TikTok 的数据合规改造，一改就是一整年，从夏天改到圣诞节，至今还没有结束。团队规模扩充之后，我也不再忙于四处救火，开始专注在自己对接的细分业务方向上，一边写代码一边写需求文档，学着从研发视角去思考业务中的优化点。主动关注竞品的动向与技术实践，对于自身业务的选型与规划也有所脾益。&lt;/p&gt;
+&lt;p&gt;在技术上今年主要关注的是数据可视化与 &lt;code&gt;Monorepo&lt;/code&gt;，去年年底和今年年初给平台做了一些资源加载上的优化，今年年底则是在做运行时的性能提升与前后端整体交互上的优化。随着业务发展，对于 &lt;code&gt;i18n 本地化&lt;/code&gt; 也有了更深的体会，新年还是要抽时间总结一些写一下的。总的来说，第一次体会到了与业务一起快速成长的感觉，感谢 TikTok 🤺当然了，自驱学习的并不多这一点还是要反省一下，新的一年还是要保持大量输入，同时多做一些输出的事情，博客/github/技术分享等等。&lt;/p&gt;
+&lt;p&gt;关于 coding，今年的 moment 是看到了 &lt;a href=&quot;http://www.youtube.com/watch?v=RCCigccBzIU&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dijkstra 的采访视频&lt;/a&gt;：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;程序的优雅性不是可以或缺的奢侈品，而是决定成功还是失败的一个要素。&lt;/p&gt;
+&lt;p&gt;优雅并不是一个美学的问题，也不是一个时尚品味的问题，优雅能够被翻译成可行的技术。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;生活与玩乐&quot;&gt;&lt;a href=&quot;#生活与玩乐&quot; class=&quot;headerlink&quot; title=&quot;生活与玩乐&quot;&gt;&lt;/a&gt;生活与玩乐&lt;/h3&gt;&lt;p&gt;双休的体验：贫穷而快乐&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s4.ax1x.com/2022/01/01/TIqeL8.md.jpg&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;随心飞&quot;&gt;&lt;a href=&quot;#随心飞&quot; class=&quot;headerlink&quot; title=&quot;随心飞&quot;&gt;&lt;/a&gt;随心飞&lt;/h4&gt;&lt;p&gt;每年的年终总结期许都是相同的那几条，今年总算是完成了 「至少去两个没去过的城市玩」，上半年和下半年都买了南航的随心飞，上半年由于体力限制，出去玩了两趟，下半年则是由于疫情，也没太乱跑，整体上全年应该是刚刚值回票价，最大的作用大概是前置付出了成本之后便不会被懒拖住，打包行李就出发，对于我来说还是很有效的。&lt;/p&gt;
+&lt;p&gt;一共去了四个没有去过的城市，上半年去了长沙和贵州，本来订了端午去顺德的机票，广东疫情就取消了，下半年去了武汉、深圳、顺德、长沙，在广东的时候又赶上广州疫情，就又跑到珠海坐飞机回的北京。每一趟其实都玩得很休闲，就是在工作的间隙去不同的城市逛一逛，观摩 city view，吃吃喝喝。&lt;/p&gt;
+&lt;h4 id=&quot;观影与阅读&quot;&gt;&lt;a href=&quot;#观影与阅读&quot; class=&quot;headerlink&quot; title=&quot;观影与阅读&quot;&gt;&lt;/a&gt;观影与阅读&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;https://s4.ax1x.com/2022/01/01/TIqneS.md.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;看了 66 个电影/剧，28 本书，2 部舞台剧， 2 场 live，今年的书影音活动非常丰富，看了很多老电影，舞台剧和现场，也去了几趟小西天的电影资料馆，还参加了北京电影节，感谢小赵同学。&lt;/p&gt;
+&lt;p&gt;舞台剧：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;降 E 大调三重奏&lt;/p&gt;
+&lt;p&gt;献给阿尔吉侬的花束&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Live:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;结冰水 「潜入黑夜」&lt;/p&gt;
+&lt;p&gt;张蔷 「非常规巡航」with 昨夜派对&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;年度最佳清单&quot;&gt;&lt;a href=&quot;#年度最佳清单&quot; class=&quot;headerlink&quot; title=&quot;年度最佳清单&quot;&gt;&lt;/a&gt;年度最佳清单&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;观影最佳：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.《万物生灵》&lt;/p&gt;
+&lt;p&gt;2.《东京教父》&lt;/p&gt;
+&lt;p&gt;3.《鬼灭之刃》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;阅读最佳：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.《神经外科的黑色喜剧》&lt;/p&gt;
+&lt;p&gt;2.《大萝卜和难挑的鳄梨》&lt;/p&gt;
+&lt;p&gt;3.《旅行的艺术》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;好物最佳：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.空气炸锅 （太好用了，陷入厨房的开始）&lt;/p&gt;
+&lt;p&gt;2.星粒三&lt;/p&gt;
+&lt;p&gt;3.随心飞（辩证地看）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;新的期许&quot;&gt;&lt;a href=&quot;#新的期许&quot; class=&quot;headerlink&quot; title=&quot;新的期许&quot;&gt;&lt;/a&gt;新的期许&lt;/h3&gt;&lt;p&gt;又到了新年 Flag 时间~&lt;/p&gt;
+&lt;p&gt;工作学习方面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;增加技术学习的时间精力投入，博客 5+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;说英语听英语写英语&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;入门 Rust 和区块链&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;生活方面（和去年，前年定的总算有些不同了）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;保证睡眠，尝试用一些工具手段来保证&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;加强锻炼，还是从心肺功能开始&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;体重减掉 5kg&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;培养一个新爱好(这条很虚，但又很必要)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://s4.ax1x.com/2022/01/01/ToC3rj.md.jpg&quot; width=&quot;450&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://s4.ax1x.com/2022/01/01/ToC8qs.md.jpg&quot; alt=&quot;airport with u&quot;&gt;&lt;/p&gt;
+&lt;p&gt;2021: &lt;em&gt;mathematical elegance is not a question of esthetics, of taste, or fashion&lt;/em&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="summary" scheme="https://blog.colafornia.me/categories/summary/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>数据可视化基础学习与实践解析</title>
@@ -2193,119 +2281,6 @@
     </summary>
     
       <category term="git" scheme="https://blog.colafornia.me/categories/git/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>回顾一下 JavaScript 中的深浅拷贝以及内存管理</title>
-    <link href="https://blog.colafornia.me/post/2018/review-copy-in-javascript/"/>
-    <id>https://blog.colafornia.me/post/2018/review-copy-in-javascript/</id>
-    <published>2018-01-13T01:05:00.000Z</published>
-    <updated>2019-10-24T02:22:04.205Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/review-copy-in-javascript.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
-&lt;p&gt;最近在组内 code review 中遇到了一处业务代码中需要深拷贝的地方，同学简单地通过 &lt;code&gt;JSON.parse(JSON.stringify(target))&lt;/code&gt; 来进行，在讨论中发现了一些好玩的东西，特此来回顾一下。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;基本类型-VS-引用类型，值传递-VS-引用传递&quot;&gt;&lt;a href=&quot;#基本类型-VS-引用类型，值传递-VS-引用传递&quot; class=&quot;headerlink&quot; title=&quot;基本类型 VS 引用类型，值传递 VS 引用传递&quot;&gt;&lt;/a&gt;基本类型 VS 引用类型，值传递 VS 引用传递&lt;/h3&gt;&lt;p&gt;首先回顾一下高程中的基本概念。&lt;/p&gt;
-&lt;p&gt;ECMAScript 变量包含两种数据类型的值：基本类型值与引用类型值。基本类型指的是简单的数据段，如 &lt;code&gt;Undefined&lt;/code&gt;、&lt;code&gt;Null&lt;/code&gt;、&lt;code&gt;Boolean&lt;/code&gt;、&lt;code&gt;Number&lt;/code&gt; 和 &lt;code&gt;String&lt;/code&gt;（ES6 中出现的 &lt;code&gt;Symbol&lt;/code&gt; 也属于基本类型）。引用类型指的是可能由多个值构成的对象。&lt;/p&gt;
-&lt;p&gt;基本类型是按值访问的，&lt;strong&gt;可以操作保存在变量中的实际的值&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;引用类型的值是保存在内存中的对象，&lt;strong&gt;JavaScript 不允许直接访问内存中的位置&lt;/strong&gt;，因此我们在操作对象时，是在操作对象的引用而不是实际的对象。&lt;/p&gt;
-&lt;p&gt;然而访问变量有按值和按引用两种方式，而 &lt;strong&gt;参数只能按值传递&lt;/strong&gt;。在向参数传递引用类型的值时，会把值在内存中的地址复制给另一个局部变量。&lt;/p&gt;
-&lt;h3 id=&quot;深入内存&quot;&gt;&lt;a href=&quot;#深入内存&quot; class=&quot;headerlink&quot; title=&quot;深入内存&quot;&gt;&lt;/a&gt;深入内存&lt;/h3&gt;&lt;p&gt;以上虽然不难理解，但是不深层挖掘一下还是很难完全记住。所以来看看内存中到底发生了什么吧。&lt;/p&gt;
-&lt;p&gt;先看看内存的生命周期：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/dt-fe/weekly/master/assets/29/1.jpg&quot; alt=&quot;life&quot;&gt;&lt;/p&gt;
-&lt;p&gt;即 内存分配 =&amp;gt; 内存读写 =&amp;gt; 内存释放&lt;/p&gt;
-&lt;p&gt;JavaScript 在定义变量时即完成了内存分配。&lt;strong&gt;运算符= 就是创建或修改变量在内存中的指向。&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; a = &amp;#123; b: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; &amp;#125;; &lt;span class=&quot;comment&quot;&gt;// a 为引用类型，给 a 分配内存 &amp;#123; b: 1 &amp;#125;， a 存储的即为 &amp;#123; b: 1 &amp;#125; 的地址&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; c = a; &lt;span class=&quot;comment&quot;&gt;// 给 c 分配内存 指向 a 存储的地址，即 &amp;#123; b: 1 &amp;#125; 的地址&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;a = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// 修改 a 的内存指向到 2&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(c); &lt;span class=&quot;comment&quot;&gt;// c 存储的仍为 &amp;#123; b: 1 &amp;#125; 的地址，因此结果为 &amp;#123; b: 1 &amp;#125;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;前两行代码在内存中的分布为：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;变量&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;内存&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;a&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;{ b: 1 } 地址&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;c&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;{ b: 1 } 地址&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;第三行修改了内存指向：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;变量&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;内存&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;a&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;变量 c 仍然指向 { b: 1 } 的地址。&lt;/p&gt;
-&lt;p&gt;再看一个例子：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; m = &amp;#123; a: &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;, b: &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt; &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; n = m; &lt;span class=&quot;comment&quot;&gt;// 复制引用类型的值，使 n 和 m 指向同一地址&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;n.a = &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(m.a);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;还是先看前两行：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;变量&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;内存&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;m&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;{ a: 10, b: 20 } 地址&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;n&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;{ a: 10, b: 20 } 地址&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;第三行通过 n.a 修改了变量，但 m 和 n 仍然指向同一地址不变，因此 m.a 的值也为 15&lt;/p&gt;
-&lt;p&gt;对于参数传递过程中的内存变化不是本文重点，可以观摩 &lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/10&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JavaScript深入之参数按值传递&lt;/a&gt; 下面精彩的评论来学习。&lt;/p&gt;
-&lt;p&gt;有很多博文还针对 JavaScript 的内存空间，栈内存与堆内存进行了讲解，但是对于这方面实在没有经验，没什么鉴别能力，暂时先不说了。&lt;/p&gt;
-&lt;h3 id=&quot;JavaScript-中的深浅拷贝&quot;&gt;&lt;a href=&quot;#JavaScript-中的深浅拷贝&quot; class=&quot;headerlink&quot; title=&quot;JavaScript 中的深浅拷贝&quot;&gt;&lt;/a&gt;JavaScript 中的深浅拷贝&lt;/h3&gt;&lt;p&gt;回顾完以上知识点后，可以发现对于对象的拷贝，其实分为两种情况（这里，将被拷贝对象称为源对象）：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;shallow clone 浅拷贝：如果对象中某个属性值是对象的话，浅拷贝的只是内存指针，当内存中的值发生变化后，拷贝对象与源对象与都会发生改变。&lt;/li&gt;
-&lt;li&gt;deep clone 深拷贝：拷贝对象与源对象是完全单独的对象，没有属性值是指向同一内存指针的，源对象发生任何修改都不会引起拷贝对象发生变化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;需要注意一点，ES6 中 Object 的新方法 &lt;code&gt;Object.assign&lt;/code&gt; 执行的就是浅拷贝，Stack Overflow 上有一个高票回答误将其答为深拷贝，我就踩了坑，避免加深错误印象，这里不放链接了。&lt;/p&gt;
-&lt;p&gt;ES6 中的 Object &lt;code&gt;rest/spread destructuring&lt;/code&gt; 也是浅拷贝：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; existing = &amp;#123; a: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, b: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, c: &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; &amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &amp;#123; ...clone &amp;#125; = existing;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;对于深拷贝，可想而知，需要对嵌套对象进行递归遍历，但是真正实现 deep clone 没有想象的简单，主要原因在于 deep clone 的定义并不统一，以及 edge case 非常多，包含 DOM/BOM 对象如何处理，函数如何处理，原型链如何处理等问题。但是希望 “做出修改不影响其它引用” 确实是一个常见场景。&lt;/p&gt;
-&lt;p&gt;最简单的方法就是开头提到的 &lt;code&gt;JSON.parse(JSON.stringify(target))&lt;/code&gt;。缺点在于无法处理 Date、Function 等类型的属性值。&lt;/p&gt;
-&lt;p&gt;因此在业务中推荐使用 lodash 的 &lt;a href=&quot;https://lodash.com/docs/4.17.4#cloneDeep&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;_.cloneDeep&lt;/a&gt; 实现深拷贝，简洁可靠。&lt;/p&gt;
-&lt;p&gt;实际上，在 &lt;a href=&quot;http://facebook.github.io/immutable-js/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;immutable.js&lt;/a&gt; 出现后，实现数据结构的持久化有了更优雅的方式。&lt;/p&gt;
-&lt;h3 id=&quot;希望之光-Immutable&quot;&gt;&lt;a href=&quot;#希望之光-Immutable&quot; class=&quot;headerlink&quot; title=&quot;希望之光 Immutable&quot;&gt;&lt;/a&gt;希望之光 Immutable&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/4c698f4cef2ae6b69873aa7de91f6d10f28162e1/687474703a2f2f696d672e616c6963646e2e636f6d2f7470732f69312f544231796b395f4b585858585862565846585845745848387058582d3930302d3334322e706e67&quot; alt=&quot;Immutable&quot;&gt;&lt;/p&gt;
-&lt;p&gt;JavaScript 中的对象一般都是可变的（mutable），虽然节省了内存，却给复杂的大型应用造成很多隐患。Immutable Data 为一旦创建，就不能再被修改的数据。通过 &lt;strong&gt;Persistent Data Structure&lt;/strong&gt;（持久化数据结构）使得在使用旧数据创建新数据时，也保证了旧数据同时可用且不变。&lt;/p&gt;
-&lt;p&gt;前面所述的 deep clone 方法是把所有节点都复制一遍，性能损耗非常大。Immutable 使用了 &lt;strong&gt;Structural Sharing&lt;/strong&gt;（结构共享），性能提升很多。&lt;/p&gt;
-&lt;p&gt;通过 immutable.js 实现 deep clone:&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; defaultConfig = Immutable.fromJS(&amp;#123;&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; config = defaultConfig.merge(initConfig); &lt;span class=&quot;comment&quot;&gt;// defaultConfig不会改变，返回新值给 config&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; config = defaultConfig.mergeDeep(initConfig); &lt;span class=&quot;comment&quot;&gt;// 深层merge&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;immutable.js 提供了7种不可变的数据结构：List, Stack, Map, OrderedMap, Set, OrderedSet, Record。&lt;/p&gt;
-&lt;p&gt;虽然 immutable.js 通常与 facebook 同厂出品的 React 一起使用，但是它其实是一个完全独立的库，无论基于什么框架都可以使用。说它是希望之光并没有言过其实。更多内容可以查看 &lt;a href=&quot;https://github.com/camsong/blog/issues/3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Immutable 详解及 React 中实践&lt;/a&gt;。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/review-copy-in-javascript.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
-&lt;p&gt;最近在组内 code review 中遇到了一处业务代码中需要深拷贝的地方，同学简单地通过 &lt;code&gt;JSON.parse(JSON.stringify(target))&lt;/code&gt; 来进行，在讨论中发现了一些好玩的东西，特此来回顾一下。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="javascript" scheme="https://blog.colafornia.me/categories/javascript/"/>
     
     
   </entry>
