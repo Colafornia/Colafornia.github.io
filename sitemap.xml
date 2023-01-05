@@ -4,7 +4,7 @@
   <url>
     <loc>https://blog.colafornia.me/post/2023/2022-review/</loc>
     
-    <lastmod>2023-01-05T17:25:09.469Z</lastmod>
+    <lastmod>2023-01-05T17:30:48.138Z</lastmod>
     
   </url>
   
@@ -121,13 +121,6 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/thrift-note/</loc>
-    
-    <lastmod>2019-10-24T02:22:04.206Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.colafornia.me/post/2016/trans-javascript-code-tips/</loc>
     
     <lastmod>2019-10-24T02:22:04.206Z</lastmod>
@@ -135,9 +128,9 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/review-copy-in-javascript/</loc>
+    <loc>https://blog.colafornia.me/post/2018/thrift-note/</loc>
     
-    <lastmod>2019-10-24T02:22:04.205Z</lastmod>
+    <lastmod>2019-10-24T02:22:04.206Z</lastmod>
     
   </url>
   
@@ -149,9 +142,9 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
+    <loc>https://blog.colafornia.me/post/2018/review-copy-in-javascript/</loc>
     
-    <lastmod>2019-10-24T02:22:04.204Z</lastmod>
+    <lastmod>2019-10-24T02:22:04.205Z</lastmod>
     
   </url>
   
@@ -164,6 +157,13 @@
   
   <url>
     <loc>https://blog.colafornia.me/post/2015/note-learning-javascript-oop/</loc>
+    
+    <lastmod>2019-10-24T02:22:04.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.colafornia.me/post/2017/observer-pattern-in-vue/</loc>
     
     <lastmod>2019-10-24T02:22:04.204Z</lastmod>
     
@@ -191,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/intern-qunar-interview/</loc>
+    <loc>https://blog.colafornia.me/post/2016/javascript-patterns/</loc>
     
     <lastmod>2019-10-24T02:22:04.202Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/javascript-patterns/</loc>
+    <loc>https://blog.colafornia.me/post/2015/intern-qunar-interview/</loc>
     
     <lastmod>2019-10-24T02:22:04.202Z</lastmod>
     
@@ -212,7 +212,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
+    <loc>https://blog.colafornia.me/post/2016/high-performance-javascript-b/</loc>
     
     <lastmod>2019-10-24T02:22:04.201Z</lastmod>
     
@@ -226,14 +226,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/high-performance-javascript-b/</loc>
+    <loc>https://blog.colafornia.me/post/2015/html-in-email/</loc>
     
     <lastmod>2019-10-24T02:22:04.201Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
+    <loc>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</loc>
     
     <lastmod>2019-10-24T02:22:04.200Z</lastmod>
     
@@ -247,7 +247,7 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/from-settimeout-to-event-loop/</loc>
+    <loc>https://blog.colafornia.me/post/2018/gpu-animation-render-pipeline/</loc>
     
     <lastmod>2019-10-24T02:22:04.200Z</lastmod>
     
@@ -261,14 +261,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2018/dive-into-git/</loc>
+    <loc>https://blog.colafornia.me/post/2017/fix-chinese-input-listener/</loc>
     
     <lastmod>2019-10-24T02:22:04.197Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2017/fix-chinese-input-listener/</loc>
+    <loc>https://blog.colafornia.me/post/2018/dive-into-git/</loc>
     
     <lastmod>2019-10-24T02:22:04.197Z</lastmod>
     
@@ -282,14 +282,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/cookie-localstorage-session/</loc>
+    <loc>https://blog.colafornia.me/post/2016/browser-cache-summary/</loc>
     
     <lastmod>2019-10-24T02:22:04.196Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/browser-cache-summary/</loc>
+    <loc>https://blog.colafornia.me/post/2016/cookie-localstorage-session/</loc>
     
     <lastmod>2019-10-24T02:22:04.196Z</lastmod>
     
@@ -303,14 +303,14 @@
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2016/basic-fetch-api/</loc>
+    <loc>https://blog.colafornia.me/post/2015/angular-ui-router/</loc>
     
     <lastmod>2019-10-24T02:22:04.195Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.colafornia.me/post/2015/angular-ui-router/</loc>
+    <loc>https://blog.colafornia.me/post/2016/basic-fetch-api/</loc>
     
     <lastmod>2019-10-24T02:22:04.195Z</lastmod>
     
